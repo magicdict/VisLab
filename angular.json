@@ -24,9 +24,23 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/admin-lte/dist/css/adminlte.min.css",
+              "./node_modules/admin-lte/plugins/fontawesome-free/css/all.min.css",
+              "./node_modules/admin-lte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css",
+              "./node_modules/admin-lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css",
+              "./node_modules/admin-lte/plugins/jqvmap/jqvmap.min.css",
+              "./node_modules/admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css",
+              "./node_modules/admin-lte/plugins/daterangepicker/daterangepicker.css",
+              "./node_modules/admin-lte/plugins/summernote/summernote-bs4.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/jquery-ui-dist/jquery-ui.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "./node_modules/admin-lte/dist/js/adminlte.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -119,6 +133,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "VisLab"
+    }
+  },
+  "defaultProject": "VisLab",
+  "cli": {
+    "analytics": "0049c5b6-8f20-46bd-88a7-1572fdef4c54"
+  }
 }
