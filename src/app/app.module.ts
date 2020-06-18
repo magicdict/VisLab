@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 
 import { NgxEchartsModule } from 'ngx-echarts';
 import * as echarts from 'echarts';
+import { MyCommonModule } from './Common/MyCommon.module';
+
+
 
 @NgModule({
   declarations: [
@@ -17,6 +20,7 @@ import * as echarts from 'echarts';
     NgxEchartsModule.forRoot({
       echarts,
     }),
+    MyCommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
