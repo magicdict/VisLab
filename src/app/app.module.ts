@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { NgxEchartsModule } from 'ngx-echarts';
 import * as echarts from 'echarts';
 import { MyCommonModule } from './Common/MyCommon.module';
+import { Bar_BasicComponent } from './Bar/bar_basic.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    Bar_BasicComponent
   ],
   imports: [
     BrowserModule,
