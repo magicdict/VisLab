@@ -13,6 +13,7 @@ export class ChartComponent {
     @Input() options = null;
     @Output() ChartInit = new EventEmitter();
     @Input() miniMode = false;
+    @Input() dark = false;
     public ChartInited(e: any) {
         this.ChartInit.emit(e);
     }
