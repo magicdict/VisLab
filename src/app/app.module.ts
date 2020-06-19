@@ -8,13 +8,15 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import * as echarts from 'echarts';
 import { MyCommonModule } from './Common/MyCommon.module';
 import { Bar_BasicComponent } from './Bar/bar_basic.component';
+import { Line_BasicComponent } from './Line/line_basic.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    Bar_BasicComponent
+    Bar_BasicComponent,
+    Line_BasicComponent
   ],
   imports: [
     BrowserModule,
