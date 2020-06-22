@@ -9,6 +9,7 @@ import * as echarts from 'echarts';
 import { MyCommonModule } from './Common/MyCommon.module';
 import { Bar_BasicComponent } from './Bar/bar_basic.component';
 import { Line_BasicComponent } from './Line/line_basic.component';
+import { Pie_BasicComponent } from './Pie/pie_basic.component';
 
 
 
@@ -16,7 +17,8 @@ import { Line_BasicComponent } from './Line/line_basic.component';
   declarations: [
     AppComponent,
     Bar_BasicComponent,
-    Line_BasicComponent
+    Line_BasicComponent,
+    Pie_BasicComponent
   ],
   imports: [
     BrowserModule,

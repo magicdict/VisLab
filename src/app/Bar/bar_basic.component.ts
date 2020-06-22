@@ -13,7 +13,6 @@ export class Bar_BasicComponent implements OnInit {
   RainbowSample_Dark = CommonFunction.clone(IBarStardard);
   GradientSample = CommonFunction.clone(IBarStardard);
   Sample_dark_GradientSample = CommonFunction.clone(IBarStardard);
-
   ngOnInit(): void {
     this.Sample.xAxis.data = ['唐三', '戴沐白', "马红俊", "奥斯卡", "小舞", "宁荣荣", "朱竹清"];
     this.Sample.xAxis["axisLabel"] = { interval: 0, rotate: 45 }

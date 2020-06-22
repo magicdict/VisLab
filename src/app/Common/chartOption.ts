@@ -6,12 +6,7 @@ export const IPieStardard = {
     trigger: 'item',
     formatter: "{b} : {c} ({d}%)"
   },
-  toolbox: {
-    'show': true,
-    'feature': {
-      'saveAsImage': {},
-    }
-  },
+  toolbox: null,
   legend: {
     //orient: 'vertical',
     //left: 'left',
@@ -21,13 +16,12 @@ export const IPieStardard = {
     {
       name: '',
       type: 'pie',
-      radius: '55%',
-      center: ['50%', '60%'],
+      radius: null,
+      center: ['50%', '50%'],
       data: [],
       itemStyle: {
         emphasis: {
-          shadowBlur: 10,
-          shadowOffsetX: 0,
+          shadowBlur: 20,
           shadowColor: 'rgba(0, 0, 0, 0.5)'
         }
       }
