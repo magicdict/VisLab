@@ -40,6 +40,13 @@
               "./node_modules/jquery-ui-dist/jquery-ui.js",
               "./node_modules/bootstrap/dist/js/bootstrap.min.js",
               "./node_modules/admin-lte/dist/js/adminlte.min.js"
+            ],
+            "allowedCommonJsDependencies":[
+              "echarts/dist/extension/bmap.min.js",
+              "echarts-gl",
+              "echarts",
+              "zrender/lib/vml/vml",
+              "zrender/lib/svg/svg"
             ]
           },
           "configurations": {
