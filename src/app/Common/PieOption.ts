@@ -11,7 +11,6 @@ export class PieOption {
             trigger: 'item',
             formatter: "{b} : {c} ({d}%)"
         },
-        toolbox: null,
         legend: {
             data: []
         },

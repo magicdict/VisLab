@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BarOption } from '../Common/BarOption';
+import { ChartOption} from '../Common/ChartOption';
 import { ChartColor, Direction } from '../Common/ChartColor';
 
 @Component({
@@ -48,20 +49,17 @@ export class Bar_BasicComponent implements OnInit {
     }
 
     this.RainbowSample_Dark = BarOption.CreateBar(category, value);
-    this.RainbowSample_Dark["backgroundColor"] = '#000000';//背景色
+    ChartOption.SetBackGroundColor(this.RainbowSample_Dark,'#000000');//背景色
     this.RainbowSample_Dark.xAxis["show"] = false;
     this.RainbowSample_Dark.yAxis["axisLabel"] = { color: "#FFFFFF" };
     this.RainbowSample_Dark.series[0]['itemStyle'] = //定义每个bar的颜色和其上是否显示值
     {
       normal: {
         color: function (params) {
-          // build a color map as your need.
           //定义一个颜色集合
           var colorList = ChartColor.colorlist_7_Baidu;
           //对每个bar显示一种颜色
           return colorList[params.dataIndex]
-          //return (params.value > 100)?colorList[0]:colorList[1];
-
         },
         borderType: 'dotted',
         label: {
@@ -84,7 +82,7 @@ export class Bar_BasicComponent implements OnInit {
     }
 
     this.Sample_dark_GradientSample = BarOption.CreateBar(category, value);
-    this.Sample_dark_GradientSample["backgroundColor"] = '#000000';//背景色
+    ChartOption.SetBackGroundColor(this.Sample_dark_GradientSample,'#000000');//背景色
     this.Sample_dark_GradientSample.xAxis["show"] = false;
     this.Sample_dark_GradientSample.yAxis["axisLabel"] = { color: "#FFFFFF" };
     this.Sample_dark_GradientSample.series[0]['itemStyle'] = //定义每个bar的颜色和其上是否显示值

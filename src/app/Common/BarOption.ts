@@ -9,16 +9,21 @@ export class BarOption {
         yAxis: {
             type: 'value'
         },
-        series: [{
-            data: [],
-            type: 'bar'
-        }]
+        series: []
     };
-
+    static BarItem = {
+        data: [],
+        type: 'bar'
+    }
+    public static CreateBarItem(value: number[]){
+        let item = CommonFunction.clone(this.BarItem);
+        item.data = value;
+        return item;
+    }
     public static CreateBar(category: string[], value: number[]) {
         let o = CommonFunction.clone(this.IBarStardard);
         o.xAxis.data = category;
-        o.series[0].data = value;
+        o.series.push(this.CreateBarItem(value));
         return o;
     }
 
