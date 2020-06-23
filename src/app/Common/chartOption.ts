@@ -1,33 +1,7 @@
-export const IPieStardard = {
-  title: {
-    text: '',
-  },
-  tooltip: {
-    trigger: 'item',
-    formatter: "{b} : {c} ({d}%)"
-  },
-  toolbox: null,
-  legend: {
-    //orient: 'vertical',
-    //left: 'left',
-    data: []
-  },
-  series: [
-    {
-      name: '',
-      type: 'pie',
-      radius: null,
-      center: ['50%', '50%'],
-      data: [],
-      itemStyle: {
-        emphasis: {
-          shadowBlur: 20,
-          shadowColor: 'rgba(0, 0, 0, 0.5)'
-        }
-      }
-    }
-  ]
-};
+
+
+
+
 
 export const IPolarStardard = {
   angleAxis: {
@@ -75,60 +49,10 @@ export const PolarItem = {
 
 
 
-export const ILineStardard = {
-  title: {
-    text: ''
-  },
-  tooltip: {
-    trigger: 'axis'
-  },
-  legend: {
-    data: []
-  },
-  grid: {
-    left: '3%',
-    right: '4%',
-    bottom: '3%',
-    containLabel: true
-  },
-  toolbox: {
-    feature: {
-      saveAsImage: {}
-    }
-  },
-  xAxis: {
-    type: 'category',
-    boundaryGap: true,  //坐标轴两边留白策略，类目轴和非类目轴的设置和表现不一样。
-    data: [],
-  },
-  yAxis: {
-    type: 'value'
-  },
-  series: [
-  ]
-};
 
 
-export const LineItem = {
-  name: '',
-  type: 'line',
-  data: []
-};
 
 
-export const IBarStardard = {
-  xAxis: {
-    type: 'category',
-    data: []
-  },
-  yAxis: {
-    type: 'value'
-  },
-  series: [{
-    data: [],
-    type: 'bar'
-  }]
-};
 
 export const IScatter3DStardard = {
   grid3D: {},
