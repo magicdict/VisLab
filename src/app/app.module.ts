@@ -10,7 +10,7 @@ import { MyCommonModule } from './Common/MyCommon.module';
 import { Bar_BasicComponent } from './Bar/bar_basic.component';
 import { Line_BasicComponent } from './Line/line_basic.component';
 import { Pie_BasicComponent } from './Pie/pie_basic.component';
-
+import { Polar_BasicComponent } from './Polar/polar_basic.component';
 
 
 @NgModule({
@@ -18,7 +18,8 @@ import { Pie_BasicComponent } from './Pie/pie_basic.component';
     AppComponent,
     Bar_BasicComponent,
     Line_BasicComponent,
-    Pie_BasicComponent
+    Pie_BasicComponent,
+    Polar_BasicComponent
   ],
   imports: [
     BrowserModule,

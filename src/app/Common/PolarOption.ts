@@ -1,3 +1,5 @@
+import { CommonFunction } from './common';
+
 export class PolarOption {
     static IPolarStardard = {
         angleAxis: {
@@ -28,12 +30,21 @@ export class PolarOption {
         }
     };
 
-
     static PolarItem = {
         type: 'bar',
         data: [],
         coordinateSystem: 'polar',
         name: '',
-        stack: 'stackname'
     }
+
+    public static CreatePolar(data: { name: string, value: number }[], radius: string) {
+        let o = CommonFunction.clone(this.IPolarStardard);
+        o.angleAxis.data = data.map(x => x.name);
+        o.polar.radius = radius;
+        let i = CommonFunction.clone(this.PolarItem);
+        i.data = data.map(x => x.value);
+        o.series.push(i);
+        return o;
+    }
+
 }

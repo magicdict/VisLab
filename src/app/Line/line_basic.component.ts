@@ -21,7 +21,7 @@ export class Line_BasicComponent implements OnInit {
 
   ngOnInit(): void {
     this.Sample.xAxis["axisLabel"] = { interval: 0, rotate: 45 }
-    ChartOption.SetToolBox(this.Sample, true, false, false, false, false, false);
+    ChartOption.chart_SetToolBox(this.Sample, true, false, false, false, false, false);
 
     this.Sample_Smooth.xAxis["axisLabel"] = { interval: 0, rotate: 45 }
     this.Sample_Smooth.series[0]["smooth"] = true;
@@ -36,7 +36,7 @@ export class Line_BasicComponent implements OnInit {
 
     this.GradientSample_Background.xAxis["axisLabel"] = { interval: 0, rotate: 45 };
     this.GradientSample_Background.series[0]["smooth"] = true;
-    ChartOption.SetNormalAreaColor(this.GradientSample_Background.series[0], ChartColor.geLinearGradient(Direction.Vertical, '#A9F387', '#48D8BF'));
+    ChartOption.series_SetNormalAreaColor(this.GradientSample_Background.series[0], ChartColor.geLinearGradient(Direction.Vertical, '#A9F387', '#48D8BF'));
 
     this.GradientSample_Background['backgroundColor'] = ChartColor.geLinearGradient(Direction.Vertical, '#c86589', '#06a7ff');
     this.GradientSample_Background.tooltip['formatter'] = this.SpotToolTip;
@@ -46,7 +46,7 @@ export class Line_BasicComponent implements OnInit {
     this.Bar_Line_Mix.series.push(BarOption.CreateBarItem(this.value2));
     this.Bar_Line_Mix.series[0]['itemStyle'] = { 'normal': { color: ChartColor.geLinearGradient(Direction.Vertical, '#32D3EB', '#FCCE10') } }
     this.Bar_Line_Mix.series[1]['itemStyle'] = { 'normal': { color: ChartColor.geLinearGradient(Direction.Vertical, '#c86589', '#06a7ff') } }
-    ChartOption.SetNormalAreaColor(this.Bar_Line_Mix.series[0], ChartColor.geLinearGradient(Direction.Vertical, '#A9F387', '#48D8BF'));
+    ChartOption.series_SetNormalAreaColor(this.Bar_Line_Mix.series[0], ChartColor.geLinearGradient(Direction.Vertical, '#A9F387', '#48D8BF'));
     this.Bar_Line_Mix.xAxis["axisLabel"] = { interval: 0, rotate: 45 }
   }
 

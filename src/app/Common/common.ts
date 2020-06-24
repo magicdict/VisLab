@@ -1,11 +1,6 @@
 import { Injectable } from '@angular/core';
-import { echartsInstance } from 'echarts'
 import { HttpClient } from '@angular/common/http';
 
-export interface NameValueSet {
-    Name: string,
-    Value: number
-}
 
 @Injectable()
 export class CommonFunction {
@@ -14,43 +9,7 @@ export class CommonFunction {
         private http: HttpClient
     ) { }
 
-    public static boxstyle_mini = { 'width': '250px', 'height': '150px' };
-    public static chartstyle_mini = { 'width': '240px', 'height': '140px' };
-
-    public static boxstyle_Col3 = { 'width': '380px', 'height': '400px' };
-    public static chartstyle_Col3 = { 'width': '340px', 'height': '350px' };
-
-    public static boxstyle_Col4 = { 'width': '500px', 'height': '400px' };
-    public static chartstyle_Col4 = { 'width': '450px', 'height': '350px' };
-
-    public static boxstyle_Col4_Row2 = { 'width': '500px', 'height': '820px' };
-    public static chartstyle_Col4_Row2 = { 'width': '450px', 'height': '770px' };
-
-
-    public static boxstyle_Col6 = { 'width': '800px', 'height': '400px' };
-    public static chartstyle_Col6 = { 'width': '750px', 'height': '350px' };
-    public static boxstyle_Col6_Row2 = { 'width': '800px', 'height': '820px' };
-    public static chartstyle_Col6_Row2 = { 'width': '750px', 'height': '770px' };
-
-    public static boxstyle_Col8 = { 'width': '1000px', 'height': '400px' };
-    public static chartstyle_Col8 = { 'width': '950px', 'height': '350px' };
-
-    public static boxstyle_Col8_Row2 = { 'width': '1000px', 'height': '820px' };
-    public static chartstyle_Col8_Row2 = { 'width': '950px', 'height': '770px' };
-
-    public static boxstyle_Col9 = { 'width': '1220px', 'height': '400px' };
-    public static chartstyle_Col9 = { 'width': '1170px', 'height': '350px' };
-
-    public static boxstyle_Col12 = { 'width': '1600px', 'height': '400px' };
-    public static chartstyle_Col12 = { 'width': '1550px', 'height': '350px' };
-
-    public static boxstyle_Col12_Row2 = { 'width': '1600px', 'height': '820px' };
-    public static chartstyle_Col12_Row2 = { 'width': '1550px', 'height': '770px' };
-
-    public static boxstyle_Col12_Row3 = { 'width': '1600px', 'height': '1230px' };
-    public static chartstyle_Col12_Row3 = { 'width': '1580px', 'height': '1160px' };
-   
-    /* 工具类 */
+     /* 工具类 */
     public static checkNumbericRanger(text: string, max: number, min: number): number {
         if (CommonFunction.IsNullOrEmpty(text)) { return NaN; }
         const num = Number(text);
@@ -138,39 +97,6 @@ export class CommonFunction {
         }
     }
 
-    public static SaveChartImage(chartInstannce: echartsInstance, filename: string) {
-        var img = new Image();
-        img.src = chartInstannce.getDataURL({
-            pixelRatio: 2,
-            backgroundColor: '#fff'
-        });
-        // IE 11
-        if (window.navigator.msSaveBlob !== undefined) {
-            var blob = CommonFunction.base64ToBlob(img.src);
-            window.navigator.msSaveBlob(blob, filename + '.png');
-            return;
-        }
-        var a = document.createElement('a');
-        a.download = filename;
-        a.href = img.src;
-        var event = new MouseEvent('click');
-        a.dispatchEvent(event);
-    }
-
-
-    private static base64ToBlob(code: string): Blob {
-        const parts = code.split(';base64,');
-        const contentType = parts[0].split(':')[1];
-        const raw = window.atob(parts[1]);
-        const rawLength = raw.length;
-        const uInt8Array = new Uint8Array(rawLength);
-        for (let i = 0; i < rawLength; ++i) {
-            uInt8Array[i] = raw.charCodeAt(i);
-        }
-        return new Blob([uInt8Array], { type: contentType });
-    }
-
-
     public static pred(arr: number[]): number {
 
         if (arr.length == 0) return 0;
@@ -187,36 +113,7 @@ export class CommonFunction {
         return this.roundvalue(avg_num * 0.2 + last_num * 0.2 + diff_pred * 0.6);
     }
 
-    public static Fill3DTime(ds: NameValueSet[], chart: any, zname: string, max: number = -1) {
-        //X:具体时间，Y：日期，Z：流量
-        var weekday = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"];
-        var time = [];
-        ds.forEach(
-            element => {
-                var t = element.Name.split("|")[1];
-                if (time.indexOf(t) == -1) time.push(t);
-            }
-        );
-        time = time.sort();
-        chart.zAxis3D.name = zname;
-        chart.xAxis3D.data = time;
-        chart.yAxis3D.data = weekday;
-        //三维数组
-        var data: any[] = [];
-        ds.forEach(element => {
-            data.push([element.Name.split("|")[1], this.ConvertIntToWeekday(element.Name.split("|")[0]), element.Value]);
-        });
-
-        chart.series[0].data = data;
-        let x = ds.map(x => x.Value);
-        chart.visualMap.max = max === -1 ? Math.max(...x) : max;
-        chart.grid3D.boxWidth = 200;
-        chart.grid3D.boxDepth = 80;
-        chart.grid3D["height"] = 750;
-    }
-
-
-    public static ConvertIntToWeekday(weekday: any) {
+     public static ConvertIntToWeekday(weekday: any) {
         switch (weekday) {
             case "0": return "周日";
             case "1": return "周一";

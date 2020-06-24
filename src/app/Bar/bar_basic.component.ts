@@ -23,54 +23,15 @@ export class Bar_BasicComponent implements OnInit {
 
     this.RainbowSample = BarOption.CreateBar(category, value);
     this.RainbowSample.xAxis["show"] = false;
-    this.RainbowSample.series[0]['itemStyle'] = //定义每个bar的颜色和其上是否显示值
-    {
-      normal: {
-        color: function (params) {
-          // build a color map as your need.
-          //定义一个颜色集合
-          var colorList = ChartColor.colorlist_7_Baidu;
-          //对每个bar显示一种颜色
-          return colorList[params.dataIndex]
-        },
-        opacity: 0.5,
-        borderType: 'dotted',
-        label: {
-          //每个bar的最高点值显示在bar顶部
-          show: true,
-          position: 'top',
-          //值和x轴分类的显示格式(这里是换行显示)
-          formatter: '{b}\n{c}'
-        }
-      },
-      emphasis: {
-        opacity: 1
-      }
-    }
+    ChartOption.series_SetBarItemStyle(this.RainbowSample.series[0],ChartColor.colorlist_7_Baidu); 
+    
 
     this.RainbowSample_Dark = BarOption.CreateBar(category, value);
-    ChartOption.SetBackGroundColor(this.RainbowSample_Dark,'#000000');//背景色
+    ChartOption.chart_SetBackGroundColor(this.RainbowSample_Dark,'#000000');//背景色
     this.RainbowSample_Dark.xAxis["show"] = false;
     this.RainbowSample_Dark.yAxis["axisLabel"] = { color: "#FFFFFF" };
-    this.RainbowSample_Dark.series[0]['itemStyle'] = //定义每个bar的颜色和其上是否显示值
-    {
-      normal: {
-        color: function (params) {
-          //定义一个颜色集合
-          var colorList = ChartColor.colorlist_7_Baidu;
-          //对每个bar显示一种颜色
-          return colorList[params.dataIndex]
-        },
-        borderType: 'dotted',
-        label: {
-          //每个bar的最高点值显示在bar顶部
-          show: true,
-          position: 'top',
-          //值和x轴分类的显示格式(这里是换行显示)
-          formatter: '{b}\n{c}'
-        }
-      }
-    }
+    ChartOption.series_SetBarItemStyle(this.RainbowSample_Dark.series[0],ChartColor.colorlist_7_Baidu); 
+
 
     this.GradientSample = BarOption.CreateBar(category, value);
     this.GradientSample.xAxis["show"] = false;
@@ -82,7 +43,7 @@ export class Bar_BasicComponent implements OnInit {
     }
 
     this.Sample_dark_GradientSample = BarOption.CreateBar(category, value);
-    ChartOption.SetBackGroundColor(this.Sample_dark_GradientSample,'#000000');//背景色
+    ChartOption.chart_SetBackGroundColor(this.Sample_dark_GradientSample,'#000000');//背景色
     this.Sample_dark_GradientSample.xAxis["show"] = false;
     this.Sample_dark_GradientSample.yAxis["axisLabel"] = { color: "#FFFFFF" };
     this.Sample_dark_GradientSample.series[0]['itemStyle'] = //定义每个bar的颜色和其上是否显示值
