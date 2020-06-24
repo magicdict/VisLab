@@ -6,21 +6,7 @@ export class Gephi {
             top: 'bottom',
             left: 'right'
         },
-        graphic: [
-            {
-                type: 'image',
-                id: 'logo',
-                right: 20,
-                top: 20,
-                z: -10,
-                bounding: 'raw',
-                origin: [75, 75],
-                style: {
-                    image: 'assets/security/net_gexf_color.png',
-                    width: 200,
-                    height: 250,
-                }
-            }],
+        graphic: [],
         tooltip: {},
         animationDuration: 1500,
         animationEasingUpdate: 'quinticInOut',

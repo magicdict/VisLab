@@ -13,6 +13,7 @@ export class AppComponent implements OnInit  {
   }
   ngOnInit(): void {
     this._path =  this.location['location']['pathname'];
+    if (this._path === "/") this._path = "/basic/bar"
     console.log(this._path);
   }
   

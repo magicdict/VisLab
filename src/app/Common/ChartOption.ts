@@ -23,7 +23,7 @@ export class ChartOption {
     option["toolbox"] = toolbox;
   }
 
-  public static SaveChartImage(echartsInstance : ECharts, filename: string) {
+  public static SaveChartImage(echartsInstance: ECharts, filename: string) {
     var img = new Image();
     img.src = echartsInstance.getDataURL({
       pixelRatio: 2,
@@ -94,15 +94,38 @@ export class ChartOption {
     }
   }
 
-  public static series_CreateRichImageItem(url: string, height?: number, width?: number) {
+  /** rich属性用图片 */
+  public static series_CreateRichImageStyleItem(url: string, height?: number, width?: number): any {
     let i = {
       backgroundColor: {
-        image: 'assets/image/weathy/weathy_01.png'
+        image: url
       }
     }
-    if (height) i.backgroundColor['height'] = height;
-    if (width) i.backgroundColor['width'] = width;
+    if (height) i['height'] = height;
+    if (width) i['width'] = width;
     return i;
+  }
+
+  /**图片 */
+  public static chart_CreateGraphic(url: string, height?: number, width?: number, origin?: number[],
+    top?: number, bottom?: number, left?: number, right?: number) {
+    let graphic = {
+      type: 'image',
+      id: 'logo',
+      z: -10,
+      bounding: 'raw',
+      style: {
+        image: url
+      }
+    }
+    if (origin) graphic['origin'] = origin;
+    if (height) graphic.style['height'] = height;
+    if (width) graphic.style['width'] = width;
+    if (top) graphic['top'] = top;
+    if (bottom) graphic['bottom'] = bottom;
+    if (left) graphic['left'] = left;
+    if (right) graphic['right'] = right;
+    return graphic;
   }
 
 }

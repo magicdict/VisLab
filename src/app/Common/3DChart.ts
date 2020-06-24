@@ -9,7 +9,7 @@ export class Scatter3D {
             inRange: {
                 color: ['blue', 'blue', 'green', 'yellow', 'red']
             },
-            max: 0,
+            max: 100,
             calculable: true
         }],
         series: [
@@ -27,6 +27,13 @@ export class Scatter3D {
             }
         ]
     };
+
+    public static CreateScatter3D(data: any[][]){
+        let o = CommonFunction.clone(this.IScatter3DStardard);
+        o.series[0].data = data;
+        return o;
+    }
+
 
     static I3DBarStardard = {
         visualMap: {

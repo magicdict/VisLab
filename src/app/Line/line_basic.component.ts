@@ -22,6 +22,8 @@ export class Line_BasicComponent implements OnInit {
   ngOnInit(): void {
     this.Sample.xAxis["axisLabel"] = { interval: 0, rotate: 45 }
     ChartOption.chart_SetToolBox(this.Sample, true, false, false, false, false, false);
+    let g = ChartOption.chart_CreateGraphic("http://datavisualization.club/upload/2020/06/6pl00l1tp4ichrair393e86071.jpg", 50, 50, [25, 25], 0, null, 0, null)
+    this.Sample['graphic'] = [g];
 
     this.Sample_Smooth.xAxis["axisLabel"] = { interval: 0, rotate: 45 }
     this.Sample_Smooth.series[0]["smooth"] = true;
