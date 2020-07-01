@@ -1,5 +1,21 @@
 import { ECharts } from 'echarts';
 
+export interface areaStyle {
+  /**
+   * 阴影颜色。支持的格式同color。
+   */
+  color?: any;
+  shadowBlur?: any;
+  shadowColor?: any;
+  shadowOffsetX?: any;
+  shadowOffsetY?: any;
+  /**
+   * 图形透明度。支持从 0 到 1 的数字，为 0 时不绘制该图形。
+   */
+  opacity?: any;
+}
+
+
 export class ChartOption {
   /**背景色 */
   public static chart_SetBackGroundColor(option: any, color: any) {
@@ -58,13 +74,8 @@ export class ChartOption {
   /**AreaStyle:
   * @param option - Series 
   */
-  public static series_SetNormalAreaColor(option: any, color: any) {
-    option['areaStyle'] =
-    {
-      normal: {
-        color: color
-      }
-    };
+  public static series_SetAreaStyle(option: any, style: areaStyle) {
+    option['areaStyle'] = style;
   }
 
   public static series_SetBarItemStyle(option: any, colorlist: any) {

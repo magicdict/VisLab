@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BarOption } from '../Common/BarOption';
+import { BarOption, Bar_itemStyle } from '../Common/BarOption';
 import { ChartOption } from '../Common/ChartOption';
 import { ChartColor, Direction } from '../Common/ChartColor';
 
@@ -23,14 +23,22 @@ export class Bar_BasicComponent implements OnInit {
 
     this.RainbowSample = BarOption.CreateBar(category, value);
     this.RainbowSample.xAxis["show"] = false;
-    ChartOption.series_SetBarItemStyle(this.RainbowSample.series[0], ChartColor.colorlist_7_Baidu);
-
+    let normal: Bar_itemStyle = {
+      color: this.getColor,
+      opacity: 0.5
+    };
+    let emphasis: Bar_itemStyle = {
+      color: this.getColor,
+      opacity: 1
+    };
+    BarOption.SetItemStyle(this.RainbowSample.series[0], normal, emphasis);
+    
 
     this.RainbowSample_Dark = BarOption.CreateBar(category, value);
     ChartOption.chart_SetBackGroundColor(this.RainbowSample_Dark, '#000000');//背景色
     this.RainbowSample_Dark.xAxis["show"] = false;
     this.RainbowSample_Dark.yAxis["axisLabel"] = { color: "#FFFFFF" };
-    ChartOption.series_SetBarItemStyle(this.RainbowSample_Dark.series[0], ChartColor.colorlist_7_Baidu);
+    BarOption.SetItemStyle(this.RainbowSample_Dark.series[0], normal, emphasis)
 
 
     this.GradientSample = BarOption.CreateBar(category, value);
@@ -73,6 +81,13 @@ export class Bar_BasicComponent implements OnInit {
       formatter: this.SpotToolTip,
       position: 'inside',
     }
+  }
+
+  getColor(params) {
+    //定义一个颜色集合
+    var colorList = ChartColor.colorlist_7_Baidu;
+    //对每个bar显示一种颜色
+    return colorList[params.dataIndex]
   }
 
   symbol(val: any) {

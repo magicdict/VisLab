@@ -2,9 +2,15 @@ import { CommonFunction } from './common';
 export class Scatter3D {
     static IScatter3DStardard = {
         grid3D: {},
-        xAxis3D: {},
-        yAxis3D: {},
-        zAxis3D: {},
+        xAxis3D: {
+            name: ''
+        },
+        yAxis3D: {
+            name: ''
+        },
+        zAxis3D: {
+            name: ''
+        },
         visualMap: [{
             inRange: {
                 color: ['blue', 'blue', 'green', 'yellow', 'red']
@@ -16,6 +22,9 @@ export class Scatter3D {
             {
                 type: 'scatter3D',
                 symbolSize: null,
+                itemStyle: {
+                    color: null
+                },
                 emphasis: {
                     label: {
                         show: true,
@@ -28,8 +37,16 @@ export class Scatter3D {
         ]
     };
 
-    public static CreateScatter3D(data: any[][]){
+    /**
+     * 新建3维散点图
+     * @param axisname 轴标题
+     * @param data 数据
+     */
+    public static CreateScatter3D(axisname: string[], data: any[][]) {
         let o = CommonFunction.clone(this.IScatter3DStardard);
+        o.xAxis3D.name = axisname[0];
+        o.yAxis3D.name = axisname[1];
+        o.zAxis3D.name = axisname[2];
         o.series[0].data = data;
         return o;
     }
