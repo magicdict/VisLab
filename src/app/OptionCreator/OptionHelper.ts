@@ -16,7 +16,22 @@ export interface areaStyle {
 }
 
 
-export class ChartOption {
+export class OptionHelper {
+  /**克隆 */
+  public static clone<T>(source: T): T {
+    return (JSON.parse(JSON.stringify(source)));
+  }
+  public static ConvertIntToWeekday(weekday: any) {
+    switch (weekday) {
+      case "0": return "周日";
+      case "1": return "周一";
+      case "2": return "周二";
+      case "3": return "周三";
+      case "4": return "周四";
+      case "5": return "周五";
+      case "6": return "周六";
+    }
+  }
   /**背景色 */
   public static chart_SetBackGroundColor(option: any, color: any) {
     option["backgroundColor"] = color;

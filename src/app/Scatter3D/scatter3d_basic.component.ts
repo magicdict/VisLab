@@ -1,7 +1,7 @@
 import { OnInit, Component } from '@angular/core';
-import { Scatter3D } from '../Common/3DChart';
-import { ChartColor } from '../Common/ChartColor';
-import { ChartComponent } from '../Common/chart.component';
+import { Scatter3D } from '../OptionCreator/3DChart';
+import { ChartColor } from '../OptionCreator/ChartColor';
+import { ChartComponent } from '../Chart/chart.component';
 @Component({
     templateUrl: './scatter3d_basic.component.html'
 })

@@ -1,8 +1,7 @@
 import { OnInit, Component } from '@angular/core';
-import { PolarOption } from '../Common/PolarOption';
-import { CommonFunction } from '../Common/common';
-import { ChartColor } from '../Common/ChartColor'
-import { ChartOption } from '../Common/ChartOption';
+import { PolarOption } from '../OptionCreator/PolarOption';
+import { ChartColor } from '../OptionCreator/ChartColor'
+import { OptionHelper } from '../OptionCreator/OptionHelper';
 @Component({
     templateUrl: './polar_basic.component.html'
 })
@@ -17,9 +16,9 @@ export class Polar_BasicComponent implements OnInit {
         { value: 120, name: '宁荣荣' },
         { value: 90, name: '朱竹清' },
     ];
-    Sample = PolarOption.CreatePolar(CommonFunction.clone(this.dataset),"55%");
+    Sample = PolarOption.CreatePolar(OptionHelper.clone(this.dataset), "55%");
 
     ngOnInit(): void {
-        ChartOption.series_SetBarItemStyle(this.Sample.series[0],ChartColor.colorlist_7_Baidu); 
+        OptionHelper.series_SetBarItemStyle(this.Sample.series[0], ChartColor.colorlist_7_Baidu);
     }
 }

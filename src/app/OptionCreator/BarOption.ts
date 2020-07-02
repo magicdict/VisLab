@@ -1,5 +1,5 @@
-import { CommonFunction } from './common';
 import { ChartBase, Axis } from './ChartBase';
+import { OptionHelper } from './OptionHelper';
 export interface Bar_itemStyle {
     /**
      * 阴影颜色。支持的格式同color。
@@ -25,12 +25,12 @@ export class BarOption extends ChartBase {
     }
 
     public static CreateBarItem(value: number[]) {
-        let item = CommonFunction.clone(this.BarItem);
+        let item = OptionHelper.clone(this.BarItem);
         item.data = value;
         return item;
     }
 
-    public static CreateBar(category: string[], value: number[]) {
+    public static CreateBar(category: string[], value: number[]): BarOption {
         let o = new BarOption();
         o.xAxis = new Axis();
         o.yAxis = new Axis();

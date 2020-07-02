@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { LineOption } from '../Common/LineOption';
-import { BarOption } from '../Common/BarOption';
-import { ChartColor, Direction } from '../Common/ChartColor'
-import { ChartOption, areaStyle } from '../Common/ChartOption';
+import { LineOption } from '../OptionCreator/LineOption';
+import { BarOption } from '../OptionCreator/BarOption';
+import { ChartColor, Direction } from '../OptionCreator/ChartColor'
+import { OptionHelper, areaStyle } from '../OptionCreator/OptionHelper';
 
 @Component({
   templateUrl: './line_basic.component.html'
@@ -21,8 +21,8 @@ export class Line_BasicComponent implements OnInit {
 
   ngOnInit(): void {
     this.Sample.xAxis["axisLabel"] = { interval: 0, rotate: 45 }
-    ChartOption.chart_SetToolBox(this.Sample, true, false, false, false, false, false);
-    let g = ChartOption.chart_CreateGraphic("http://datavisualization.club/upload/2020/06/6pl00l1tp4ichrair393e86071.jpg", 50, 50, [25, 25], 0, null, 0, null)
+    OptionHelper.chart_SetToolBox(this.Sample, true, false, false, false, false, false);
+    let g = OptionHelper.chart_CreateGraphic("http://datavisualization.club/upload/2020/06/6pl00l1tp4ichrair393e86071.jpg", 50, 50, [25, 25], 0, null, 0, null)
     this.Sample['graphic'] = [g];
 
     this.Sample_Smooth.xAxis["axisLabel"] = { interval: 0, rotate: 45 }
@@ -42,7 +42,7 @@ export class Line_BasicComponent implements OnInit {
       color: ChartColor.geLinearGradient(Direction.Vertical, '#A9F387', '#48D8BF'),
       opacity: 0.15
     }
-    ChartOption.series_SetAreaStyle(this.GradientSample_Background.series[0], areastyle);
+    OptionHelper.series_SetAreaStyle(this.GradientSample_Background.series[0], areastyle);
     this.GradientSample_Background['backgroundColor'] = ChartColor.geLinearGradient(Direction.Vertical, '#c86589', '#06a7ff');
     this.GradientSample_Background.tooltip['formatter'] = this.SpotToolTip;
     this.GradientSample_Background.tooltip['position'] = "inside";
@@ -51,7 +51,7 @@ export class Line_BasicComponent implements OnInit {
     this.Bar_Line_Mix.series.push(BarOption.CreateBarItem(this.value2));
     this.Bar_Line_Mix.series[0]['itemStyle'] = { 'normal': { color: ChartColor.geLinearGradient(Direction.Vertical, '#32D3EB', '#FCCE10') } }
     this.Bar_Line_Mix.series[1]['itemStyle'] = { 'normal': { color: ChartColor.geLinearGradient(Direction.Vertical, '#c86589', '#06a7ff') } }
-    ChartOption.series_SetAreaStyle(this.Bar_Line_Mix.series[0], areastyle);
+    OptionHelper.series_SetAreaStyle(this.Bar_Line_Mix.series[0], areastyle);
     this.Bar_Line_Mix.xAxis["axisLabel"] = { interval: 0, rotate: 45 }
   }
 

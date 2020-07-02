@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { BarOption, Bar_itemStyle } from '../Common/BarOption';
-import { ChartOption } from '../Common/ChartOption';
-import { ChartColor, Direction } from '../Common/ChartColor';
+import { BarOption, Bar_itemStyle } from '../OptionCreator/BarOption';
+import { OptionHelper } from '../OptionCreator/OptionHelper';
+import { ChartColor, Direction } from '../OptionCreator/ChartColor';
 
 @Component({
   templateUrl: './bar_basic.component.html'
 })
 export class Bar_BasicComponent implements OnInit {
   title = '柱状图-基本';
-  Sample: any
-  RainbowSample: any;
-  RainbowSample_Dark: any;
-  GradientSample: any;
-  Sample_dark_GradientSample: any;
+  Sample: BarOption
+  RainbowSample: BarOption;
+  RainbowSample_Dark: BarOption;
+  GradientSample: BarOption;
+  Sample_dark_GradientSample: BarOption;
   ngOnInit(): void {
 
     let category = ['唐三', '戴沐白', "马红俊", "奥斯卡", "小舞", "宁荣荣", "朱竹清"];
@@ -34,7 +34,7 @@ export class Bar_BasicComponent implements OnInit {
 
 
     this.RainbowSample_Dark = BarOption.CreateBar(category, value);
-    ChartOption.chart_SetBackGroundColor(this.RainbowSample_Dark, '#000000');//背景色
+    OptionHelper.chart_SetBackGroundColor(this.RainbowSample_Dark, '#000000');//背景色
     this.RainbowSample_Dark.xAxis["show"] = false;
     this.RainbowSample_Dark.yAxis["axisLabel"] = { color: "#FFFFFF" };
     BarOption.SetItemStyle(this.RainbowSample_Dark.series[0], normal, emphasis)
@@ -50,13 +50,13 @@ export class Bar_BasicComponent implements OnInit {
     }
 
     this.Sample_dark_GradientSample = BarOption.CreateBar(category, value);
-    ChartOption.chart_SetBackGroundColor(this.Sample_dark_GradientSample, '#000000');//背景色
+    OptionHelper.chart_SetBackGroundColor(this.Sample_dark_GradientSample, '#000000');//背景色
     this.Sample_dark_GradientSample.xAxis["show"] = false;
     this.Sample_dark_GradientSample.yAxis["axisLabel"] = { color: "#FFFFFF" };
     //样式名不支持中文！！！
     let richitem = {}
     category.forEach(element => {
-      richitem[encodeURI(element).replace(/%/g, "")] = ChartOption.series_CreateRichImageStyleItem("assets/image/" + element + "/头像.jpg", 25, 25);
+      richitem[encodeURI(element).replace(/%/g, "")] = OptionHelper.series_CreateRichImageStyleItem("assets/image/" + element + "/头像.jpg", 25, 25);
     });
 
     this.Sample_dark_GradientSample.series[0]['itemStyle'] = //定义每个bar的颜色和其上是否显示值

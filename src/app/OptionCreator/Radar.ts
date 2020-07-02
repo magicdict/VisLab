@@ -1,4 +1,5 @@
-import { CommonFunction } from './common';
+import { OptionHelper } from './OptionHelper';
+
 
 export class RadarOption {
     static IRadarStardard = {
@@ -33,7 +34,7 @@ export class RadarOption {
      * @param data 数据
      */
     public static CreateRadar(indicators: { name: string, max: number }[], data: { name: string, value: number[] }[]) {
-        let o = CommonFunction.clone(this.IRadarStardard);
+        let o = OptionHelper.clone(this.IRadarStardard);
         o.radar.indicator = indicators;
         o.legend.data = data.map(x => x.name);
         o.series[0].data = data;
@@ -41,7 +42,7 @@ export class RadarOption {
     }
 
     public static CreateRadar_Multi(indicators: { name: string, max: number }[], data:number[][]) {
-        let o = CommonFunction.clone(this.IRadarStardard);
+        let o = OptionHelper.clone(this.IRadarStardard);
         o.radar.indicator = indicators;
         o.series[0].data = data;
         return o;

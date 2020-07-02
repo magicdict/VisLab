@@ -1,7 +1,7 @@
 import { OnInit, Component } from '@angular/core';
-import { RadarOption } from '../Common/Radar';
-import { ChartComponent } from '../Common/chart.component';
-import { ChartColor } from '../Common/ChartColor';
+import { RadarOption } from '../OptionCreator/Radar';
+import { ChartComponent } from '../Chart/chart.component';
+import { ChartColor } from '../OptionCreator/ChartColor';
 @Component({
     templateUrl: './radar_basic.component.html'
 })

@@ -1,5 +1,5 @@
-import { CommonFunction } from './common';
 import { ChartBase, Axis } from './ChartBase';
+import { OptionHelper } from './OptionHelper';
 
 export class LineOption extends ChartBase {
     static LineItem = {
@@ -8,7 +8,7 @@ export class LineOption extends ChartBase {
         data: []
     };
     public static CreateLineItem(value: number[]) {
-        let item = CommonFunction.clone(this.LineItem);
+        let item = OptionHelper.clone(this.LineItem);
         item.data = value;
         return item;
     }

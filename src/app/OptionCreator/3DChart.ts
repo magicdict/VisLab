@@ -1,4 +1,5 @@
-import { CommonFunction } from './common';
+import { OptionHelper } from './OptionHelper';
+
 export class Scatter3D {
     static IScatter3DStardard = {
         grid3D: {},
@@ -43,7 +44,7 @@ export class Scatter3D {
      * @param data 数据
      */
     public static CreateScatter3D(axisname: string[], data: any[][]) {
-        let o = CommonFunction.clone(this.IScatter3DStardard);
+        let o = OptionHelper.clone(this.IScatter3DStardard);
         o.xAxis3D.name = axisname[0];
         o.yAxis3D.name = axisname[1];
         o.zAxis3D.name = axisname[2];
@@ -133,7 +134,7 @@ export class Scatter3D {
         //三维数组
         var data: any[] = [];
         ds.forEach(element => {
-            data.push([element.Name.split("|")[1], CommonFunction.ConvertIntToWeekday(element.Name.split("|")[0]), element.Value]);
+            data.push([element.Name.split("|")[1], OptionHelper.ConvertIntToWeekday(element.Name.split("|")[0]), element.Value]);
         });
 
         chart.series[0].data = data;
