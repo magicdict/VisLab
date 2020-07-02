@@ -2,6 +2,7 @@ import { OnInit, Component } from '@angular/core';
 import { PolarOption } from '../OptionCreator/PolarOption';
 import { ChartColor } from '../OptionCreator/ChartColor'
 import { OptionHelper } from '../OptionCreator/OptionHelper';
+import { CommonFunction } from '../common';
 @Component({
     templateUrl: './polar_basic.component.html'
 })
@@ -16,7 +17,7 @@ export class Polar_BasicComponent implements OnInit {
         { value: 120, name: '宁荣荣' },
         { value: 90, name: '朱竹清' },
     ];
-    Sample = PolarOption.CreatePolar(OptionHelper.clone(this.dataset), "75%");
+    Sample = PolarOption.CreatePolar(CommonFunction.clone(this.dataset), "75%");
 
     ngOnInit(): void {
         this.Sample.series[0].itemStyle.color = this.getColor;

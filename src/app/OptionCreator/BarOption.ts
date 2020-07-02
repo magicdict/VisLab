@@ -1,6 +1,6 @@
-import { OptionBase, Axis, Series } from './OptionBase';
+import { Chart2D, Axis, Series } from './OptionBase';
 
-export class BarOption extends OptionBase {
+export class BarOption extends Chart2D {
 
     public static CreateBarItem(value: number[]) {
         let item = new Series();

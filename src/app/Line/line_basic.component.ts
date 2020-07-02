@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LineOption } from '../OptionCreator/LineOption';
 import { BarOption } from '../OptionCreator/BarOption';
 import { ChartColor, Direction } from '../OptionCreator/ChartColor'
-import { OptionHelper, areaStyle } from '../OptionCreator/OptionHelper';
+import { OptionHelper } from '../OptionCreator/OptionHelper';
+import { AreaStyle } from '../OptionCreator/OptionBase';
 
 @Component({
   templateUrl: './line_basic.component.html'
@@ -38,11 +39,11 @@ export class Line_BasicComponent implements OnInit {
 
     this.GradientSample_Background.xAxis["axisLabel"] = { interval: 0, rotate: 45 };
     this.GradientSample_Background.series[0]["smooth"] = true;
-    let areastyle: areaStyle = {
+    let areastyle: AreaStyle = {
       color: ChartColor.geLinearGradient(Direction.Vertical, '#A9F387', '#48D8BF'),
       opacity: 0.15
     }
-    OptionHelper.series_SetAreaStyle(this.GradientSample_Background.series[0], areastyle);
+    LineOption.series_SetAreaStyle(this.GradientSample_Background.series[0], areastyle);
     this.GradientSample_Background['backgroundColor'] = ChartColor.geLinearGradient(Direction.Vertical, '#c86589', '#06a7ff');
     this.GradientSample_Background.tooltip['formatter'] = this.SpotToolTip;
     this.GradientSample_Background.tooltip['position'] = "inside";
@@ -51,7 +52,7 @@ export class Line_BasicComponent implements OnInit {
     this.Bar_Line_Mix.series.push(BarOption.CreateBarItem(this.value2));
     this.Bar_Line_Mix.series[0].itemStyle.color = ChartColor.geLinearGradient(Direction.Vertical, '#32D3EB', '#FCCE10');
     this.Bar_Line_Mix.series[1].itemStyle.color = ChartColor.geLinearGradient(Direction.Vertical, '#c86589', '#06a7ff');
-    OptionHelper.series_SetAreaStyle(this.Bar_Line_Mix.series[0], areastyle);
+    LineOption.series_SetAreaStyle(this.Bar_Line_Mix.series[0], areastyle);
     this.Bar_Line_Mix.xAxis["axisLabel"] = { interval: 0, rotate: 45 }
   }
 

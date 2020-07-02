@@ -1,6 +1,6 @@
 import { OnInit, Component } from '@angular/core';
 import { PieOption, } from '../OptionCreator/PieOption';
-
+import {CommonFunction} from '../common'
 import { ChartColor } from '../OptionCreator/ChartColor'
 import { OptionHelper } from '../OptionCreator/OptionHelper';
 @Component({
@@ -22,11 +22,11 @@ export class Pie_BasicComponent implements OnInit {
             { value: 90, name: '朱竹清' },
         ];
 
-        this.Sample = PieOption.CreatePie(OptionHelper.clone(dataset), "65%");
+        this.Sample = PieOption.CreatePie(CommonFunction.clone(dataset), "65%");
         this.Sample.series[0].label.show = true;
         this.Sample.series[0]['color'] = ChartColor.colorlist_7_Baidu;
-        this.Sample_Nightingale = PieOption.CreateNightingale(OptionHelper.clone(dataset), "75%");
-        this.Sample_Band = PieOption.CreatePie(OptionHelper.clone(dataset), [40, 90]);
+        this.Sample_Nightingale = PieOption.CreateNightingale(CommonFunction.clone(dataset), "75%");
+        this.Sample_Band = PieOption.CreatePie(CommonFunction.clone(dataset), [40, 90]);
         this.Sample_Band.series[0]['color'] = ChartColor.colorlist_7_Baidu;
         this.Sample_Band.series[0].itemStyle['normal'] = {
             shadowBlur: 20,

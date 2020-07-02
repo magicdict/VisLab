@@ -1,7 +1,7 @@
 
-import { OptionBase, Series } from './OptionBase';
+import { Chart2D, Series } from './OptionBase';
 
-export class PolarOption extends OptionBase {
+export class PolarOption extends Chart2D {
     public radiusAxis = {};
     public polar = {
         radius: "55%"

@@ -1,6 +1,6 @@
-import { OptionBase, Axis, Series } from './OptionBase';
+import { OptionBase, Axis, Series, AreaStyle, Chart2D } from './OptionBase';
 
-export class LineOption extends OptionBase {
+export class LineOption extends Chart2D {
 
     public static CreateLineItem(value: number[]) {
         let item = new Series();
@@ -16,5 +16,9 @@ export class LineOption extends OptionBase {
         o.xAxis.data = category;
         o.series.push(this.CreateLineItem(value));
         return o;
+    }
+
+    public static series_SetAreaStyle(option: any, style: AreaStyle) {
+        option['areaStyle'] = style;
     }
 }

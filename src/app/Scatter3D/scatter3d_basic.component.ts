@@ -1,5 +1,5 @@
 import { OnInit, Component } from '@angular/core';
-import { Scatter3D } from '../OptionCreator/3DChart';
+import { Scatter3D } from '../OptionCreator/Scatter3D';
 import { ChartColor } from '../OptionCreator/ChartColor';
 import { ChartComponent } from '../Chart/chart.component';
 import { OptionHelper } from '../OptionCreator/OptionHelper';
@@ -23,12 +23,15 @@ export class Scatter3D_BasicComponent implements OnInit {
 
     ngOnInit(): void {
         this.Sample.series[0].symbolSize = 10;
-        //this.Sample.series[0].emphasis.label.formatter = this.LabelForPoint;
+        //emphasis.label设置的话，tooltip就不设置了
+        this.Sample.tooltip = null;
+        this.Sample.series[0].emphasis.label.formatter = this.LabelForPoint;
         this.Sample.series[0]['symbol'] = 'rect';
-        OptionHelper.chart_SetVisualMap(this.Sample,200,ChartColor.colorlist_VisualMapinRange);
+        OptionHelper.chart_SetVisualMap(this.Sample, 200, ChartColor.colorlist_VisualMapinRange);
 
         this.Sample_Color.series[0].symbolSize = 10;
-        //this.Sample_Color.series[0].emphasis.label.formatter = this.LabelForPoint;
+        this.Sample_Color.tooltip = null;
+        this.Sample_Color.series[0].emphasis.label.formatter = this.LabelForPoint;
         this.Sample_Color.series[0]['symbol'] = 'pin';
         //visualMap和color不兼容！
         this.Sample_Color.series[0]['itemStyle'] = { color: this.PointColor };

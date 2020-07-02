@@ -1,8 +1,8 @@
 
 import { ChartColor } from './ChartColor';
-import { OptionBase, Series } from './OptionBase';
+import { Chart2D, Series } from './OptionBase';
 
-export class PieOption extends OptionBase {
+export class PieOption extends Chart2D {
 
     static CreatePieItem(data: { name: string, value: number }[], radius: string | number[]) {
         let s = new PieSeries();
