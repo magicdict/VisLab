@@ -1,40 +1,42 @@
 
 import { ChartColor } from './ChartColor';
-import { ChartBase } from './ChartBase';
-import { OptionHelper } from './OptionHelper';
+import { OptionBase, Series } from './OptionBase';
 
-export class PieOption extends ChartBase {
+export class PieOption extends OptionBase {
 
-    private static IPieItem = {
-        name: '',
-        type: 'pie',
-        radius: null,
-        center: ['50%', '50%'],
-        data: [],
-        itemStyle: {
-            emphasis: {
-                shadowBlur: 20,
-                shadowColor: 'rgba(0, 0, 0, 0.5)'
-            }
-        }
+    static CreatePieItem(data: { name: string, value: number }[], radius: string | number[]) {
+        let s = new PieSeries();
+        s.type = "pie"
+        s.data = data;
+        s.radius = radius;
+        return s;
+    }
+
+    static CreateNightingalePieItem(data: { name: string, value: number }[], radius: string) {
+        let s = new PieSeries();
+        s.type = "pie"
+        s.data = data.sort((x, y) => { return y.value - x.value });    //为了美观，数据排序
+        s.radius = radius;
+        s.roseType = "area";
+        s['color'] = ChartColor.colorlist_7_Baidu;
+        return s;
     }
 
     public static CreatePie(data: { name: string, value: number }[], radius: string | number[]) {
         let o = new PieOption();
-        o.series.push(OptionHelper.clone(this.IPieItem));
-        o.series[0].data = data;
-        o.series[0].radius = radius;
+        o.series.push(this.CreatePieItem(data, radius));
         return o;
     }
 
     /**南丁格尔图 */
     public static CreateNightingale(data: { name: string, value: number }[], radius: string): any {
         let o = new PieOption();
-        o.series.push(OptionHelper.clone(this.IPieItem));
-        o.series[0].data = data.sort((x, y) => { return y.value - x.value });    //为了美观，数据排序
-        o.series[0].radius = radius;
-        o.series[0]['roseType'] = "area";
-        o.series[0]['color'] = ChartColor.colorlist_7_Baidu;
+        o.series.push(this.CreateNightingalePieItem(data, radius));
         return o;
     }
+}
+
+export class PieSeries extends Series {
+    public radius: string | number[];
+    public roseType: string;
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BarOption, Bar_itemStyle } from '../OptionCreator/BarOption';
+import { BarOption } from '../OptionCreator/BarOption';
 import { OptionHelper } from '../OptionCreator/OptionHelper';
 import { ChartColor, Direction } from '../OptionCreator/ChartColor';
 
@@ -23,31 +23,31 @@ export class Bar_BasicComponent implements OnInit {
 
     this.RainbowSample = BarOption.CreateBar(category, value);
     this.RainbowSample.xAxis["show"] = false;
-    let normal: Bar_itemStyle = {
+    this.RainbowSample.series[0].itemStyle = {
       color: this.getColor,
       opacity: 0.5
     };
-    let emphasis: Bar_itemStyle = {
+    this.RainbowSample.series[0].emphasis.itemStyle = {
       opacity: 1
     };
-    BarOption.SetItemStyle(this.RainbowSample.series[0], normal, emphasis);
 
 
     this.RainbowSample_Dark = BarOption.CreateBar(category, value);
     OptionHelper.chart_SetBackGroundColor(this.RainbowSample_Dark, '#000000');//背景色
     this.RainbowSample_Dark.xAxis["show"] = false;
     this.RainbowSample_Dark.yAxis["axisLabel"] = { color: "#FFFFFF" };
-    BarOption.SetItemStyle(this.RainbowSample_Dark.series[0], normal, emphasis)
+    this.RainbowSample_Dark.series[0].itemStyle = {
+      color: this.getColor,
+      opacity: 0.5
+    };
+    this.RainbowSample_Dark.series[0].emphasis.itemStyle = {
+      opacity: 1
+    };
 
 
     this.GradientSample = BarOption.CreateBar(category, value);
     this.GradientSample.xAxis["show"] = false;
-    this.GradientSample.series[0]['itemStyle'] = //定义每个bar的颜色和其上是否显示值
-    {
-      normal: {
-        color: ChartColor.geLinearGradient(Direction.Vertical, '#32D3EB', '#FCCE10'),
-      }
-    }
+    this.GradientSample.series[0].itemStyle.color = ChartColor.geLinearGradient(Direction.Vertical, '#32D3EB', '#FCCE10');
 
     this.Sample_dark_GradientSample = BarOption.CreateBar(category, value);
     OptionHelper.chart_SetBackGroundColor(this.Sample_dark_GradientSample, '#000000');//背景色
@@ -59,22 +59,13 @@ export class Bar_BasicComponent implements OnInit {
       richitem[encodeURI(element).replace(/%/g, "")] = OptionHelper.series_CreateRichImageStyleItem("assets/image/" + element + "/头像.jpg", 25, 25);
     });
 
-    this.Sample_dark_GradientSample.series[0]['itemStyle'] = //定义每个bar的颜色和其上是否显示值
-    {
-      normal: {
-        color: ChartColor.geLinearGradient(Direction.Vertical, '#32D3EB', '#FCCE10'),
-        opacity: 0.75,
-        label: {
-          color: '#FEB64D',
-          //每个bar的最高点值显示在bar顶部
-          show: true,
-          position: 'top',
-          formatter: this.symbol,
-          rich: richitem
-        }
-      }
-    }
-
+    this.Sample_dark_GradientSample.series[0].itemStyle.color = ChartColor.geLinearGradient(Direction.Vertical, '#32D3EB', '#FCCE10');
+    this.Sample_dark_GradientSample.series[0].itemStyle.opacity = 0.75;
+    this.Sample_dark_GradientSample.series[0].label.color = "#FEB64D";
+    this.Sample_dark_GradientSample.series[0].label.position = "top";
+    this.Sample_dark_GradientSample.series[0].label.formatter = this.symbol;
+    this.Sample_dark_GradientSample.series[0].label.rich = richitem;
+    this.Sample_dark_GradientSample.series[0].label.show = true;
     this.Sample_dark_GradientSample['tooltip'] = {
       trigger: 'item',
       formatter: this.SpotToolTip,
@@ -82,7 +73,7 @@ export class Bar_BasicComponent implements OnInit {
     }
   }
 
-  getColor(params) {
+  getColor(params: any) {
     //定义一个颜色集合
     var colorList = ChartColor.colorlist_7_Baidu;
     //对每个bar显示一种颜色

@@ -8,9 +8,9 @@ import { OptionHelper } from '../OptionCreator/OptionHelper';
 })
 export class Pie_BasicComponent implements OnInit {
     title = '饼图-基本';
-    Sample: any;
-    Sample_Nightingale: any;
-    Sample_Band: any;
+    Sample: PieOption;
+    Sample_Nightingale: PieOption;
+    Sample_Band: PieOption;
     ngOnInit(): void {
         let dataset = [
             { value: 50, name: '唐三' },
@@ -22,9 +22,10 @@ export class Pie_BasicComponent implements OnInit {
             { value: 90, name: '朱竹清' },
         ];
 
-        this.Sample = PieOption.CreatePie(OptionHelper.clone(dataset), "55%");
+        this.Sample = PieOption.CreatePie(OptionHelper.clone(dataset), "65%");
+        this.Sample.series[0].label.show = true;
         this.Sample.series[0]['color'] = ChartColor.colorlist_7_Baidu;
-        this.Sample_Nightingale = PieOption.CreateNightingale(OptionHelper.clone(dataset), "55%");
+        this.Sample_Nightingale = PieOption.CreateNightingale(OptionHelper.clone(dataset), "75%");
         this.Sample_Band = PieOption.CreatePie(OptionHelper.clone(dataset), [40, 90]);
         this.Sample_Band.series[0]['color'] = ChartColor.colorlist_7_Baidu;
         this.Sample_Band.series[0].itemStyle['normal'] = {

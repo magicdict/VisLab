@@ -1,20 +1,30 @@
 
-import { ChartBase } from './ChartBase';
-import { OptionHelper } from './OptionHelper';
+import { OptionBase, Series } from './OptionBase';
 
-export class PolarOption extends ChartBase {
+export class PolarOption extends OptionBase {
     public radiusAxis = {};
     public polar = {
         radius: "55%"
     }
     public angleAxis = {}
+
     static PolarItem = {
         type: 'bar',
         data: [],
         coordinateSystem: 'polar',
         name: '',
     }
-    public static CreatePolar(data: { name: string, value: number }[], radius: string):PolarOption {
+
+
+    static CreatePolarItem(data: number[]) {
+        let s = new PolarSeries();
+        s.type = "bar"
+        s.data = data;
+        s.coordinateSystem = 'polar';
+        return s;
+    }
+
+    public static CreatePolar(data: { name: string, value: number }[], radius: string): PolarOption {
         let o = new PolarOption();
         o.tooltip = {
             trigger: 'axis',
@@ -29,9 +39,12 @@ export class PolarOption extends ChartBase {
             interval: 50
         };
         o.polar.radius = radius;
-        let i = OptionHelper.clone(this.PolarItem);
-        i.data = data.map(x => x.value);
+        let i = this.CreatePolarItem(data.map(x => x.value));
         o.series.push(i);
         return o;
     }
+}
+
+export class PolarSeries extends Series {
+    public coordinateSystem: string;
 }

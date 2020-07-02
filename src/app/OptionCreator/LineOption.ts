@@ -1,14 +1,10 @@
-import { ChartBase, Axis } from './ChartBase';
-import { OptionHelper } from './OptionHelper';
+import { OptionBase, Axis, Series } from './OptionBase';
 
-export class LineOption extends ChartBase {
-    static LineItem = {
-        name: '',
-        type: 'line',
-        data: []
-    };
+export class LineOption extends OptionBase {
+
     public static CreateLineItem(value: number[]) {
-        let item = OptionHelper.clone(this.LineItem);
+        let item = new Series();
+        item.type = 'line';
         item.data = value;
         return item;
     }

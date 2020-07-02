@@ -1,41 +1,16 @@
 import { OptionHelper } from './OptionHelper';
+import { Axis, OptionBase } from './OptionBase';
 
-export class Scatter3D {
-    static IScatter3DStardard = {
-        grid3D: {},
-        xAxis3D: {
-            name: ''
-        },
-        yAxis3D: {
-            name: ''
-        },
-        zAxis3D: {
-            name: ''
-        },
-        visualMap: [{
-            inRange: {
-                color: ['blue', 'blue', 'green', 'yellow', 'red']
-            },
-            max: 100,
-            calculable: true
-        }],
-        series: [
-            {
-                type: 'scatter3D',
-                symbolSize: null,
-                itemStyle: {
-                    color: null
-                },
-                emphasis: {
-                    label: {
-                        show: true,
-                        formatter: null,
-                        position: 'top'
-                    }
-                },
-                data: []
-            }
-        ]
+export class Scatter3D extends OptionBase {
+    public xAxis3D: Axis
+    public yAxis3D: Axis
+    public zAxis3D: Axis
+    public grid3D: any = {};    //必须项目
+    static Scatter3DItem =
+    {
+        type: 'scatter3D',
+        symbolSize: null,
+        data: []
     };
 
     /**
@@ -44,10 +19,14 @@ export class Scatter3D {
      * @param data 数据
      */
     public static CreateScatter3D(axisname: string[], data: any[][]) {
-        let o = OptionHelper.clone(this.IScatter3DStardard);
+        let o = new Scatter3D();
+        o.xAxis3D = new Axis();
+        o.yAxis3D = new Axis();
+        o.zAxis3D = new Axis();
         o.xAxis3D.name = axisname[0];
         o.yAxis3D.name = axisname[1];
         o.zAxis3D.name = axisname[2];
+        o.series[0] = OptionHelper.clone(this.Scatter3DItem)
         o.series[0].data = data;
         return o;
     }

@@ -13,6 +13,8 @@ export class ChartColor {
     public static colorlist_7_Baidu = ["#60acfc", "#32d3eb", "#5bc49f", "#feb64d", "#ff7c7c", "#9287e7", "purple"];
     //#endregion
 
+    public static colorlist_VisualMapinRange = ['blue', 'blue', 'green', 'yellow', 'red']
+
     //#region  基本组件单元
 
     /**渐变色 

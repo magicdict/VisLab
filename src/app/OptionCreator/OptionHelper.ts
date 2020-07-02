@@ -1,4 +1,5 @@
 import { ECharts } from 'echarts';
+import { OptionBase, VisualMap } from './OptionBase';
 
 export interface areaStyle {
   /**
@@ -32,6 +33,15 @@ export class OptionHelper {
       case "6": return "周六";
     }
   }
+
+  public static chart_SetVisualMap(option:OptionBase,max:number,colorlist:string[]){
+    let v = new VisualMap();
+    v.max =max;
+    v.inRange.color = colorlist;
+    v.calculable = true;
+    option.visualMap.push(v);
+  }
+
   /**背景色 */
   public static chart_SetBackGroundColor(option: any, color: any) {
     option["backgroundColor"] = color;
@@ -91,33 +101,6 @@ export class OptionHelper {
   */
   public static series_SetAreaStyle(option: any, style: areaStyle) {
     option['areaStyle'] = style;
-  }
-
-  public static series_SetBarItemStyle(option: any, colorlist: any) {
-    option['itemStyle'] = //定义每个bar的颜色和其上是否显示值
-    {
-      normal: {
-        color: function (params) {
-          // build a color map as your need.
-          //定义一个颜色集合
-          var colorList = colorlist;
-          //对每个bar显示一种颜色
-          return colorList[params.dataIndex]
-        },
-        opacity: 0.5,
-        borderType: 'dotted',
-        label: {
-          //每个bar的最高点值显示在bar顶部
-          show: true,
-          position: 'top',
-          //值和x轴分类的显示格式(这里是换行显示)
-          formatter: '{b}\n{c}'
-        }
-      },
-      emphasis: {
-        opacity: 1
-      }
-    }
   }
 
   /** rich属性用图片 */

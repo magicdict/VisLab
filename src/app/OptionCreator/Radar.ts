@@ -1,32 +1,11 @@
-import { OptionHelper } from './OptionHelper';
+
+import { OptionBase } from './OptionBase';
 
 
-export class RadarOption {
-    static IRadarStardard = {
-        title: {
-            text: ''
-        },
-        tooltip: {},
-        legend: {
-            data: []
-        },
-        radar: {
-            name: {
-                textStyle: {
-                    color: '#fff',
-                    backgroundColor: '#999',
-                    borderRadius: 3,
-                    padding: [3, 5]
-                }
-            },
-            indicator: []
-        },
-        series: [{
-            name: '',
-            type: 'radar',
-            data: []
-        }]
-    };
+export class RadarOption extends OptionBase {
+    public radar: any = {
+        indicator: []
+    }
 
     /**
      * 生成雷达图
@@ -34,17 +13,18 @@ export class RadarOption {
      * @param data 数据
      */
     public static CreateRadar(indicators: { name: string, max: number }[], data: { name: string, value: number[] }[]) {
-        let o = OptionHelper.clone(this.IRadarStardard);
+        let o = new RadarOption;
         o.radar.indicator = indicators;
+        o.legend = {};
         o.legend.data = data.map(x => x.name);
-        o.series[0].data = data;
+        o.series.push({ data: data, type: "radar" });
         return o;
     }
 
-    public static CreateRadar_Multi(indicators: { name: string, max: number }[], data:number[][]) {
-        let o = OptionHelper.clone(this.IRadarStardard);
+    public static CreateRadar_Multi(indicators: { name: string, max: number }[], data: number[][]) {
+        let o = new RadarOption;
         o.radar.indicator = indicators;
-        o.series[0].data = data;
+        o.series.push({ data: data, type: "radar" });
         return o;
     }
 }

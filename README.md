@@ -4,6 +4,53 @@
 
 Angular比较熟悉，所以没有选择国内热门的VUE。做可视化对于前端框架没有什么具体要求。同时这里也是对于标准化和美化echarts的一些实验性的东西，所以没有使用大屏布局，直接使用了AdminLTE这样的后台管理系统。
 
+## 关于Echarts的封装
+
+```ts
+import { OptionBase, Axis, Series } from './OptionBase';
+
+export class LineOption extends OptionBase {
+
+    public static CreateLineItem(value: number[]) {
+        let item = new Series();
+        item.type = 'line';
+        item.data = value;
+        return item;
+    }
+    public static CreateLine(category: string[], value: number[]) {
+        let o = new LineOption();
+        o.tooltip = { trigger: 'axis' };
+        o.xAxis = new Axis();
+        o.yAxis = new Axis();
+        o.xAxis.data = category;
+        o.series.push(this.CreateLineItem(value));
+        return o;
+    }
+}
+```
+
+具体使用方法
+
+```ts
+    category = ['唐三', '戴沐白', "马红俊", "奥斯卡", "小舞", "宁荣荣", "朱竹清"];
+    value = [50, 100, 150, 70, 80, 120, 90];
+    Sample = LineOption.CreateLine(this.category, this.value);
+    this.Bar_Line_Mix.series.push(BarOption.CreateBarItem(this.value2));
+    this.Bar_Line_Mix.series[0].itemStyle.color = ChartColor.geLinearGradient(Direction.Vertical, '#32D3EB', '#FCCE10');
+    this.Bar_Line_Mix.series[1].itemStyle.color = ChartColor.geLinearGradient(Direction.Vertical, '#c86589', '#06a7ff');
+    OptionHelper.series_SetAreaStyle(this.Bar_Line_Mix.series[0], areastyle);
+
+
+```
+
+封装进度
+
+- 折线图
+- 柱状图
+- 极坐标图
+- 雷达图
+- 3D散点图
+
 ## 特效
 
 ![柱状图](image/柱状图.png)

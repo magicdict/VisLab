@@ -49,8 +49,8 @@ export class Line_BasicComponent implements OnInit {
 
     this.Bar_Line_Mix.series[0]["smooth"] = true;
     this.Bar_Line_Mix.series.push(BarOption.CreateBarItem(this.value2));
-    this.Bar_Line_Mix.series[0]['itemStyle'] = { 'normal': { color: ChartColor.geLinearGradient(Direction.Vertical, '#32D3EB', '#FCCE10') } }
-    this.Bar_Line_Mix.series[1]['itemStyle'] = { 'normal': { color: ChartColor.geLinearGradient(Direction.Vertical, '#c86589', '#06a7ff') } }
+    this.Bar_Line_Mix.series[0].itemStyle.color = ChartColor.geLinearGradient(Direction.Vertical, '#32D3EB', '#FCCE10');
+    this.Bar_Line_Mix.series[1].itemStyle.color = ChartColor.geLinearGradient(Direction.Vertical, '#c86589', '#06a7ff');
     OptionHelper.series_SetAreaStyle(this.Bar_Line_Mix.series[0], areastyle);
     this.Bar_Line_Mix.xAxis["axisLabel"] = { interval: 0, rotate: 45 }
   }

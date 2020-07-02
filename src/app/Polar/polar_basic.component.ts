@@ -16,9 +16,18 @@ export class Polar_BasicComponent implements OnInit {
         { value: 120, name: '宁荣荣' },
         { value: 90, name: '朱竹清' },
     ];
-    Sample = PolarOption.CreatePolar(OptionHelper.clone(this.dataset), "55%");
+    Sample = PolarOption.CreatePolar(OptionHelper.clone(this.dataset), "75%");
 
     ngOnInit(): void {
-        OptionHelper.series_SetBarItemStyle(this.Sample.series[0], ChartColor.colorlist_7_Baidu);
+        this.Sample.series[0].itemStyle.color = this.getColor;
+        this.Sample.series[0].itemStyle.opacity = 0.5;
+        this.Sample.series[0].emphasis.itemStyle.opacity = 1;
+    }
+
+    getColor(params) {
+        //定义一个颜色集合
+        var colorList = ChartColor.colorlist_7_Baidu;
+        //对每个bar显示一种颜色
+        return colorList[params.dataIndex]
     }
 }
