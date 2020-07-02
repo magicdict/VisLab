@@ -28,11 +28,10 @@ export class Bar_BasicComponent implements OnInit {
       opacity: 0.5
     };
     let emphasis: Bar_itemStyle = {
-      color: this.getColor,
       opacity: 1
     };
     BarOption.SetItemStyle(this.RainbowSample.series[0], normal, emphasis);
-    
+
 
     this.RainbowSample_Dark = BarOption.CreateBar(category, value);
     ChartOption.chart_SetBackGroundColor(this.RainbowSample_Dark, '#000000');//背景色

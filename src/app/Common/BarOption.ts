@@ -1,4 +1,5 @@
 import { CommonFunction } from './common';
+import { ChartBase, Axis } from './ChartBase';
 export interface Bar_itemStyle {
     /**
      * 阴影颜色。支持的格式同color。
@@ -17,32 +18,28 @@ export interface Bar_itemStyle {
      */
     opacity?: any;
 }
-export class BarOption {
-    private static IBarStardard = {
-        xAxis: {
-            type: 'category',
-            data: []
-        },
-        yAxis: {
-            type: 'value'
-        },
-        series: []
-    };
+export class BarOption extends ChartBase {
     static BarItem = {
         data: [],
         type: 'bar'
     }
+
     public static CreateBarItem(value: number[]) {
         let item = CommonFunction.clone(this.BarItem);
         item.data = value;
         return item;
     }
+
     public static CreateBar(category: string[], value: number[]) {
-        let o = CommonFunction.clone(this.IBarStardard);
+        let o = new BarOption();
+        o.xAxis = new Axis();
+        o.yAxis = new Axis();
         o.xAxis.data = category;
         o.series.push(this.CreateBarItem(value));
         return o;
     }
+
+
     public static SetItemStyle(series: any, normal?: Bar_itemStyle, emphasis?: Bar_itemStyle) {
         if (normal) series['itemStyle'] = normal;
         if (emphasis) series['emphasis'] = { "itemStyle": emphasis };
