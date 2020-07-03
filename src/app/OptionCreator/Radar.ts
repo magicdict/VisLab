@@ -1,8 +1,8 @@
 
-import { OptionBase } from './OptionBase';
+import { Chart2D } from './OptionBase';
 
 
-export class RadarOption extends OptionBase {
+export class RadarOption extends Chart2D {
     public radar: any = {
         indicator: []
     }

@@ -2,6 +2,7 @@ import { OnInit, Component } from '@angular/core';
 import { RadarOption } from '../OptionCreator/Radar';
 import { ChartComponent } from '../Chart/chart.component';
 import { ChartColor } from '../OptionCreator/ChartColor';
+import { PieOption } from '../OptionCreator/PieOption';
 
 @Component({
     templateUrl: './radar_basic.component.html'
@@ -29,6 +30,23 @@ export class Radar_BasicComponent implements OnInit {
                 dataset_multi.push(arr);
             }
         )
+
+        let dataset = [
+            { value: 50, name: '唐三' },
+            { value: 100, name: '戴沐白' },
+            { value: 150, name: '马红俊' },
+            { value: 70, name: '奥斯卡' },
+            { value: 80, name: '小舞' },
+            { value: 120, name: '宁荣荣' },
+            { value: 90, name: '朱竹清' },
+        ];
+
+        //主从图表
+        let x = PieOption.CreatePieItem(dataset,'20%')
+        x['center'] = ['85%', '15%'];
+        this.Sample.series.push(x);
+        this.Sample.series[0]['color'] = ChartColor.colorlist_7_Baidu;
+        this.Sample.series[1]['color'] = ChartColor.colorlist_7_Baidu;
 
         let c = RadarOption.CreateRadar_Multi(this.indicators, dataset_multi);
         c.radar['splitLine'] = {
