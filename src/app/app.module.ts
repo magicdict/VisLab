@@ -13,6 +13,7 @@ import { Pie_BasicComponent } from './Pie/pie_basic.component';
 import { Polar_BasicComponent } from './Polar/polar_basic.component';
 import { Radar_BasicComponent } from './radar/radar_basic.component';
 import { Scatter3D_BasicComponent } from './Scatter3D/scatter3d_basic.component';
+import { Bar3D_BasicComponent } from './Bar3D/bar3d_basic.component';
 import { ChartComponent } from './Chart/chart.component';
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ChartComponent } from './Chart/chart.component';
     Pie_BasicComponent,
     Polar_BasicComponent,
     Radar_BasicComponent,
-    Scatter3D_BasicComponent
+    Scatter3D_BasicComponent,
+    Bar3D_BasicComponent
   ],
   imports: [
     BrowserModule,

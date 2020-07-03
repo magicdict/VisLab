@@ -1,7 +1,6 @@
 import { OnInit, Component } from '@angular/core';
 import { PolarOption } from '../OptionCreator/PolarOption';
 import { ChartColor } from '../OptionCreator/ChartColor'
-import { OptionHelper } from '../OptionCreator/OptionHelper';
 import { CommonFunction } from '../common';
 @Component({
     templateUrl: './polar_basic.component.html'

@@ -2,6 +2,12 @@ import { ECharts } from 'echarts';
 import { OptionBase, VisualMap } from './OptionBase';
 
 export class OptionHelper {
+  /**
+   * 添加VisualMap
+   * @param option 需要添加的图表配置 
+   * @param max VisualMap最大值
+   * @param colorlist inRange颜色列表
+   */
   public static chart_SetVisualMap(option: OptionBase, max: number, colorlist: string[]) {
     let v = new VisualMap();
     v.max = max;

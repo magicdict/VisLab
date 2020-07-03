@@ -102,7 +102,7 @@
             </ul>
           </li>
 
-          <li class="nav-item has-treeview"  [class.menu-open]="_path.startsWith('/3d')">
+          <li class="nav-item has-treeview" [class.menu-open]="_path.startsWith('/3d')">
             <a href="#" class="nav-link" [class.active]="_path.startsWith('/3d')">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -115,6 +115,12 @@
                 <a href="3d/scatter3d" class="nav-link" [class.active]="_path ==='/3d/scatter3d'">
                   <i class="far fa-circle nav-icon"></i>
                   <p>散点图（3D）</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="3d/bar3d" class="nav-link" [class.active]="_path ==='/3d/bar3d'">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>柱状图（3D）</p>
                 </a>
               </li>
             </ul>
