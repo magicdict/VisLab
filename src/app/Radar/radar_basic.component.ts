@@ -2,6 +2,7 @@ import { OnInit, Component } from '@angular/core';
 import { RadarOption } from '../OptionCreator/Radar';
 import { ChartComponent } from '../Chart/chart.component';
 import { ChartColor } from '../OptionCreator/ChartColor';
+
 @Component({
     templateUrl: './radar_basic.component.html'
 })
@@ -18,8 +19,8 @@ export class Radar_BasicComponent implements OnInit {
     ];
     indicators = [{ name: "攻击", max: 100 }, { name: "防御", max: 100 }, { name: "生命", max: 100 }, { name: "魂力", max: 100 }, { name: "速度", max: 100 }];
     chartComp = ChartComponent
-    Sample: any;
-    Sample_Multi: any;
+    Sample: RadarOption;
+    Sample_Multi: RadarOption;
     ngOnInit(): void {
         this.Sample = RadarOption.CreateRadar(this.indicators, this.dataset);
         let dataset_multi = [];
@@ -28,6 +29,7 @@ export class Radar_BasicComponent implements OnInit {
                 dataset_multi.push(arr);
             }
         )
+
         let c = RadarOption.CreateRadar_Multi(this.indicators, dataset_multi);
         c.radar['splitLine'] = {
             lineStyle: {

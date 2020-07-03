@@ -99,6 +99,12 @@
                   <p>雷达图</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="basic/scatter" class="nav-link" [class.active]="_path ==='/basic/scatter'">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>散点图</p>
+                </a>
+              </li>
             </ul>
           </li>
 
@@ -125,6 +131,27 @@
               </li>
             </ul>
           </li>
+
+          <li class="nav-item has-treeview" [class.menu-open]="_path.startsWith('/covid19')">
+            <a href="#" class="nav-link" [class.active]="_path.startsWith('/covid19')">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                新冠肺炎2019
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+
+              <li class="nav-item">
+                <a href="covid19/basic" class="nav-link" [class.active]="_path ==='/covid19/basic'">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>基本情况</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
 
         </ul>
       </nav>

@@ -46,10 +46,14 @@ export class LineOption extends OptionBase {
 封装进度
 
 - 折线图
+  - markPoint
+  - markLine
 - 柱状图
 - 极坐标图
 - 雷达图
+- 散点图
 - 3D散点图
+- 3D柱状图
 
 ## 特效
 

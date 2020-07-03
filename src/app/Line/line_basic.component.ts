@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LineOption } from '../OptionCreator/LineOption';
+import { LineOption, MarkPointType, MarkLineType } from '../OptionCreator/LineOption';
 import { BarOption } from '../OptionCreator/BarOption';
 import { ChartColor, Direction } from '../OptionCreator/ChartColor'
 import { OptionHelper } from '../OptionCreator/OptionHelper';
@@ -25,9 +25,16 @@ export class Line_BasicComponent implements OnInit {
     OptionHelper.chart_SetToolBox(this.Sample, true, false, false, false, false, false);
     let g = OptionHelper.chart_CreateGraphic("http://datavisualization.club/upload/2020/06/6pl00l1tp4ichrair393e86071.jpg", 50, 50, [25, 25], 0, null, 0, null)
     this.Sample['graphic'] = [g];
+    LineOption.series_SetMarkLine(this.Sample.series[0], MarkLineType.max, "最大");
+    LineOption.series_SetMarkLine(this.Sample.series[0], MarkLineType.min, "最小");
+    LineOption.series_SetMarkLine(this.Sample.series[0], MarkLineType.average, "平均");
+    LineOption.series_SetMarkLine(this.Sample.series[0], MarkLineType.median, "中位数");
 
     this.Sample_Smooth.xAxis["axisLabel"] = { interval: 0, rotate: 45 }
     this.Sample_Smooth.series[0]["smooth"] = true;
+    LineOption.series_SetMarkPoint(this.Sample_Smooth.series[0], MarkPointType.max, "最大");
+    LineOption.series_SetMarkPoint(this.Sample_Smooth.series[0], MarkPointType.min, "最小");
+    LineOption.series_SetMarkPoint(this.Sample_Smooth.series[0], MarkPointType.average, "平均");
 
     this.GradientSample.xAxis["axisLabel"] = { interval: 0, rotate: 45 }
     this.GradientSample.series[0]["smooth"] = true;

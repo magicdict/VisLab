@@ -12,10 +12,11 @@ import { Line_BasicComponent } from './Line/line_basic.component';
 import { Pie_BasicComponent } from './Pie/pie_basic.component';
 import { Polar_BasicComponent } from './Polar/polar_basic.component';
 import { Radar_BasicComponent } from './radar/radar_basic.component';
+import { Scatter_BasicComponent } from './Scatter/scatter_basic.component';
 import { Scatter3D_BasicComponent } from './Scatter3D/scatter3d_basic.component';
 import { Bar3D_BasicComponent } from './Bar3D/bar3d_basic.component';
 import { ChartComponent } from './Chart/chart.component';
-
+import { Covid19_Component } from './COVID19/covid19.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,8 +26,10 @@ import { ChartComponent } from './Chart/chart.component';
     Pie_BasicComponent,
     Polar_BasicComponent,
     Radar_BasicComponent,
+    Scatter_BasicComponent,
     Scatter3D_BasicComponent,
-    Bar3D_BasicComponent
+    Bar3D_BasicComponent,
+    Covid19_Component
   ],
   imports: [
     BrowserModule,
