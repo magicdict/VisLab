@@ -11,6 +11,7 @@ import { Scatter_BasicComponent } from './Scatter/scatter_basic.component';
 import { Covid19_Component } from './COVID19/covid19.component';
 import { ComboChartsComponent } from './ComboCharts/combocharts.component';
 import { BMap_BasicComponent } from './BMap/bmap_basic.component';
+import { Map_BasicComponent } from './Map/map_basic.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,9 @@ const routes: Routes = [
   },
   {
     path: 'basic/bmap', component: BMap_BasicComponent,
+  },
+  {
+    path: 'basic/map', component: Map_BasicComponent,
   },
   {
     path: '3d/scatter3d', component: Scatter3D_BasicComponent,

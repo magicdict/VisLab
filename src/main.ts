@@ -8,6 +8,7 @@ import 'echarts-gl';
 import 'echarts/dist/extension/bmap.min.js';
 import 'echarts-bmap';
 
+
 if (environment.production) {
   enableProdMode();
 }

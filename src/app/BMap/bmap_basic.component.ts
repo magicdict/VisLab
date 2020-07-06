@@ -8,11 +8,11 @@ import { ChartColor } from '../OptionCreator/ChartColor';
 import { Series } from '../OptionCreator/OptionBase';
 import { HttpClient } from '@angular/common/http';
 
+
 @Component({
     templateUrl: './bmap_basic.component.html',
 })
 export class BMap_BasicComponent implements OnInit {
-
     constructor(private http: HttpClient) {
 
     }
@@ -54,6 +54,8 @@ export class BMap_BasicComponent implements OnInit {
                 this.HeatMapChart.setOption(this.Sample_Heat);
             }
         )
+
+        //JSON地图的注册
 
     }
     getLabel(params) {
