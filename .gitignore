@@ -1,3 +1,5 @@
 /node_modules
 /dist
-csv/dataset.csv
+CreateJSON/csv
+CreateJSON/bin
+CreateJSON/obj

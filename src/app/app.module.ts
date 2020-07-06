@@ -21,7 +21,6 @@ import { ChartComponent } from './Chart/chart.component';
 import { ComboChartsComponent } from './ComboCharts/combocharts.component';
 import { Covid19_Component } from './COVID19/covid19.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MapRegService} from './Map/MapReg'
 
 @NgModule({
   declarations: [
@@ -49,7 +48,7 @@ import { MapRegService} from './Map/MapReg'
     }),
     OptionCreatorModule
   ],
-  providers:[MapRegService],
+  providers:[],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

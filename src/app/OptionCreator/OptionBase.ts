@@ -36,6 +36,7 @@ export class Grid3D {
 }
 
 export class Series {
+    public name?:string;
     public data: any[];
     public type: string;
     public symbolSize?: any;
