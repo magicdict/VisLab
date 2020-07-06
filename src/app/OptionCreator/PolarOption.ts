@@ -9,7 +9,7 @@ export class PolarOption extends Chart2D {
     }
 
     static CreatePolarBarItem(data: number[]) {
-        let s = new PolarSeries();
+        let s = new Series();
         s.type = "bar"
         s.data = data;
         s.coordinateSystem = 'polar';
@@ -36,7 +36,7 @@ export class PolarOption extends Chart2D {
     }
 
     static CreatePolarScatterItem(data: number[][]) {
-        let s = new PolarSeries();
+        let s = new Series();
         s.type = "scatter"
         s.data = data;
         s.coordinateSystem = 'polar';
@@ -72,8 +72,4 @@ export class PolarOption extends Chart2D {
         return o;
     }
 
-}
-
-export class PolarSeries extends Series {
-    public coordinateSystem: string;
 }

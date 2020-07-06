@@ -4,11 +4,12 @@ export class OptionBase {
     public series: Series[] = [];
     public tooltip?: any = {};
     public visualMap?: VisualMap[] = [];
+    public grid?= null  //这里必须设定为null，否则js端报错
 }
 
 export class Chart2D extends OptionBase {
-    public xAxis: Axis; //这些图表是不需要坐标轴的，这里不要直接 new Axis()...
-    public yAxis: Axis; //这些图表是不需要坐标轴的，这里不要直接 new Axis()...
+    public xAxis: Axis | Axis[];
+    public yAxis: Axis | Axis[];
 }
 
 export class Chart3D extends OptionBase {
@@ -41,6 +42,9 @@ export class Series {
     public itemStyle?: ItemStyle = new ItemStyle();
     public label?: Label = new Label();
     public emphasis?: Emphasis = new Emphasis();
+    public xAxisIndex?: number;
+    public yAxisIndex?: number;
+    public coordinateSystem?: string;
 }
 
 export class Emphasis {
@@ -64,6 +68,7 @@ export class Axis {
     public name: string;
     public type: string;
     public data: string[];
+    public gridIndex?: number;
 }
 
 export class VisualMap {

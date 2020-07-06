@@ -52,8 +52,12 @@ export class LineOption extends OptionBase {
 - 极坐标图
 - 雷达图
 - 散点图
+- 组合图
+  - 雷达图 - 饼图
+  - 饼图 - 折线图
 - 3D散点图
 - 3D柱状图
+  
 
 ## 特效
 

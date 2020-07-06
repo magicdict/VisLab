@@ -37,10 +37,10 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="assets/image/唐三/头像.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+    <a href="https://echarts.apache.org/zh/index.html" class="brand-link">
+      <img src="https://echarts-www.cdn.bcebos.com/zh/images/logo.png" alt="AdminLTE Logo" class="brand-image  elevation-3"
         style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">&nbsp;</span>
     </a>
 
     <!-- Sidebar -->
@@ -105,9 +105,20 @@
                   <p>散点图</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="basic/bmap" class="nav-link" [class.active]="_path ==='/basic/bmap'">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>百度地图</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="basic/combocharts" class="nav-link" [class.active]="_path ==='/basic/combocharts'">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>组合图</p>
+                </a>
+              </li>
             </ul>
           </li>
-
           <li class="nav-item has-treeview" [class.menu-open]="_path.startsWith('/3d')">
             <a href="#" class="nav-link" [class.active]="_path.startsWith('/3d')">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -162,10 +173,10 @@
   <router-outlet></router-outlet>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+    <strong>Copyright &copy; 2019-2020 <a href="http://datavisualization.club">数据可视化俱乐部</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.1.0-pre
+      <b>Version</b> 0.7
     </div>
   </footer>
 

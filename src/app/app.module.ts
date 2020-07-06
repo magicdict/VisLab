@@ -13,10 +13,14 @@ import { Pie_BasicComponent } from './Pie/pie_basic.component';
 import { Polar_BasicComponent } from './Polar/polar_basic.component';
 import { Radar_BasicComponent } from './radar/radar_basic.component';
 import { Scatter_BasicComponent } from './Scatter/scatter_basic.component';
+import { BMap_BasicComponent } from './BMap/bmap_basic.component';
 import { Scatter3D_BasicComponent } from './Scatter3D/scatter3d_basic.component';
 import { Bar3D_BasicComponent } from './Bar3D/bar3d_basic.component';
 import { ChartComponent } from './Chart/chart.component';
+import { ComboChartsComponent } from './ComboCharts/combocharts.component';
 import { Covid19_Component } from './COVID19/covid19.component';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,13 +31,16 @@ import { Covid19_Component } from './COVID19/covid19.component';
     Polar_BasicComponent,
     Radar_BasicComponent,
     Scatter_BasicComponent,
+    BMap_BasicComponent,
     Scatter3D_BasicComponent,
     Bar3D_BasicComponent,
+    ComboChartsComponent,
     Covid19_Component
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     NgxEchartsModule.forRoot({
       echarts,
     }),

@@ -2,7 +2,7 @@ import { Axis, Series, Chart2D } from './OptionBase';
 
 export class ScatterOption extends Chart2D {
 
-    public static CreateScatterItem(value: number[][]) {
+    public static CreateScatterItem(value: any[][]) {
         let item = new Series();
         item.type = 'scatter';
         item.data = value;
