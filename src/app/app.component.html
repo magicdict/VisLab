@@ -8,7 +8,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -117,14 +117,35 @@
                   <p>百度地图</p>
                 </a>
               </li>
+
+            </ul>
+          </li>
+
+          <li class="nav-item has-treeview" [class.menu-open]="_path.startsWith('/advance')">
+            <a href="#" class="nav-link" [class.active]="_path.startsWith('/advance')">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                高级
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="basic/combocharts" class="nav-link" [class.active]="_path ==='/basic/combocharts'">
+                <a href="advance/combocharts" class="nav-link" [class.active]="_path ==='/advance/combocharts'">
                   <i class="far fa-circle nav-icon"></i>
                   <p>组合图</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="advance/timeline" class="nav-link" [class.active]="_path ==='/advance/timeline'">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>时间序列</p>
+                </a>
+              </li>
             </ul>
           </li>
+
+
           <li class="nav-item has-treeview" [class.menu-open]="_path.startsWith('/3d')">
             <a href="#" class="nav-link" [class.active]="_path.startsWith('/3d')">
               <i class="nav-icon fas fa-tachometer-alt"></i>

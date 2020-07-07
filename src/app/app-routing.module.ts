@@ -12,6 +12,7 @@ import { Covid19_Component } from './COVID19/covid19.component';
 import { ComboChartsComponent } from './ComboCharts/combocharts.component';
 import { BMap_BasicComponent } from './BMap/bmap_basic.component';
 import { Map_BasicComponent } from './Map/map_basic.component';
+import { TimeLineComponent } from './TimeLine/timeline_basic.component';
 
 const routes: Routes = [
   {
@@ -33,9 +34,6 @@ const routes: Routes = [
     path: 'basic/scatter', component: Scatter_BasicComponent,
   },
   {
-    path: 'basic/combocharts', component: ComboChartsComponent,
-  },
-  {
     path: 'basic/bmap', component: BMap_BasicComponent,
   },
   {
@@ -46,6 +44,12 @@ const routes: Routes = [
   },
   {
     path: '3d/bar3d', component: Bar3D_BasicComponent,
+  },
+  {
+    path: 'advance/combocharts', component: ComboChartsComponent,
+  },
+  {
+    path: 'advance/timeline', component: TimeLineComponent,
   },
   {
     path: 'covid19/basic', component: Covid19_Component,

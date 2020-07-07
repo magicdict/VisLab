@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +17,7 @@ import { BMap_BasicComponent } from './BMap/bmap_basic.component';
 import { Map_BasicComponent } from './Map/map_basic.component';
 import { Scatter3D_BasicComponent } from './Scatter3D/scatter3d_basic.component';
 import { Bar3D_BasicComponent } from './Bar3D/bar3d_basic.component';
+import { TimeLineComponent } from './TimeLine/timeline_basic.component'
 import { ChartComponent } from './Chart/chart.component';
 import { ComboChartsComponent } from './ComboCharts/combocharts.component';
 import { Covid19_Component } from './COVID19/covid19.component';
@@ -36,6 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     Map_BasicComponent,
     Scatter3D_BasicComponent,
     Bar3D_BasicComponent,
+    TimeLineComponent,
     ComboChartsComponent,
     Covid19_Component
   ],
@@ -48,7 +50,7 @@ import { HttpClientModule } from '@angular/common/http';
     }),
     OptionCreatorModule
   ],
-  providers:[],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
