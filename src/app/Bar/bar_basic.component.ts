@@ -13,6 +13,7 @@ export class Bar_BasicComponent implements OnInit {
   RainbowSample_Dark: BarOption;
   GradientSample: BarOption;
   Sample_dark_GradientSample: BarOption;
+  RainbowSample_PictorialBar: BarOption;
   ngOnInit(): void {
 
     let category = ['唐三', '戴沐白', "马红俊", "奥斯卡", "小舞", "宁荣荣", "朱竹清"];
@@ -22,7 +23,12 @@ export class Bar_BasicComponent implements OnInit {
     this.Sample.xAxis["axisLabel"] = { interval: 0, rotate: 45 }
 
     this.RainbowSample = BarOption.CreateBar(category, value);
-    this.RainbowSample.xAxis["show"] = false;
+    this.RainbowSample.xAxis["show"] = true;
+    this.RainbowSample.xAxis["axisLabel"] = { interval: 0, rotate: 45, color: "#FFFFFF" };
+    this.RainbowSample.xAxis["axisLine"] = { lineStyle: { color: "#FFFFFF" } };
+    this.RainbowSample.yAxis["show"] = true;
+    this.RainbowSample.yAxis["axisLabel"] = { color: "#FFFFFF" };
+    this.RainbowSample.yAxis["axisLine"] = { lineStyle: { color: "#FFFFFF" } };
     this.RainbowSample.series[0].itemStyle = {
       color: this.getColor,
       opacity: 0.5
@@ -30,7 +36,12 @@ export class Bar_BasicComponent implements OnInit {
     this.RainbowSample.series[0].emphasis.itemStyle = {
       opacity: 1
     };
+    var img = new Image();
+    img.src = '/assets/image/Background.jpg';
+    this.RainbowSample['backgroundColor'] = { 'image': img, type: "pattern", repeat: "repeat" };
 
+    let g = OptionHelper.chart_CreateGraphic("assets/image/小舞/头像.png", 64, 64, [32, 32], 10, null, null, 10)
+    this.RainbowSample['graphic'] = [g];
 
     this.RainbowSample_Dark = BarOption.CreateBar(category, value);
     OptionHelper.chart_SetBackGroundColor(this.RainbowSample_Dark, '#000000');//背景色
@@ -43,7 +54,6 @@ export class Bar_BasicComponent implements OnInit {
     this.RainbowSample_Dark.series[0].emphasis.itemStyle = {
       opacity: 1
     };
-
 
     this.GradientSample = BarOption.CreateBar(category, value);
     this.GradientSample.xAxis["show"] = false;
@@ -71,6 +81,27 @@ export class Bar_BasicComponent implements OnInit {
       formatter: this.SpotToolTip,
       position: 'inside',
     }
+
+    this.RainbowSample_PictorialBar = BarOption.CreatePictorialBar(category, value);
+    this.RainbowSample_PictorialBar.xAxis["show"] = false;
+    this.RainbowSample_PictorialBar.yAxis["show"] = false;
+    this.RainbowSample_PictorialBar.series[0]['barCategoryGap'] = '-130%';
+    this.RainbowSample_PictorialBar.series[0].itemStyle = {
+      color: this.getColor,
+      opacity: 0.5
+    };
+    this.RainbowSample_PictorialBar.series[0].emphasis.itemStyle = {
+      opacity: 1
+    };
+    this.RainbowSample_PictorialBar.series[0].label.position = "top";
+    this.RainbowSample_PictorialBar.series[0].label.rich = richitem;
+    this.RainbowSample_PictorialBar.series[0].label.formatter = this.symbol;
+    this.RainbowSample_PictorialBar['tooltip'] = {
+      trigger: 'item',
+      formatter: this.SpotToolTip,
+      position: 'inside',
+    }
+
   }
 
   getColor(params: any) {

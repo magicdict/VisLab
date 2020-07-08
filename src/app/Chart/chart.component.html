@@ -4,7 +4,7 @@
         <div class="box-tools pull-right">
         </div>
     </div>
-    <div class="card-body">
+    <div class="card-body" style="padding: 0px;">
         <echarts [options]="this.options" (chartInit)="ChartInited($event)" [ngStyle]="chartstyle" >
         </echarts>
     </div>
@@ -20,7 +20,7 @@
         <div class="box-tools pull-right">
         </div>
     </div>
-    <div class="card-body" style="background-color: black;">
+    <div class="card-body" style="background-color: black;padding: 0px;">
         <echarts [options]="this.options" (chartInit)="ChartInited($event)" [ngStyle]="chartstyle" >
         </echarts>
     </div>

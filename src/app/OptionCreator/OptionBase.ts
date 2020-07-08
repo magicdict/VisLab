@@ -47,6 +47,7 @@ export class Series {
     public data: any[];
     public type: string;
     public symbolSize?: any;
+    public symbol?:string;
     public itemStyle?: ItemStyle = new ItemStyle();
     public label?: Label = new Label();
     public emphasis?: Emphasis = new Emphasis();

@@ -1,6 +1,7 @@
 import { OnInit, Component } from '@angular/core';
 import { ChartColor } from '../OptionCreator/ChartColor'
 import { ScatterOption } from '../OptionCreator/Scatter';
+import { pathSymbols } from '../OptionCreator/ChartImage';
 @Component({
     templateUrl: './scatter_basic.component.html'
 })
@@ -24,6 +25,8 @@ export class Scatter_BasicComponent implements OnInit {
         }
         this.Sample = ScatterOption.CreateScatter(ds);
         this.Sample.series[0].itemStyle.color = this.getColor;
+        this.Sample.series[0].symbol = pathSymbols.rocket;
+        this.Sample.series[0].symbolSize = 25;
         this.Sample.series[0].itemStyle.opacity = 0.5;
         this.Sample.series[0].emphasis.itemStyle.opacity = 1;
     }

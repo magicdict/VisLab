@@ -8,7 +8,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class ChartComponent {
     @Input() title = '图表名称';
     @Input() boxstyle = { 'width': '350px', 'height': '350px' };
-    @Input() chartstyle = { 'width': '330px', 'height': '280px' };
+    @Input() chartstyle = { 'width': '350px', 'height': '300px' };
     @Input() footer = "";
     @Input() options = null;
     @Output() ChartInit = new EventEmitter();
@@ -18,7 +18,6 @@ export class ChartComponent {
         //console.log("Run ChartInited At Component")
         this.ChartInit.emit(e);
     }
-
 
     public static boxstyle_mini = { 'width': '250px', 'height': '150px' };
     public static chartstyle_mini = { 'width': '240px', 'height': '140px' };

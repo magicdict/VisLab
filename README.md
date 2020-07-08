@@ -49,6 +49,7 @@ export class LineOption extends OptionBase {
   - markPoint
   - markLine
 - 柱状图
+  - 象形柱图
 - 极坐标图
 - 雷达图
 - 散点图

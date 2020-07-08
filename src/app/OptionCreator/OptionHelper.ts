@@ -114,7 +114,8 @@ export class OptionHelper {
       bounding: 'raw',
       style: {
         image: url
-      }
+      },
+      cursor:'default'  //默认为pointer
     }
     if (origin) graphic['origin'] = origin;
     if (height) graphic.style['height'] = height;

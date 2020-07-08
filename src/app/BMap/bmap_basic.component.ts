@@ -8,7 +8,7 @@ import { ChartColor } from '../OptionCreator/ChartColor';
 import { Series, coordinateSystem_bmap } from '../OptionCreator/OptionBase';
 import { HttpClient } from '@angular/common/http';
 import { LinesDataItem, LinesSeries } from '../OptionCreator/LinesOption';
-import { pathSymbols } from '../OptionCreator/ChartImage';
+import { imagedata, pathSymbols } from '../OptionCreator/ChartImage';
 
 @Component({
     templateUrl: './bmap_basic.component.html',
@@ -57,7 +57,8 @@ export class BMap_BasicComponent implements OnInit {
         let lineB = new LinesDataItem([110.3473, 20.0403], [110.3573, 20.0503]);
         lineB.lineStyle = { "width": 10, "color": "green" };
         s2.data = [lineA, lineB];
-        s2.effect.symbol = pathSymbols.run;
+        s2.effect.symbol = 'image://assets/image/唐三/头像.png';
+        s2.effect.symbolSize = 50;
         s2.effect.color = 'red';
         this.Sample_Lines.series.push(s2);
 

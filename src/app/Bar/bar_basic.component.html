@@ -25,7 +25,7 @@
                 <chart [options]="Sample" style="width: 100px;height: 100px;" [title]="'柱状图'"></chart>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <chart [options]="RainbowSample" style="width: 100px;height: 100px;" [title]="'彩虹柱状图'"></chart>
+                <chart [options]="RainbowSample" [title]="'彩虹柱状图'"></chart>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <chart [options]="RainbowSample_Dark" style="width: 100px;height: 100px;" [dark]="true" [title]="'彩虹柱状图(黑色主题)'"></chart>
@@ -36,7 +36,10 @@
         </div>
         <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <chart [options]="Sample_dark_GradientSample" style="width: 100px;height: 100px;" [dark]="true"  [title]="'柱状图'"></chart>
+                <chart [options]="Sample_dark_GradientSample" style="width: 100px;height: 100px;" [dark]="true"  [title]="'渐变色柱状图(黑色主题)'"></chart>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <chart [options]="RainbowSample_PictorialBar" style="width: 100px;height: 100px;" [dark]="true"  [title]="'象形柱图'"></chart>
             </div>
         </div>
     </section>
