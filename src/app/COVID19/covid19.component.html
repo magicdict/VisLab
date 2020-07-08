@@ -22,18 +22,18 @@
     <section class="content">
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12">
-                <chart [options]="Line_Total" [boxstyle]="chartComp.boxstyle_Col6_Row2" [chartstyle]="chartComp.chartstyle_Col6_Row2" [title]="'累积人数（双坐标轴示例）'"></chart>
+                <chart (ChartInit)="GetMapChart($event)" [options]="ChinaMap" [boxstyle]="chartComp.boxstyle_Col6_Row2" [chartstyle]="chartComp.chartstyle_Col6_Row2" [title]="'3月15日累积感染人数（地图）'"></chart>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="col-md-6 col-sm-12 col-xs-12">
                 <chart [options]="Calendar_Total" [boxstyle]="chartComp.boxstyle_Col6_Row2" [chartstyle]="chartComp.chartstyle_Col6_Row2" [title]="'累积治愈人数（日历图）'"></chart>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12">
-
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <chart [options]="BarTimeLine" [boxstyle]="chartComp.boxstyle_Col6_Row2" [chartstyle]="chartComp.chartstyle_Col6_Row2" [title]="'3月除湖北累积感染人数（时序图）'"></chart>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-              
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <chart [options]="Line_Total" [boxstyle]="chartComp.boxstyle_Col6_Row2" [chartstyle]="chartComp.chartstyle_Col6_Row2" [title]="'累积人数（双坐标轴示例）'"></chart>
             </div>
         </div>
     </section>

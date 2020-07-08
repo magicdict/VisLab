@@ -15,6 +15,7 @@ export class ChartComponent {
     @Input() miniMode = false;
     @Input() dark = false;
     public ChartInited(e: any) {
+        //console.log("Run ChartInited At Component")
         this.ChartInit.emit(e);
     }
 
