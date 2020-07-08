@@ -54,6 +54,7 @@ export class LineOption extends OptionBase {
 - 散点图
 - 地图
 - 百度地图
+  - 路径图
 - 组合图
   - 雷达图 - 饼图
   - 饼图 - 折线图

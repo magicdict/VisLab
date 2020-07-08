@@ -7,7 +7,8 @@ import { OptionHelper } from '../OptionCreator/OptionHelper';
 import { ChartColor } from '../OptionCreator/ChartColor';
 import { Series, coordinateSystem_bmap } from '../OptionCreator/OptionBase';
 import { HttpClient } from '@angular/common/http';
-
+import { LinesDataItem, LinesSeries } from '../OptionCreator/LinesOption';
+import { pathSymbols } from '../OptionCreator/ChartImage';
 
 @Component({
     templateUrl: './bmap_basic.component.html',
@@ -19,6 +20,7 @@ export class BMap_BasicComponent implements OnInit {
 
     title = '百度地图-基本';
     Sample: BaiduMapOption;
+    Sample_Lines: BaiduMapOption;
     Sample_Colorful: BaiduMapOption;
     Sample_Heat: BaiduMapOption;
     chartComp = ChartComponent;
@@ -46,6 +48,19 @@ export class BMap_BasicComponent implements OnInit {
         heatdata.coordinateSystem = coordinateSystem_bmap;
         this.Sample_Heat.series.push(heatdata);
 
+        this.Sample_Lines = BaiduMapOption.CreateMapOption();
+        let s2 = new LinesSeries();
+        s2.type = "lines";
+        s2.coordinateSystem = coordinateSystem_bmap;
+        let lineA = new LinesDataItem([110.3373, 20.0303], [110.3473, 20.0403]);
+        lineA.lineStyle = { "width": 10, "color": "yellow" };
+        let lineB = new LinesDataItem([110.3473, 20.0403], [110.3573, 20.0503]);
+        lineB.lineStyle = { "width": 10, "color": "green" };
+        s2.data = [lineA, lineB];
+        s2.effect.symbol = pathSymbols.run;
+        s2.effect.color = 'red';
+        this.Sample_Lines.series.push(s2);
+
         priceMap.then(
             r => {
                 this.Sample_Heat.series[0].data = r.map(x => { return [x.lng, x.lat, x.value] })
@@ -54,8 +69,6 @@ export class BMap_BasicComponent implements OnInit {
                 this.HeatMapChart.setOption(this.Sample_Heat);
             }
         )
-
-        //JSON地图的注册
 
     }
     getLabel(params) {

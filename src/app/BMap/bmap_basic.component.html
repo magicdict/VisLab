@@ -22,18 +22,23 @@
     <section class="content">
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12">
-                <chart [options]="Sample" [boxstyle]="chartComp.boxstyle_Col6_Row2" [chartstyle]="chartComp.chartstyle_Col6_Row2" [title]="'百度地图(无色背景图)'"></chart>
+                <chart [options]="Sample" [boxstyle]="chartComp.boxstyle_Col6_Row2"
+                    [chartstyle]="chartComp.chartstyle_Col6_Row2" [title]="'百度地图(无色背景图)'"></chart>
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12">
-                <chart [options]="Sample_Colorful" [boxstyle]="chartComp.boxstyle_Col6_Row2" [chartstyle]="chartComp.chartstyle_Col6_Row2" [title]="'百度地图(默认背景图)'"></chart>
+                <chart [options]="Sample_Colorful" [boxstyle]="chartComp.boxstyle_Col6_Row2"
+                    [chartstyle]="chartComp.chartstyle_Col6_Row2" [title]="'百度地图(默认背景图)'"></chart>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12">
-                <chart [options]="Sample_Heat" (ChartInit)="GetMapChart($event)" [boxstyle]="chartComp.boxstyle_Col6_Row2" [chartstyle]="chartComp.chartstyle_Col6_Row2" [title]="'百度地图(热图)'"></chart>
+                <chart [options]="Sample_Heat" (ChartInit)="GetMapChart($event)"
+                    [boxstyle]="chartComp.boxstyle_Col6_Row2" [chartstyle]="chartComp.chartstyle_Col6_Row2"
+                    [title]="'百度地图(热图)'"></chart>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-              
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <chart [options]="Sample_Lines" [boxstyle]="chartComp.boxstyle_Col6_Row2"
+                    [chartstyle]="chartComp.chartstyle_Col6_Row2" [title]="'百度地图(路径图)'"></chart>
             </div>
         </div>
     </section>

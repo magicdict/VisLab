@@ -20,6 +20,7 @@ export class Calendar_BasicComponent implements OnInit {
         }
         this.Sample = CalendarOption.CreateCalendar(date, value, "heatmap");
         this.Sample.calendar.range = "2020-1";
+        this.Sample.series[0].label.formatter = (x) => { return x.value[0] + ":" + x.value[1] };
         OptionHelper.chart_SetVisualMap(this.Sample, 100, ChartColor.colorlist_VisualMapinRange);
     }
 }

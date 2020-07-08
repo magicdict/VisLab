@@ -1,6 +1,7 @@
 export const coordinateSystem_bmap = "bmap";                //百度地图
 export const coordinateSystem_calendar = "calendar";        //日历
 export const coordinateSystem_cartesian2d = "cartesian2d";  //2维
+export const coordinateSystem_geo = "geo";                  //地理
 export const coordinateSystem_polar = "polar";              //极坐标
 
 
@@ -83,6 +84,7 @@ export class VisualMap {
         color: []
     }
     public max: number;
+    public min: number;
     public calculable: boolean;
 }
 

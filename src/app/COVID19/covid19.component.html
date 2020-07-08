@@ -22,18 +22,15 @@
     <section class="content">
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12">
-                <chart [options]="Line_Total" [boxstyle]="chartComp.boxstyle_Col6_Row2" [chartstyle]="chartComp.chartstyle_Col6_Row2" [title]="'累积人数'"></chart>
+                <chart [options]="Line_Total" [boxstyle]="chartComp.boxstyle_Col6_Row2" [chartstyle]="chartComp.chartstyle_Col6_Row2" [title]="'累积人数（双坐标轴示例）'"></chart>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
-
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-
+                <chart [options]="Calendar_Total" [boxstyle]="chartComp.boxstyle_Col6_Row2" [chartstyle]="chartComp.chartstyle_Col6_Row2" [title]="'累积治愈人数（日历图）'"></chart>
             </div>
         </div>
         <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12">
-               
+
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
               

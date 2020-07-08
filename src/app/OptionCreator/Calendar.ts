@@ -1,6 +1,18 @@
 import { Chart2D, Series, coordinateSystem_polar, coordinateSystem_calendar } from './OptionBase';
+
+export class calendarConfig {
+    public left?: any;
+    public top?: any;
+    public cellSize?: number[];
+    public yearLabel?: any;
+    public orient?: string;
+    public dayLabel?: any;
+    public monthLabel?: any;
+    public range?: string|string[];
+}
+
 export class CalendarOption extends Chart2D {
-    public calendar: any = {
+    public calendar: calendarConfig = {
         left: 'center',
         top: 'middle',
         cellSize: [100, 100],

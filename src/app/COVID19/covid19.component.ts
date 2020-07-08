@@ -4,6 +4,9 @@ import { BarOption } from '../OptionCreator/BarOption';
 import { LineOption } from '../OptionCreator/LineOption';
 import { Axis } from '../OptionCreator/OptionBase';
 import { ChartComponent } from '../Chart/chart.component';
+import { CalendarOption } from '../OptionCreator/Calendar';
+import { OptionHelper } from '../OptionCreator/OptionHelper';
+import { ChartColor } from '../OptionCreator/ChartColor';
 @Component({
     templateUrl: './covid19.component.html'
 })
@@ -14,6 +17,7 @@ export class Covid19_Component implements OnInit {
 
     }
     Line_Total: BarOption;
+    Calendar_Total: CalendarOption;
     ngOnInit(): void {
         let priceMap = this.http.get<{ PublishDate: string, Confirmed_Total: number,Recoved_Total:number,Death_Total:number }[]>("assets/json/Daily_COVID19.json").toPromise();
         priceMap.then(
@@ -37,6 +41,16 @@ export class Covid19_Component implements OnInit {
                 this.Line_Total.series[2].itemStyle.color = "black";
                 this.Line_Total.series[2].name = "累积死亡人数";
                 this.Line_Total.series[2].yAxisIndex = 1;
+
+                let date = r.map(x => x.PublishDate.substring(0, 10));
+                let value = r.map(x => x.Recoved_Total);
+                this.Calendar_Total = CalendarOption.CreateCalendar(date, value, "heatmap");
+                this.Calendar_Total.calendar.range = ["2020-2","2020-4"];
+                this.Calendar_Total.calendar.monthLabel.show = true;
+                this.Calendar_Total.calendar.cellSize = [70,50];
+                this.Calendar_Total.series[0].label.formatter = (x) => { return x.value[0] + "\n" + x.value[1] };
+                OptionHelper.chart_SetVisualMap_Min(this.Calendar_Total, 80000,10000, ChartColor.colorlist_VisualMapinRange);
+
             }
         )
     }

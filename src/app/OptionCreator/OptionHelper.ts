@@ -11,6 +11,16 @@ export class OptionHelper {
   public static chart_SetVisualMap(option: OptionBase, max: number, colorlist: string[]) {
     let v = new VisualMap();
     v.max = max;
+    v.min = 0;
+    v.inRange.color = colorlist;
+    v.calculable = true;
+    option.visualMap.push(v);
+  }
+
+  public static chart_SetVisualMap_Min(option: OptionBase, max: number, min: number, colorlist: string[]) {
+    let v = new VisualMap();
+    v.max = max;
+    v.min = min;
     v.inRange.color = colorlist;
     v.calculable = true;
     option.visualMap.push(v);
