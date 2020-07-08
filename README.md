@@ -52,12 +52,14 @@ export class LineOption extends OptionBase {
 - 极坐标图
 - 雷达图
 - 散点图
+- 地图
+- 百度地图
 - 组合图
   - 雷达图 - 饼图
   - 饼图 - 折线图
+- 时间轴图
 - 3D散点图
 - 3D柱状图
-  
 
 ## 特效
 
@@ -70,3 +72,7 @@ export class LineOption extends OptionBase {
 ![南丁格尔图](image/南丁格尔图.jpg)
 
 ![折线曲线图](image/折线曲线图.jpg)
+
+## 微信公众号：数据可视化俱乐部
+
+![微信公众号：数据可视化俱乐部](qrcode_for_gh_a8991e1cdfec_344.jpg)

@@ -1,5 +1,5 @@
 
-import { Chart2D, Series } from './OptionBase';
+import { Chart2D, Series, coordinateSystem_polar } from './OptionBase';
 
 export class PolarOption extends Chart2D {
     public angleAxis = {};
@@ -12,7 +12,7 @@ export class PolarOption extends Chart2D {
         let s = new Series();
         s.type = "bar"
         s.data = data;
-        s.coordinateSystem = 'polar';
+        s.coordinateSystem = coordinateSystem_polar;
         return s;
     }
 

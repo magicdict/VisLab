@@ -5,7 +5,7 @@ import { ScatterOption } from '../OptionCreator/Scatter';
 import { CommonFunction } from '../common';
 import { OptionHelper } from '../OptionCreator/OptionHelper';
 import { ChartColor } from '../OptionCreator/ChartColor';
-import { Series } from '../OptionCreator/OptionBase';
+import { Series, coordinateSystem_bmap } from '../OptionCreator/OptionBase';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -30,7 +30,7 @@ export class BMap_BasicComponent implements OnInit {
             brushType: 'stroke'
         };
         s.symbolSize = 20;
-        s.coordinateSystem = "bmap";
+        s.coordinateSystem = coordinateSystem_bmap;
         s.label.formatter = this.getLabel;
         this.Sample.series.push(s);
 
@@ -43,7 +43,7 @@ export class BMap_BasicComponent implements OnInit {
         OptionHelper.chart_SetVisualMap(this.Sample_Heat, 300, ChartColor.colorlist_VisualMapinRange_More);
         let heatdata = new Series();
         heatdata.type = 'heatmap';
-        heatdata.coordinateSystem = "bmap";
+        heatdata.coordinateSystem = coordinateSystem_bmap;
         this.Sample_Heat.series.push(heatdata);
 
         priceMap.then(

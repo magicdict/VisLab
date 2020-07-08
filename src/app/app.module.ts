@@ -15,6 +15,8 @@ import { Radar_BasicComponent } from './radar/radar_basic.component';
 import { Scatter_BasicComponent } from './Scatter/scatter_basic.component';
 import { BMap_BasicComponent } from './BMap/bmap_basic.component';
 import { Map_BasicComponent } from './Map/map_basic.component';
+import { Calendar_BasicComponent } from './Calendar/calendar_basic.component';
+
 import { Scatter3D_BasicComponent } from './Scatter3D/scatter3d_basic.component';
 import { Bar3D_BasicComponent } from './Bar3D/bar3d_basic.component';
 import { TimeLineComponent } from './TimeLine/timeline_basic.component'
@@ -35,6 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     Scatter_BasicComponent,
     BMap_BasicComponent,
     Map_BasicComponent,
+    Calendar_BasicComponent,
     Scatter3D_BasicComponent,
     Bar3D_BasicComponent,
     TimeLineComponent,

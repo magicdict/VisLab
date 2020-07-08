@@ -13,6 +13,7 @@ import { ComboChartsComponent } from './ComboCharts/combocharts.component';
 import { BMap_BasicComponent } from './BMap/bmap_basic.component';
 import { Map_BasicComponent } from './Map/map_basic.component';
 import { TimeLineComponent } from './TimeLine/timeline_basic.component';
+import { Calendar_BasicComponent } from './Calendar/calendar_basic.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,9 @@ const routes: Routes = [
   },
   {
     path: 'basic/map', component: Map_BasicComponent,
+  },
+  {
+    path: 'basic/calendar', component: Calendar_BasicComponent,
   },
   {
     path: '3d/scatter3d', component: Scatter3D_BasicComponent,

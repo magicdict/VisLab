@@ -1,3 +1,9 @@
+export const coordinateSystem_bmap = "bmap";                //百度地图
+export const coordinateSystem_calendar = "calendar";        //日历
+export const coordinateSystem_cartesian2d = "cartesian2d";  //2维
+export const coordinateSystem_polar = "polar";              //极坐标
+
+
 export class OptionBase {
     public title?: Title;
     public legend?: any;
@@ -36,7 +42,7 @@ export class Grid3D {
 }
 
 export class Series {
-    public name?:string;
+    public name?: string;
     public data: any[];
     public type: string;
     public symbolSize?: any;
@@ -45,7 +51,7 @@ export class Series {
     public emphasis?: Emphasis = new Emphasis();
     public xAxisIndex?: number;
     public yAxisIndex?: number;
-    public coordinateSystem?: string;
+    public coordinateSystem? : string;  //饼图是没有这个坐标系统的，所以不能有初始值
 }
 
 export class Emphasis {
