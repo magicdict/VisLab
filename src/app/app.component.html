@@ -177,27 +177,32 @@
             </ul>
           </li>
 
-          <li class="nav-item has-treeview" [class.menu-open]="_path.startsWith('/covid19')">
-            <a href="#" class="nav-link" [class.active]="_path.startsWith('/covid19')">
+          <li class="nav-item has-treeview" [class.menu-open]="_path.startsWith('/demo')">
+            <a href="#" class="nav-link" [class.active]="_path.startsWith('/demo')">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                新冠肺炎2019
+                综合展示
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
 
               <li class="nav-item">
-                <a href="covid19/basic" class="nav-link" [class.active]="_path ==='/covid19/basic'">
+                <a href="demo/covid19" class="nav-link" [class.active]="_path ==='/demo/covid19'">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>基本情况</p>
+                  <p>新冠肺炎2019</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="demo/douluodalu" class="nav-link" [class.active]="_path ==='/demo/douluodalu'">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>斗罗大陆</p>
                 </a>
               </li>
 
             </ul>
           </li>
-
-
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

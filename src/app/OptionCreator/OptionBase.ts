@@ -11,7 +11,7 @@ export class OptionBase {
     public series: Series[] = [];
     public tooltip?: any = {};
     public visualMap?: VisualMap[] = [];
-    public grid?= null  //这里必须设定为null，否则js端报错
+    public grid? = null  //这里必须设定为null，否则js端报错
 }
 
 export class Chart2D extends OptionBase {

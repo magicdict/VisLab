@@ -65,6 +65,8 @@ export class LineOption extends OptionBase {
 
 ## 特效
 
+![柱状图](image/斗罗大陆.png)
+
 ![柱状图](image/柱状图.png)
 
 ![折线图](image/折线图.jpg)

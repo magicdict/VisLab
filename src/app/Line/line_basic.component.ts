@@ -23,7 +23,7 @@ export class Line_BasicComponent implements OnInit {
   ngOnInit(): void {
     this.Sample.xAxis["axisLabel"] = { interval: 0, rotate: 45 }
     OptionHelper.chart_SetToolBox(this.Sample, true, false, false, false, false, false);
-    let g = OptionHelper.chart_CreateGraphic("http://datavisualization.club/upload/2020/06/6pl00l1tp4ichrair393e86071.jpg", 50, 50, [25, 25], 0, null, 0, null)
+    let g = OptionHelper.chart_CreateGraphic_Image("http://datavisualization.club/upload/2020/06/6pl00l1tp4ichrair393e86071.jpg", 50, 50, [25, 25], 0, null, 0, null)
     this.Sample['graphic'] = [g];
     LineOption.series_SetMarkLine(this.Sample.series[0], MarkLineType.max, "最大");
     LineOption.series_SetMarkLine(this.Sample.series[0], MarkLineType.min, "最小");

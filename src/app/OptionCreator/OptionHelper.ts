@@ -31,6 +31,17 @@ export class OptionHelper {
     option["backgroundColor"] = color;
   }
 
+
+  public static chart_SetBackGroundImage(option: OptionBase, url: string, repeat: boolean) {
+    var img = new Image();
+    img.src = url;
+    if (repeat) {
+      option['backgroundColor'] = { 'image': img, type: "pattern", repeat: "repeat" };
+    } else {
+      option['backgroundColor'] = { 'image': img, type: "pattern", repeat: "no-repeat" };
+    }
+  }
+
   /**工具箱 */
   public static chart_SetToolBox(option: any, saveAsImage: boolean, restore: boolean,
     dataView: boolean, dataZoom: boolean, magicType: boolean, brush: boolean) {
@@ -105,7 +116,7 @@ export class OptionHelper {
    * @param left 左边据
    * @param right 右边据
    */
-  public static chart_CreateGraphic(url: string, height?: number, width?: number, origin?: number[],
+  public static chart_CreateGraphic_Image(url: string, height?: number, width?: number, origin?: number[],
     top?: number, bottom?: number, left?: number, right?: number) {
     let graphic = {
       type: 'image',
@@ -115,7 +126,7 @@ export class OptionHelper {
       style: {
         image: url
       },
-      cursor:'default'  //默认为pointer
+      cursor: 'default'  //默认为pointer
     }
     if (origin) graphic['origin'] = origin;
     if (height) graphic.style['height'] = height;
@@ -124,6 +135,58 @@ export class OptionHelper {
     if (bottom) graphic['bottom'] = bottom;
     if (left) graphic['left'] = left;
     if (right) graphic['right'] = right;
+    return graphic;
+  }
+
+  public static chart_CreateGraphic_group(children: any[], totation: number, top?: number, bottom?: number, left?: number, right?: number) {
+    let graphic = {
+      type: 'group',
+      rotation: totation,
+      bounding: 'raw',
+      z: 100,
+      children: children,
+      cursor: 'default'  //默认为pointer
+    }
+
+    if (top) graphic['top'] = top;
+    if (bottom) graphic['bottom'] = bottom;
+    if (left) graphic['left'] = left;
+    if (right) graphic['right'] = right;
+    return graphic;
+  }
+
+  public static chart_CreateGraphic_rect(width: number, height: number, color: string) {
+    let graphic = {
+      type: 'rect',
+      left: 'center',
+      top: 'center',
+      z: 100,
+      shape: {
+        width: width,
+        height: height
+      },
+      style: {
+        fill: color
+      },
+      cursor: 'default'  //默认为pointer
+    }
+    return graphic;
+  }
+
+
+  public static chart_CreateGraphic_Text(text: string, color: string) {
+    let graphic = {
+      type: 'text',
+      left: 'center',
+      top: 'center',
+      z: 100,
+      style: {
+        fill: color,
+        text: text,
+        font: 'bold 26px Microsoft YaHei'
+      },
+      cursor: 'default'  //默认为pointer
+    }
     return graphic;
   }
 

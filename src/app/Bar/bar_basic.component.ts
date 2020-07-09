@@ -40,7 +40,7 @@ export class Bar_BasicComponent implements OnInit {
     img.src = '/assets/image/Background.jpg';
     this.RainbowSample['backgroundColor'] = { 'image': img, type: "pattern", repeat: "repeat" };
 
-    let g = OptionHelper.chart_CreateGraphic("assets/image/小舞/头像.png", 64, 64, [32, 32], 10, null, null, 10)
+    let g = OptionHelper.chart_CreateGraphic_Image("assets/image/小舞/头像.png", 64, 64, [32, 32], 10, null, null, 10)
     this.RainbowSample['graphic'] = [g];
 
     this.RainbowSample_Dark = BarOption.CreateBar(category, value);

@@ -14,6 +14,7 @@ import { BMap_BasicComponent } from './BMap/bmap_basic.component';
 import { Map_BasicComponent } from './Map/map_basic.component';
 import { TimeLineComponent } from './TimeLine/timeline_basic.component';
 import { Calendar_BasicComponent } from './Calendar/calendar_basic.component';
+import { DouluoDalu_Component } from './DouluoDalu/douluodalu.component';
 
 const routes: Routes = [
   {
@@ -56,7 +57,10 @@ const routes: Routes = [
     path: 'advance/timeline', component: TimeLineComponent,
   },
   {
-    path: 'covid19/basic', component: Covid19_Component,
+    path: 'demo/covid19', component: Covid19_Component,
+  },
+  {
+    path: 'demo/douluodalu', component: DouluoDalu_Component,
   },
   {
     path: '', redirectTo: 'basic/bar', pathMatch: 'full'

@@ -39,4 +39,11 @@ export class PieOption extends Chart2D {
 export class PieSeries extends Series {
     public radius: string | number[];
     public roseType: string;
+    //位置信息
+    public height?: string | number;
+    public width?: string | number;
+    public top?: string | number;
+    public bottom?: string | number;
+    public left?: string | number;
+    public right?: string | number;
 }
