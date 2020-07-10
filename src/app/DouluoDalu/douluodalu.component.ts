@@ -1,11 +1,12 @@
 import { OnInit, Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ChartComponent } from '../Chart/chart.component';
-import { Chart2D, OptionBase, Axis, Series } from '../OptionCreator/OptionBase';
+import { Chart2D, Axis, Series, Grid } from '../OptionCreator/OptionBase';
 import { OptionHelper } from '../OptionCreator/OptionHelper';
 import { BarOption } from '../OptionCreator/BarOption';
 import { PieOption } from '../OptionCreator/PieOption';
 import { ChartColor } from '../OptionCreator/ChartColor';
+import { RadarConfig } from '../OptionCreator/Radar';
 
 @Component({
     templateUrl: './douluodalu.component.html'
@@ -37,15 +38,13 @@ export class DouluoDalu_Component implements OnInit {
         let indicators = [{ name: "攻击", max: 100 }, { name: "防御", max: 100 }, { name: "生命", max: 100 }, { name: "魂力", max: 100 }, { name: "速度", max: 100 }];
 
 
-        //组合图，划分4个部分
-        //没有坐标轴的，直接设定位置信息
-
         let grid = []
         this.Sample.xAxis = [];
         this.Sample.yAxis = [];
 
+        //没有坐标轴的，直接设定位置信息
         let PieSeries = PieOption.CreateNightingalePieItem(namevalue, "200");
-        PieSeries.itemStyle.opacity  = 0.7;
+        PieSeries.itemStyle.opacity = 0.7;
         PieSeries.top = 100;
         PieSeries.left = 50;
         PieSeries.width = 550;
@@ -78,25 +77,25 @@ export class DouluoDalu_Component implements OnInit {
         BarSeries.emphasis.itemStyle = {
             opacity: 1
         };
-
-        grid.push({
-            'top': '450', 'left': '650', 'width': '300', 'height': '250'
-        })
+        let bargrid = new Grid();
+        bargrid.top = 450;
+        bargrid.left = 650;
+        bargrid.width = 300;
+        bargrid.height = 250;
+        grid.push(bargrid)
         this.Sample.series.push(BarSeries);
-
         this.Sample.grid = grid;
 
         //雷达图:通过center和radius定位
-        this.Sample['radar'] = {
-            indicator: indicators,
-            center: [900, 200],
-            radius: 150,
-            splitLine: {
-                lineStyle: {
-                    color: ChartColor.colorlist_7_Baidu
-                }
+        this.Sample.radar = new RadarConfig();
+        this.Sample.radar.indicator = indicators;
+        this.Sample.radar.center = [900, 200];
+        this.Sample.radar.radius = 150;
+        this.Sample.radar.splitLine = {
+            lineStyle: {
+                color: ChartColor.colorlist_7_Baidu
             }
-        };
+        }
         let RadarSeries = new Series();
         RadarSeries.type = 'radar';
         RadarSeries.data = dataset;
@@ -114,11 +113,19 @@ export class DouluoDalu_Component implements OnInit {
         //添加背景图（无图表内容的时候，不会绘制空的背景）
         OptionHelper.chart_SetBackGroundImage(this.Sample, '/assets/image/Background2.jpg', false);
         //增加图片
-        let image = OptionHelper.chart_CreateGraphic_Image("assets/image/唐三/头像.png", 128, 280, [64, 140], 650, null, 20, null)
+        let imggrid = new Grid();
+        imggrid.height = 128;
+        imggrid.width = 280;
+        imggrid.top = 650;
+        imggrid.left = 20;
+        let image = OptionHelper.chart_CreateGraphic_Image("assets/image/唐三/头像.png", imggrid, null)
         //右下角标识
         let text = OptionHelper.chart_CreateGraphic_Text("绝世唐门", 'white');
         let rect = OptionHelper.chart_CreateGraphic_rect(400, 50, "orange");
-        let group = OptionHelper.chart_CreateGraphic_group([rect, text], -Math.PI / 4, 100, null, null, 100);
+        let groupgrid = new Grid();
+        groupgrid.top = 100;
+        groupgrid.right = 100;
+        let group = OptionHelper.chart_CreateGraphic_group([rect, text], -Math.PI / 4,groupgrid);
 
         this.Sample['graphic'] = [image, group];
         console.log(this.Sample);

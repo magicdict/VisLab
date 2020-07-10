@@ -3,7 +3,7 @@ import { LineOption, MarkPointType, MarkLineType } from '../OptionCreator/LineOp
 import { BarOption } from '../OptionCreator/BarOption';
 import { ChartColor, Direction } from '../OptionCreator/ChartColor'
 import { OptionHelper } from '../OptionCreator/OptionHelper';
-import { AreaStyle } from '../OptionCreator/OptionBase';
+import { AreaStyle, Grid } from '../OptionCreator/OptionBase';
 
 @Component({
   templateUrl: './line_basic.component.html'
@@ -23,7 +23,12 @@ export class Line_BasicComponent implements OnInit {
   ngOnInit(): void {
     this.Sample.xAxis["axisLabel"] = { interval: 0, rotate: 45 }
     OptionHelper.chart_SetToolBox(this.Sample, true, false, false, false, false, false);
-    let g = OptionHelper.chart_CreateGraphic_Image("http://datavisualization.club/upload/2020/06/6pl00l1tp4ichrair393e86071.jpg", 50, 50, [25, 25], 0, null, 0, null)
+    let imggrid = new Grid();
+    imggrid.height = 50;
+    imggrid.width = 50;
+    imggrid.top = 0;
+    imggrid.left = 0;
+    let g = OptionHelper.chart_CreateGraphic_Image("http://datavisualization.club/upload/2020/06/6pl00l1tp4ichrair393e86071.jpg", imggrid, null)
     this.Sample['graphic'] = [g];
     LineOption.series_SetMarkLine(this.Sample.series[0], MarkLineType.max, "最大");
     LineOption.series_SetMarkLine(this.Sample.series[0], MarkLineType.min, "最小");

@@ -1,5 +1,5 @@
 import { ECharts } from 'echarts';
-import { OptionBase, VisualMap } from './OptionBase';
+import { OptionBase, VisualMap, Grid } from './OptionBase';
 
 export class OptionHelper {
   /**
@@ -108,16 +108,10 @@ export class OptionHelper {
   /**
    * 
    * @param url 地址
-   * @param height 高度
-   * @param width 宽度
+   * @param grid 位置大小信息
    * @param origin 旋转和缩放的中心点
-   * @param top 顶端距离
-   * @param bottom 低端距离
-   * @param left 左边据
-   * @param right 右边据
    */
-  public static chart_CreateGraphic_Image(url: string, height?: number, width?: number, origin?: number[],
-    top?: number, bottom?: number, left?: number, right?: number) {
+  public static chart_CreateGraphic_Image(url: string, grid: Grid, origin: number[]) {
     let graphic = {
       type: 'image',
       id: 'logo',
@@ -129,16 +123,16 @@ export class OptionHelper {
       cursor: 'default'  //默认为pointer
     }
     if (origin) graphic['origin'] = origin;
-    if (height) graphic.style['height'] = height;
-    if (width) graphic.style['width'] = width;
-    if (top) graphic['top'] = top;
-    if (bottom) graphic['bottom'] = bottom;
-    if (left) graphic['left'] = left;
-    if (right) graphic['right'] = right;
+    if (grid.height) graphic.style['height'] = grid.height;
+    if (grid.width) graphic.style['width'] = grid.width;
+    if (grid.top) graphic['top'] = grid.top;
+    if (grid.bottom) graphic['bottom'] = grid.bottom;
+    if (grid.left) graphic['left'] = grid.left;
+    if (grid.right) graphic['right'] = grid.right;
     return graphic;
   }
 
-  public static chart_CreateGraphic_group(children: any[], totation: number, top?: number, bottom?: number, left?: number, right?: number) {
+  public static chart_CreateGraphic_group(children: any[], totation: number, grid: Grid) {
     let graphic = {
       type: 'group',
       rotation: totation,
@@ -148,10 +142,12 @@ export class OptionHelper {
       cursor: 'default'  //默认为pointer
     }
 
-    if (top) graphic['top'] = top;
-    if (bottom) graphic['bottom'] = bottom;
-    if (left) graphic['left'] = left;
-    if (right) graphic['right'] = right;
+    if (grid.height) graphic['height'] = grid.height;
+    if (grid.width) graphic['width'] = grid.width;
+    if (grid.top) graphic['top'] = grid.top;
+    if (grid.bottom) graphic['bottom'] = grid.bottom;
+    if (grid.left) graphic['left'] = grid.left;
+    if (grid.right) graphic['right'] = grid.right;
     return graphic;
   }
 

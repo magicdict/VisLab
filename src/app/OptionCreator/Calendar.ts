@@ -1,6 +1,6 @@
-import { Chart2D, Series, coordinateSystem_polar, coordinateSystem_calendar } from './OptionBase';
+import { Chart2D, Series, coordinateSystem_calendar } from './OptionBase';
 
-export class calendarConfig {
+export class CalendarConfig {
     public left?: any;
     public top?: any;
     public cellSize?: number[];
@@ -8,28 +8,21 @@ export class calendarConfig {
     public orient?: string;
     public dayLabel?: any;
     public monthLabel?: any;
-    public range?: string|string[];
+    public range?: string | string[];
 }
 
 export class CalendarOption extends Chart2D {
-    public calendar: calendarConfig = {
-        left: 'center',
-        top: 'middle',
-        cellSize: [100, 100],
-        yearLabel: { show: false },
-        orient: 'vertical',
-        dayLabel: {
-            firstDay: 1,
-            nameMap: 'cn'
-        },
-        monthLabel: {
-            show: false
-        },
-        range: []
-    }
-
     public static CreateCalendar(date: string[], value: number[], type: string) {
         let o = new CalendarOption();
+        o.calendar = new CalendarConfig();
+        o.calendar.left = 'center';
+        o.calendar.top = 'middle';
+        o.calendar.cellSize = [100, 100];
+        o.calendar.yearLabel = { show: false };
+        o.calendar.orient = 'vertical';
+        o.calendar.dayLabel = { firstDay: 1, nameMap: 'cn' };
+        o.calendar.monthLabel = { show: false };
+        o.calendar.range = [];
         o.series = [];
         let s = new Series();
         s.coordinateSystem = coordinateSystem_calendar;

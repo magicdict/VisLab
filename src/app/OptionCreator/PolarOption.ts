@@ -2,12 +2,6 @@
 import { Chart2D, Series, coordinateSystem_polar } from './OptionBase';
 
 export class PolarOption extends Chart2D {
-    public angleAxis = {};
-    public radiusAxis = {};
-    public polar = {
-        radius: "55%"
-    }
-
     static CreatePolarBarItem(data: number[]) {
         let s = new Series();
         s.type = "bar"
@@ -24,11 +18,14 @@ export class PolarOption extends Chart2D {
                 type: 'cross'
             }
         };
-        o.angleAxis = {
-            type: 'category',
-            data: data.map(x => x.name),
-            z: 10,
-        };
+        o.radiusAxis = new RadiusAxis();    //即使不用也不可为null
+
+        o.angleAxis = new AngleAxis();
+        o.angleAxis.type = "category"
+        o.angleAxis.data = data.map(x => x.name);
+        o.angleAxis.z = 10;
+
+        o.polar = new PolarConfig();
         o.polar.radius = radius;
         let i = this.CreatePolarBarItem(data.map(x => x.value));
         o.series.push(i);
@@ -51,25 +48,40 @@ export class PolarOption extends Chart2D {
                 type: 'cross'
             }
         };
-        o.radiusAxis = {
-            type: 'category',
-            data: radiusAxis,
-            z: 10,
-            axisLabel: {
-                interval: 0
-            }
-        };
-        o.angleAxis = {
-            type: 'category',
-            data: angleAxis,
-            z: 10,
-            axisLabel: {
-                interval: 0
-            }
-        };
+        o.radiusAxis = new RadiusAxis();
+        o.radiusAxis.type = "category"
+        o.radiusAxis.data = radiusAxis;
+        o.radiusAxis.z = 10;
+        o.radiusAxis.axisLabel = { interval: 0 };
+
+        o.angleAxis = new AngleAxis();
+        o.angleAxis.type = "category"
+        o.angleAxis.data = angleAxis;
+        o.angleAxis.z = 10;
+        o.angleAxis.axisLabel = { interval: 0 };
+
+        o.polar = new PolarConfig();
         o.polar.radius = radius;
         o.series.push(this.CreatePolarScatterItem(data))
         return o;
     }
 
+}
+
+export class PolarConfig {
+    public radius: string | number;
+}
+
+export class RadiusAxis {
+    public type: string;
+    public data: string[];
+    public z?: number;
+    public axisLabel?: any;
+}
+
+export class AngleAxis {
+    public type: string;
+    public data: string[];
+    public z?: number;
+    public axisLabel?: any;
 }

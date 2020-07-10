@@ -1,3 +1,7 @@
+import { RadarConfig } from './Radar';
+import { PolarConfig, AngleAxis, RadiusAxis } from './PolarOption';
+import { CalendarConfig } from './Calendar';
+
 export const coordinateSystem_bmap = "bmap";                //百度地图
 export const coordinateSystem_calendar = "calendar";        //日历
 export const coordinateSystem_cartesian2d = "cartesian2d";  //2维
@@ -11,7 +15,26 @@ export class OptionBase {
     public series: Series[] = [];
     public tooltip?: any = {};
     public visualMap?: VisualMap[] = [];
-    public grid? = null  //这里必须设定为null，否则js端报错
+    public grid?: Grid[] = undefined;  //这里必须设定为null，否则js端报错
+    //雷达用
+    public radar?: RadarConfig = undefined;
+    //极坐标用
+    public polar?: PolarConfig = undefined;
+    public angleAxis?: AngleAxis = undefined;
+    public radiusAxis?: RadiusAxis = undefined;
+    //日历用
+    public calendar?: CalendarConfig = undefined;
+    //时间轴用
+
+}
+
+export class Grid {
+    public top?: string | number;
+    public bottom?: string | number;
+    public left?: string | number;
+    public right?: string | number;
+    public width?: string | number;
+    public height?: string | number;
 }
 
 export class Chart2D extends OptionBase {
@@ -20,9 +43,9 @@ export class Chart2D extends OptionBase {
 }
 
 export class Chart3D extends OptionBase {
-    public xAxis3D: Axis
-    public yAxis3D: Axis
-    public zAxis3D: Axis
+    public xAxis3D: Axis;
+    public yAxis3D: Axis;
+    public zAxis3D: Axis;
     public grid3D: Grid3D = new Grid3D();    //必须项目
 }
 
@@ -47,13 +70,13 @@ export class Series {
     public data: any[];
     public type: string;
     public symbolSize?: any;
-    public symbol?:string;
+    public symbol?: string;
     public itemStyle?: ItemStyle = new ItemStyle();
     public label?: Label = new Label();
     public emphasis?: Emphasis = new Emphasis();
     public xAxisIndex?: number;
     public yAxisIndex?: number;
-    public coordinateSystem? : string;  //饼图是没有这个坐标系统的，所以不能有初始值
+    public coordinateSystem?: string;  //饼图是没有这个坐标系统的，所以不能有初始值
 }
 
 export class Emphasis {
