@@ -40,6 +40,7 @@ export class Line_BasicComponent implements OnInit {
     LineOption.series_SetMarkPoint(this.Sample_Smooth.series[0], MarkPointType.max, "最大");
     LineOption.series_SetMarkPoint(this.Sample_Smooth.series[0], MarkPointType.min, "最小");
     LineOption.series_SetMarkPoint(this.Sample_Smooth.series[0], MarkPointType.average, "平均");
+    OptionHelper.chart_SetDataZoom(this.Sample_Smooth, 20, 80, Direction.Vertical);
 
     this.GradientSample.xAxis["axisLabel"] = { interval: 0, rotate: 45 }
     this.GradientSample.series[0]["smooth"] = true;

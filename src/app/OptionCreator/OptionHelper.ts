@@ -1,5 +1,6 @@
 import { ECharts } from 'echarts';
-import { OptionBase, VisualMap, Grid } from './OptionBase';
+import { OptionBase, VisualMap, Grid, DataZoom } from './OptionBase';
+import { Direction } from './ChartColor';
 
 export class OptionHelper {
   /**
@@ -24,6 +25,20 @@ export class OptionHelper {
     v.inRange.color = colorlist;
     v.calculable = true;
     option.visualMap.push(v);
+  }
+
+  public static chart_SetDataZoom(option: OptionBase, start: number, end: number, direct: Direction) {
+    let z = new DataZoom();
+    if (direct === Direction.Horizontal) {
+      z.xAxisIndex = [0];
+    } else {
+      z.yAxisIndex = [0];
+    }
+
+    z.start = start;
+    z.end = end;
+    if (!option.dataZoom) option.dataZoom = [];
+    option.dataZoom.push(z);
   }
 
   /**背景色 */

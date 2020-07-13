@@ -87,7 +87,7 @@ export class Bar_BasicComponent implements OnInit {
       position: 'inside',
     }
 
-    this.RainbowSample_PictorialBar = BarOption.CreatePictorialBar(category, value);
+    this.RainbowSample_PictorialBar = BarOption.CreatePictorialBar(category, value, false);
     this.RainbowSample_PictorialBar.xAxis["show"] = false;
     this.RainbowSample_PictorialBar.yAxis["show"] = false;
     this.RainbowSample_PictorialBar.series[0]['barCategoryGap'] = '-130%';

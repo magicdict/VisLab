@@ -25,7 +25,16 @@ export class OptionBase {
     //日历用
     public calendar?: CalendarConfig = undefined;
     //时间轴用
+    public dataZoom?:DataZoom[] = undefined;
+}
 
+export class DataZoom{
+    public type:string =  'slider';
+    public show: boolean;
+    public xAxisIndex:number[];
+    public yAxisIndex:number[];
+    public start: number;
+    public end: number;
 }
 
 export class Grid {

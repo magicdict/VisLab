@@ -23,6 +23,7 @@ import { TimeLineComponent } from './TimeLine/timeline_basic.component'
 import { ChartComponent } from './Chart/chart.component';
 import { ComboChartsComponent } from './ComboCharts/combocharts.component';
 import { Covid19_Component } from './COVID19/covid19.component';
+import { History_Component} from './History/history.component'
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -35,7 +36,6 @@ import { HttpClientModule } from '@angular/common/http';
     Polar_BasicComponent,
     Radar_BasicComponent,
     Scatter_BasicComponent,
-    DouluoDalu_Component,
     BMap_BasicComponent,
     Map_BasicComponent,
     Calendar_BasicComponent,
@@ -43,7 +43,9 @@ import { HttpClientModule } from '@angular/common/http';
     Bar3D_BasicComponent,
     TimeLineComponent,
     ComboChartsComponent,
-    Covid19_Component
+    DouluoDalu_Component,
+    Covid19_Component,
+    History_Component
   ],
   imports: [
     BrowserModule,

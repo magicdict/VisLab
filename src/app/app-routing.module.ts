@@ -15,6 +15,7 @@ import { Map_BasicComponent } from './Map/map_basic.component';
 import { TimeLineComponent } from './TimeLine/timeline_basic.component';
 import { Calendar_BasicComponent } from './Calendar/calendar_basic.component';
 import { DouluoDalu_Component } from './DouluoDalu/douluodalu.component';
+import { History_Component } from './History/history.component';
 
 const routes: Routes = [
   {
@@ -61,6 +62,9 @@ const routes: Routes = [
   },
   {
     path: 'demo/douluodalu', component: DouluoDalu_Component,
+  },
+  {
+    path: 'demo/history', component: History_Component,
   },
   {
     path: '', redirectTo: 'basic/bar', pathMatch: 'full'

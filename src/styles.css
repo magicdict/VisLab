@@ -3,3 +3,10 @@
 * {
     font-size: 12px;
 }
+
+.borderimage{
+    border: 50px solid transparent;
+    border-image-source: url("assets/image/边框图.png");
+    border-image-slice: 50 ;
+    border-image-repeat: repeat;
+}
