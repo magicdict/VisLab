@@ -1,6 +1,6 @@
 import { OnInit, Component } from '@angular/core';
 import { ChartComponent } from '../Chart/chart.component';
-import { Chart2D, Series } from '../OptionCreator/OptionBase';
+import { OptionBase, Series } from '../OptionCreator/OptionBase';
 import { registerMap } from 'echarts';
 import { HttpClient } from '@angular/common/http';
 
@@ -25,8 +25,8 @@ export class Map_BasicComponent implements OnInit {
     }
 
     title = '地图-基本';
-    Sample: Chart2D = new Chart2D();
-    Sample_ZJ: Chart2D = new Chart2D();
+    Sample: OptionBase = new OptionBase();
+    Sample_ZJ: OptionBase = new OptionBase();
     chartComp = ChartComponent;
     ChinaMap: any;
     GetMapChart(chart: any) {

@@ -1,6 +1,7 @@
 import { RadarConfig } from './Radar';
 import { PolarConfig, AngleAxis, RadiusAxis } from './PolarOption';
 import { CalendarConfig } from './Calendar';
+import { AxisType } from './enum';
 
 export const coordinateSystem_bmap = "bmap";                //百度地图
 export const coordinateSystem_calendar = "calendar";        //日历
@@ -10,29 +11,41 @@ export const coordinateSystem_polar = "polar";              //极坐标
 
 
 export class OptionBase {
-    public title?: Title;
-    public legend?: any;
-    public series: Series[] = [];
-    public tooltip?: any = {};
-    public visualMap?: VisualMap[] = [];
-    public grid?: Grid[] = undefined;  //这里必须设定为null，否则js端报错
-    //雷达用
-    public radar?: RadarConfig = undefined;
+    public title?: Title = undefined;
+    public legend?: any = undefined;
     //极坐标用
     public polar?: PolarConfig = undefined;
     public angleAxis?: AngleAxis = undefined;
     public radiusAxis?: RadiusAxis = undefined;
+    //雷达用
+    public radar?: RadarConfig = undefined;
+    //时间轴用
+    public dataZoom?: DataZoom[] = undefined;
+    public visualMap?: VisualMap[] = [];
+    public tooltip?: any = {};
+    public grid?: Grid[] = undefined;  //这里必须设定为null，否则js端报错
+    public graphic?: any[] = undefined;
     //日历用
     public calendar?: CalendarConfig = undefined;
-    //时间轴用
-    public dataZoom?:DataZoom[] = undefined;
+    public xAxis?: Axis | Axis[] = undefined;
+    public yAxis?: Axis | Axis[] = undefined;
+    public geo?: any = undefined;
+    //数据序列
+    public series: Series[] = [];
+    public backgroundColor?: any = undefined;
+    //注意，这个即使是undefined也会造成无法绘制，原因是破坏了既定值，所以点的颜色都是没有的
+    public color: string[] = ['#c23531','#2f4554', '#61a0a8', '#d48265', '#91c7ae','#749f83',  '#ca8622', '#bda29a','#6e7074', '#546570', '#c4ccd3'];
+    /**是否开启动画。 */
+    public animation: boolean = true;
+    /**是否开启动画的阈值，当单个系列显示的图形数量大于这个阈值时会关闭动画。 */
+    public animationThreshold: number = 2000;
 }
 
-export class DataZoom{
-    public type:string =  'slider';
+export class DataZoom {
+    public type: string = 'slider';
     public show: boolean;
-    public xAxisIndex:number[];
-    public yAxisIndex:number[];
+    public xAxisIndex: number[];
+    public yAxisIndex: number[];
     public start: number;
     public end: number;
 }
@@ -46,16 +59,15 @@ export class Grid {
     public height?: string | number;
 }
 
-export class Chart2D extends OptionBase {
-    public xAxis: Axis | Axis[];
-    public yAxis: Axis | Axis[];
-}
 
 export class Chart3D extends OptionBase {
+    public globe: any;
+    public geo3D: any;
+    public mapbox3D: any;
+    public grid3D: Grid3D = new Grid3D();    //必须项目
     public xAxis3D: Axis;
     public yAxis3D: Axis;
     public zAxis3D: Axis;
-    public grid3D: Grid3D = new Grid3D();    //必须项目
 }
 
 export class Grid3D {
@@ -105,9 +117,11 @@ export class Title {
     public text: string;
 }
 
-export class Axis {
+
+
+export class Axis { 
     public name: string;
-    public type: string;
+    public type: AxisType;
     public data: string[];
     public gridIndex?: number;
 }

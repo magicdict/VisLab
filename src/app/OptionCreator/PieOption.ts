@@ -1,8 +1,8 @@
 
 import { ChartColor } from './ChartColor';
-import { Chart2D, Series } from './OptionBase';
+import { OptionBase, Series } from './OptionBase';
 
-export class PieOption extends Chart2D {
+export class PieOption extends OptionBase {
 
     static CreatePieItem(data: { name: string, value: number }[], radius: string | number[]) {
         let s = new PieSeries();
@@ -18,7 +18,8 @@ export class PieOption extends Chart2D {
         s.data = data.sort((x, y) => { return y.value - x.value });    //为了美观，数据排序
         s.radius = radius;
         s.roseType = "area";
-        s['color'] = ChartColor.colorlist_7_Baidu;
+        s['color'] = ChartColor.colorlist_7_Baidu;  
+        //s.itemStyle.color = ChartColor.colorlist_7_Baidu; //文档中是设置在这里，但是这样会使得整个颜色错误！
         return s;
     }
 

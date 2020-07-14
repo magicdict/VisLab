@@ -1,7 +1,7 @@
 
-import { Chart2D, Series, coordinateSystem_polar } from './OptionBase';
+import { OptionBase, Series, coordinateSystem_polar } from './OptionBase';
 
-export class PolarOption extends Chart2D {
+export class PolarOption extends OptionBase {
     static CreatePolarBarItem(data: number[]) {
         let s = new Series();
         s.type = "bar"

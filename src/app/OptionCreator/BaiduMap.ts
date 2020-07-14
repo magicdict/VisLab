@@ -1,6 +1,6 @@
-import { Chart2D } from "./OptionBase";
+import { OptionBase } from "./OptionBase";
 
-export class BaiduMapOption extends Chart2D {
+export class BaiduMapOption extends OptionBase {
     public static CreateMapOption() {
         let o = new BaiduMapOption();
         o.series = [];

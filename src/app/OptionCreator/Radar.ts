@@ -1,7 +1,7 @@
 
-import { Chart2D } from './OptionBase';
+import { OptionBase } from './OptionBase';
 
-export class RadarOption extends Chart2D {
+export class RadarOption extends OptionBase {
     /**
      * 生成雷达图
      * @param indicators 雷达标识

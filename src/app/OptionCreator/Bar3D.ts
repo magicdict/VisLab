@@ -1,4 +1,5 @@
 import { Chart3D, Series, Axis } from './OptionBase';
+import { AxisType } from './enum';
 
 export class Bar3D extends Chart3D {
     public static CreateBar3DItem(data: any[][]) {
@@ -21,9 +22,9 @@ export class Bar3D extends Chart3D {
         o.xAxis3D.name = xAxisName;
         o.yAxis3D.name = yAxisName;
         o.zAxis3D.name = zAxisName;
-        o.xAxis3D.type = "category"
-        o.yAxis3D.type = "category"
-        o.zAxis3D.type = "value"
+        o.xAxis3D.type = AxisType.category
+        o.yAxis3D.type = AxisType.category
+        o.zAxis3D.type = AxisType.value
         o.series.push(this.CreateBar3DItem(data))
 
         return o;

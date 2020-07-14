@@ -6,6 +6,7 @@ import { PieOption } from '../OptionCreator/PieOption';
 import { CommonFunction } from '../common';
 import { LineOption } from '../OptionCreator/LineOption';
 import { Axis } from '../OptionCreator/OptionBase';
+import { AxisType } from '../OptionCreator/enum';
 
 @Component({
     templateUrl: './combocharts.component.html'
@@ -61,10 +62,11 @@ export class ComboChartsComponent implements OnInit {
         let line = LineOption.CreateLineItem(value);
         //line用坐标轴的修正
         var line_xAsix = new Axis();
-        line_xAsix.type = "category";
+        line_xAsix.type = AxisType.category;
         line_xAsix.data = category;
+        
         var line_yAsix = new Axis();
-        line_yAsix.type = "value";
+        line_yAsix.type = AxisType.value;
         this.Sample_Pie_Bar.xAxis = [line_xAsix];
         this.Sample_Pie_Bar.yAxis = [line_yAsix];
         this.Sample_Pie_Bar.grid = [{
@@ -74,6 +76,7 @@ export class ComboChartsComponent implements OnInit {
         line_yAsix.gridIndex = 0;    
         line.xAxisIndex = 0;
         line.yAxisIndex = 0;
+        console.log(this.Sample_Pie_Bar);
         //图（Chart）和坐标（Axis）绑定，坐标和网格（Grid）绑定
         this.Sample_Pie_Bar.series.push(line);
     }

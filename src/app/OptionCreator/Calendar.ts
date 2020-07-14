@@ -1,4 +1,4 @@
-import { Chart2D, Series, coordinateSystem_calendar } from './OptionBase';
+import { OptionBase, Series, coordinateSystem_calendar } from './OptionBase';
 
 export class CalendarConfig {
     public left?: any;
@@ -11,7 +11,7 @@ export class CalendarConfig {
     public range?: string | string[];
 }
 
-export class CalendarOption extends Chart2D {
+export class CalendarOption extends OptionBase {
     public static CreateCalendar(date: string[], value: number[], type: string) {
         let o = new CalendarOption();
         o.calendar = new CalendarConfig();

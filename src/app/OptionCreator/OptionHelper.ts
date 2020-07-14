@@ -1,6 +1,7 @@
 import { ECharts } from 'echarts';
 import { OptionBase, VisualMap, Grid, DataZoom } from './OptionBase';
-import { Direction } from './ChartColor';
+import { Direction } from './enum';
+
 
 export class OptionHelper {
   /**
@@ -51,9 +52,9 @@ export class OptionHelper {
     var img = new Image();
     img.src = url;
     if (repeat) {
-      option['backgroundColor'] = { 'image': img, type: "pattern", repeat: "repeat" };
+      option.backgroundColor = { 'image': img, type: "pattern", repeat: "repeat" };
     } else {
-      option['backgroundColor'] = { 'image': img, type: "pattern", repeat: "no-repeat" };
+      option.backgroundColor = { 'image': img, type: "pattern", repeat: "no-repeat" };
     }
   }
 

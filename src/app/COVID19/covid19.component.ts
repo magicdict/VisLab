@@ -2,7 +2,7 @@ import { OnInit, Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BarOption } from '../OptionCreator/BarOption';
 import { LineOption } from '../OptionCreator/LineOption';
-import { Axis, Chart2D, Series } from '../OptionCreator/OptionBase';
+import { Axis, OptionBase, Series } from '../OptionCreator/OptionBase';
 import { ChartComponent } from '../Chart/chart.component';
 import { CalendarOption } from '../OptionCreator/Calendar';
 import { OptionHelper } from '../OptionCreator/OptionHelper';
@@ -22,7 +22,7 @@ export class Covid19_Component implements OnInit {
     Line_Total: BarOption;
     Calendar_Total: CalendarOption;
     BarTimeLine: TimelineOption;
-    ChinaMap: Chart2D = new Chart2D(); //InitChart必须要new对象
+    ChinaMap: OptionBase = new OptionBase(); //InitChart必须要new对象
     ngOnInit(): void {
         let Country_Dairy = this.http.get<{ PublishDate: string, Confirmed_Total: number, Recoved_Total: number, Death_Total: number }[]>("assets/json/Country_Dairy.json").toPromise();
         Country_Dairy.then(
@@ -62,7 +62,7 @@ export class Covid19_Component implements OnInit {
         let Province_Dairy = this.http.get<{ PublishDate: string, Confirmed_Total: number, Province: string }[]>("assets/json/Province_Dairy.json").toPromise();
         Province_Dairy.then(
             r => {
-                let basebar = new Chart2D();
+                let basebar = new OptionBase();
                 let timeline = new TimeLine();
                 let options = [];
                 for (let index = 15; index < 32; index++) {

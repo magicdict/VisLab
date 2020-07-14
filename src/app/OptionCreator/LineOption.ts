@@ -1,6 +1,6 @@
-import { Axis, Series, AreaStyle, Chart2D } from './OptionBase';
-
-export class LineOption extends Chart2D {
+import { Axis, Series, AreaStyle, OptionBase } from './OptionBase';
+import { MarkPointType,MarkLineType} from './enum'
+export class LineOption extends OptionBase {
 
     public static CreateLineItem(value: number[]) {
         let item = new LineSeries();
@@ -29,30 +29,33 @@ export class LineOption extends Chart2D {
 
     public static series_SetMarkPoint(series: LineSeries, type: MarkPointType, name: string) {
         if (!series.markPoint) series.markPoint = { data: [] };
-        series.markPoint.data.push({ type: MarkPointType[type], name: name });
+        series.markPoint.data.push({ type: type, name: name });
     }
+
     public static series_SetMarkLine(series: LineSeries, type: MarkLineType, name: string) {
         if (!series.markLine) series.markLine = { data: [] };
-        series.markLine.data.push({ type: MarkLineType[type], name: name });
+        series.markLine.data.push({ type: type, name: name });
+    }
+
+    public static series_SetMarkArea(series: LineSeries, name: string,
+        xAxistypeP0: MarkPointType, yAxistypeP0: MarkPointType,
+        xAxistypeP1: MarkPointType, yAxistypeP1: MarkPointType,) {
+        if (!series.markArea) series.markArea = { data: [] };
+        series.markArea.data.push(
+            [
+                { xAxis: xAxistypeP0, yAxis: yAxistypeP0, name: name },
+                { xAxis: xAxistypeP1, yAxis: yAxistypeP1, name: name }
+            ]
+        );
     }
 
 }
 
 export class LineSeries extends Series {
-    public markPoint?: { data: { type: string, name: string }[] };
-    public markLine?: { data: { type: string, name: string }[] };
+    public markPoint?: { data: { type: MarkPointType, name: string }[] };
+    public markLine?: { data: { type: MarkLineType, name: string }[] };
+    public markArea?: { data: { xAxis: MarkPointType, yAxis: MarkPointType, name: string }[][] };
+    public step?: boolean | string = false;
+    public smooth?: boolean = false;
 }
 
-/**
- * markPoint枚举
- */
-export enum MarkPointType {
-    max, min, average
-}
-
-/**
- * markLine枚举
- */
-export enum MarkLineType {
-    max, min, average, median
-}

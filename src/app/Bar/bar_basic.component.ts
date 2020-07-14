@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { BarOption } from '../OptionCreator/BarOption';
 import { OptionHelper } from '../OptionCreator/OptionHelper';
-import { ChartColor, Direction } from '../OptionCreator/ChartColor';
+import { ChartColor } from '../OptionCreator/ChartColor';
 import { Grid } from '../OptionCreator/OptionBase';
+import { Direction } from '../OptionCreator/enum';
 
 @Component({
   templateUrl: './bar_basic.component.html'
@@ -39,14 +40,14 @@ export class Bar_BasicComponent implements OnInit {
     };
     var img = new Image();
     img.src = '/assets/image/Background.jpg';
-    this.RainbowSample['backgroundColor'] = { 'image': img, type: "pattern", repeat: "repeat" };
+    this.RainbowSample.backgroundColor = { 'image': img, type: "pattern", repeat: "repeat" };
     let imggrid = new Grid();
     imggrid.height = 64;
     imggrid.width = 64;
     imggrid.top = 10;
     imggrid.right = 10;
     let g = OptionHelper.chart_CreateGraphic_Image("assets/image/小舞/头像.png", imggrid, null)
-    this.RainbowSample['graphic'] = [g];
+    this.RainbowSample.graphic = [g];
 
     this.RainbowSample_Dark = BarOption.CreateBar(category, value);
     OptionHelper.chart_SetBackGroundColor(this.RainbowSample_Dark, '#000000');//背景色

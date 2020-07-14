@@ -1,7 +1,5 @@
-export enum Direction {
-    Horizontal,
-    Vertical
-}
+import { Direction } from './enum';
+
 
 export class ChartColor {
     //#region Color

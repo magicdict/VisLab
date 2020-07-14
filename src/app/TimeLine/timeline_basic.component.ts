@@ -3,7 +3,7 @@ import { ChartColor } from '../OptionCreator/ChartColor';
 import { ChartComponent } from '../Chart/chart.component';
 import { TimelineOption, TimeLine } from '../OptionCreator/Timeline';
 import { BarOption } from '../OptionCreator/BarOption';
-import { Title, Chart2D } from '../OptionCreator/OptionBase';
+import { Title, OptionBase } from '../OptionCreator/OptionBase';
 @Component({
     templateUrl: './timeline_basic.component.html'
 })
@@ -15,7 +15,7 @@ export class TimeLineComponent implements OnInit {
         let category = ['唐三', '戴沐白', "马红俊", "奥斯卡", "小舞", "宁荣荣", "朱竹清"];
         let value = [Math.round(Math.random() * 100), Math.round(Math.random() * 100), Math.round(Math.random() * 100),
         Math.round(Math.random() * 100), Math.round(Math.random() * 100), Math.round(Math.random() * 100), Math.round(Math.random() * 100)];
-        let basebar = new Chart2D();
+        let basebar = new OptionBase();
         let timeline = new TimeLine();
 
         let options = [];

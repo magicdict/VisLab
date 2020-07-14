@@ -1,7 +1,7 @@
 import { OnInit, Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ChartComponent } from '../Chart/chart.component';
-import { Chart2D, Axis, Series, Grid } from '../OptionCreator/OptionBase';
+import { OptionBase, Axis, Series, Grid } from '../OptionCreator/OptionBase';
 import { OptionHelper } from '../OptionCreator/OptionHelper';
 import { BarOption } from '../OptionCreator/BarOption';
 import { PieOption } from '../OptionCreator/PieOption';
@@ -14,7 +14,7 @@ import { RadarConfig } from '../OptionCreator/Radar';
 export class DouluoDalu_Component implements OnInit {
     title = '斗罗大陆';
     chartComp = ChartComponent;
-    Sample: Chart2D = new Chart2D();
+    Sample: OptionBase = new OptionBase();
     constructor(private http: HttpClient) {
 
     }
@@ -127,7 +127,7 @@ export class DouluoDalu_Component implements OnInit {
         groupgrid.right = 100;
         let group = OptionHelper.chart_CreateGraphic_group([rect, text], -Math.PI / 4,groupgrid);
 
-        this.Sample['graphic'] = [image, group];
+        this.Sample.graphic = [image, group];
         console.log(this.Sample);
     }
 

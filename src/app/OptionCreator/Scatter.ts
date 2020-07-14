@@ -1,6 +1,6 @@
-import { Axis, Series, Chart2D } from './OptionBase';
+import { Axis, Series, OptionBase } from './OptionBase';
 
-export class ScatterOption extends Chart2D {
+export class ScatterOption extends OptionBase {
 
     public static CreateScatterItem(value: any[][]) {
         let item = new Series();
