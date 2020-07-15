@@ -1,0 +1,17 @@
+.title {
+	padding-left:24px;
+	height:44px;
+	line-height:44px;
+	font-size:24px;
+	font-weight:normal;
+	color:#fff;
+	background-image:url("/assets/Templates/tpl04/img/title-bg.png");
+	background-repeat:no-repeat;
+	background-size:100% 100%;
+}
+
+.xpanel-c-b{
+    background-image: url("/assets/Templates/tpl04/img/panel-c-b.png");
+    background-repeat:no-repeat;
+	background-size:100% 100%;
+}

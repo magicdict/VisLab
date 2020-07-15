@@ -29,7 +29,7 @@ export class LineOption extends OptionBase {
 }
 ```
 
-具体使用方法
+## 具体使用方法
 
 ```ts
     category = ['唐三', '戴沐白', "马红俊", "奥斯卡", "小舞", "宁荣荣", "朱竹清"];
@@ -43,11 +43,14 @@ export class LineOption extends OptionBase {
 
 ```
 
-封装进度
+## 封装进度
+
+### 基础
 
 - 折线图
   - markPoint
   - markLine
+  - markArea
 - 柱状图
   - 象形柱图
 - 极坐标图
@@ -56,12 +59,24 @@ export class LineOption extends OptionBase {
 - 地图
 - 百度地图
   - 路径图
+
+### 高级
+
 - 组合图
   - 雷达图 - 饼图
   - 饼图 - 折线图
 - 时间轴图
+
+### 3D
+
 - 3D散点图
 - 3D柱状图
+
+### Demo
+
+- 新冠肺炎：多种图形混合
+- 斗罗大陆：Chart组件背景图
+- 中国风：全屏背景图，边框修饰
 
 ## 特效
 

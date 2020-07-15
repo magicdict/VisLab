@@ -1,0 +1,9 @@
+<div [ngStyle]="boxstyle"  class="xpanel-c-b">
+    <div class="title">
+        {{title}}
+    </div>
+    <div>
+        <echarts [options]="this.options" (chartInit)="ChartInited($event)" [ngStyle]="chartstyle">
+        </echarts>
+    </div>
+</div>

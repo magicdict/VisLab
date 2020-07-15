@@ -82,7 +82,7 @@ export class Bar_BasicComponent implements OnInit {
     this.Sample_dark_GradientSample.series[0].label.formatter = this.symbol;
     this.Sample_dark_GradientSample.series[0].label.rich = richitem;
     this.Sample_dark_GradientSample.series[0].label.show = true;
-    this.Sample_dark_GradientSample['tooltip'] = {
+    this.Sample_dark_GradientSample.tooltip = {
       trigger: 'item',
       formatter: this.SpotToolTip,
       position: 'inside',

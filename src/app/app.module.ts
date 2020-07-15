@@ -21,6 +21,7 @@ import { Scatter3D_BasicComponent } from './Scatter3D/scatter3d_basic.component'
 import { Bar3D_BasicComponent } from './Bar3D/bar3d_basic.component';
 import { TimeLineComponent } from './TimeLine/timeline_basic.component'
 import { ChartComponent } from './Chart/chart.component';
+import { ChartDarkComponent} from './Chart/chart_Dark.component'
 import { ComboChartsComponent } from './ComboCharts/combocharts.component';
 import { Covid19_Component } from './COVID19/covid19.component';
 import { History_Component} from './History/history.component'
@@ -30,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     ChartComponent,
+    ChartDarkComponent,
     Bar_BasicComponent,
     Line_BasicComponent,
     Pie_BasicComponent,

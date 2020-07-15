@@ -22,7 +22,7 @@ export class OptionBase {
     //时间轴用
     public dataZoom?: DataZoom[] = undefined;
     public visualMap?: VisualMap[] = [];
-    public tooltip?: any = {};
+    public tooltip?: ToolTip = undefined;
     public grid?: Grid[] = undefined;  //这里必须设定为null，否则js端报错
     public graphic?: any[] = undefined;
     //日历用
@@ -34,11 +34,20 @@ export class OptionBase {
     public series: Series[] = [];
     public backgroundColor?: any = undefined;
     //注意，这个即使是undefined也会造成无法绘制，原因是破坏了既定值，所以点的颜色都是没有的
-    public color: string[] = ['#c23531','#2f4554', '#61a0a8', '#d48265', '#91c7ae','#749f83',  '#ca8622', '#bda29a','#6e7074', '#546570', '#c4ccd3'];
+    public color: string[] = ['#c23531', '#2f4554', '#61a0a8', '#d48265', '#91c7ae', '#749f83', '#ca8622', '#bda29a', '#6e7074', '#546570', '#c4ccd3'];
     /**是否开启动画。 */
     public animation: boolean = true;
     /**是否开启动画的阈值，当单个系列显示的图形数量大于这个阈值时会关闭动画。 */
     public animationThreshold: number = 2000;
+}
+
+export class ToolTip {
+    public show?: boolean = true;
+    public trigger?: string;
+    public formatter?:any;
+    public axisPointer?:any; 
+    public position?:string;
+    public type?:string;
 }
 
 export class DataZoom {
@@ -119,7 +128,7 @@ export class Title {
 
 
 
-export class Axis { 
+export class Axis {
     public name: string;
     public type: AxisType;
     public data: string[];
