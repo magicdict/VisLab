@@ -1,5 +1,6 @@
 import { OnInit, Component } from '@angular/core';
 import { BarOption } from '../OptionCreator/BarOption';
+import { Axis } from '../OptionCreator/OptionBase';
 
 @Component({
     templateUrl: './history.component.html'
@@ -15,12 +16,13 @@ export class History_Component implements OnInit {
         this.Sample.tooltip = {
             show: true,
             position: 'inside',
-            trigger: 'item'
+            trigger: 'item',
+            confine: true
         };
-        this.Sample.xAxis["axisLabel"] = { color: "#FFFFFF", interval: 0, rotate: 45 };
-        this.Sample.yAxis["axisLabel"] = { color: "#FFFFFF" };
-        this.Sample.xAxis["axisLine"] = { lineStyle: { color: "#FFFFFF" } };
-        this.Sample.yAxis["axisLine"] = { lineStyle: { color: "#FFFFFF" } };
+        this.Sample.xAxis[0].axisLabel = { color: "#FFFFFF", interval: 0, rotate: 45 };    
+        this.Sample.yAxis[0].axisLabel = { color: "#FFFFFF" };
+        this.Sample.xAxis[0].axisLine = { lineStyle: { color: "#FFFFFF" } };
+        this.Sample.yAxis[0].axisLine = { lineStyle: { color: "#FFFFFF" } };
     }
 
 }

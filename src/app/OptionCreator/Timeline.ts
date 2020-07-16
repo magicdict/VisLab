@@ -1,13 +1,13 @@
 import { OptionBase, Chart3D } from "./OptionBase"
 
 export class TimelineOption {
-    public baseOption: OptionBase | Chart3D;
-    public options: any[];
+    public baseOption?: OptionBase | Chart3D;
+    public options?: any[];
 
     public static CreateTimeLine(BaseOption: OptionBase | Chart3D, TimeLineConfig: TimeLine) {
         let o = new TimelineOption();
         o.baseOption = BaseOption;
-        o.baseOption['timeline'] = TimeLineConfig;
+        Object.assign(o.baseOption, { timeline: TimeLineConfig })
         o.options = [];
         return o;
     }

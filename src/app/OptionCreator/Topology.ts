@@ -61,7 +61,7 @@ export class Topology {
                 normal: {
                     label: {
                         show: true,
-                        formatter: function (item) {
+                        formatter: function (item:any) {
                             return item.data.name
                         }
                     }

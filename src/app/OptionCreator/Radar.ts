@@ -27,7 +27,7 @@ export class RadarOption extends OptionBase {
 }
 
 export class RadarConfig {
-    public indicator: { name: string, max: number }[];
+    public indicator?: { name: string, max: number }[];
     public center?: number[];
     public radius?: number;
     public splitLine?: any;

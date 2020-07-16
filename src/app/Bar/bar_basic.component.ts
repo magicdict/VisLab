@@ -22,15 +22,15 @@ export class Bar_BasicComponent implements OnInit {
     let value = [50, 100, 150, 70, 80, 120, 90];
 
     this.Sample = BarOption.CreateBar(category, value);
-    this.Sample.xAxis["axisLabel"] = { interval: 0, rotate: 45 }
+    this.Sample.xAxis[0].axisLabel = { interval: 0, rotate: 45 }
 
     this.RainbowSample = BarOption.CreateBar(category, value);
-    this.RainbowSample.xAxis["show"] = true;
-    this.RainbowSample.xAxis["axisLabel"] = { interval: 0, rotate: 45, color: "#FFFFFF" };
-    this.RainbowSample.xAxis["axisLine"] = { lineStyle: { color: "#FFFFFF" } };
-    this.RainbowSample.yAxis["show"] = true;
-    this.RainbowSample.yAxis["axisLabel"] = { color: "#FFFFFF" };
-    this.RainbowSample.yAxis["axisLine"] = { lineStyle: { color: "#FFFFFF" } };
+    this.RainbowSample.xAxis[0].show = true;
+    this.RainbowSample.xAxis[0].axisLabel = { interval: 0, rotate: 45, color: "#FFFFFF" };
+    this.RainbowSample.xAxis[0].axisLine = { lineStyle: { color: "#FFFFFF" } };
+    this.RainbowSample.yAxis[0].show = true;
+    this.RainbowSample.yAxis[0].axisLabel = { color: "#FFFFFF" };
+    this.RainbowSample.yAxis[0].axisLine = { lineStyle: { color: "#FFFFFF" } };
     this.RainbowSample.series[0].itemStyle = {
       color: this.getColor,
       opacity: 0.5
@@ -51,8 +51,8 @@ export class Bar_BasicComponent implements OnInit {
 
     this.RainbowSample_Dark = BarOption.CreateBar(category, value);
     OptionHelper.chart_SetBackGroundColor(this.RainbowSample_Dark, '#000000');//背景色
-    this.RainbowSample_Dark.xAxis["show"] = false;
-    this.RainbowSample_Dark.yAxis["axisLabel"] = { color: "#FFFFFF" };
+    this.RainbowSample_Dark.xAxis[0].show = false;
+    this.RainbowSample_Dark.yAxis[0].axisLabel = { color: "#FFFFFF" };
     this.RainbowSample_Dark.series[0].itemStyle = {
       color: this.getColor,
       opacity: 0.5
@@ -60,15 +60,15 @@ export class Bar_BasicComponent implements OnInit {
     this.RainbowSample_Dark.series[0].emphasis.itemStyle = {
       opacity: 1
     };
-
+ 
     this.GradientSample = BarOption.CreateBar(category, value);
-    this.GradientSample.xAxis["show"] = false;
+    this.GradientSample.xAxis[0].show = false;
     this.GradientSample.series[0].itemStyle.color = ChartColor.geLinearGradient(Direction.Vertical, '#32D3EB', '#FCCE10');
 
     this.Sample_dark_GradientSample = BarOption.CreateBar(category, value);
     OptionHelper.chart_SetBackGroundColor(this.Sample_dark_GradientSample, '#000000');//背景色
-    this.Sample_dark_GradientSample.xAxis["show"] = false;
-    this.Sample_dark_GradientSample.yAxis["axisLabel"] = { color: "#FFFFFF" };
+    this.Sample_dark_GradientSample.xAxis[0].show = false;
+    this.Sample_dark_GradientSample.yAxis[0].axisLabel = { color: "#FFFFFF" };
     //样式名不支持中文！！！
     let richitem = {}
     category.forEach(element => {
@@ -89,8 +89,8 @@ export class Bar_BasicComponent implements OnInit {
     }
 
     this.RainbowSample_PictorialBar = BarOption.CreatePictorialBar(category, value, false);
-    this.RainbowSample_PictorialBar.xAxis["show"] = false;
-    this.RainbowSample_PictorialBar.yAxis["show"] = false;
+    this.RainbowSample_PictorialBar.xAxis[0].show = false;
+    this.RainbowSample_PictorialBar.yAxis[0].show = false;
     this.RainbowSample_PictorialBar.series[0]['barCategoryGap'] = '-130%';
     this.RainbowSample_PictorialBar.series[0].itemStyle = {
       color: this.getColor,

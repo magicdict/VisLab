@@ -22,13 +22,13 @@
     <section class="content">
         <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <chart [options]="Sample" style="width: 100px;height: 100px;" [title]="'折线图'"></chart>
+                <chart [options]="Sample" style="width: 100px;height: 100px;" [title]="'折线图（平滑MarkLine）'"></chart>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <chart [options]="Sample_Smooth" style="width: 100px;height: 100px;" [title]="'折线图(平滑)'"></chart>
+                <chart [options]="Sample_Smooth" style="width: 100px;height: 100px;" [title]="'折线图(MarkPointMarkArea)'"></chart>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <chart [options]="GradientSample" style="width: 100px;height: 100px;" [title]="'折线图(渐变色)'"></chart>
+                <chart [options]="GradientSample" style="width: 100px;height: 100px;" [title]="'折线图(Step和渐变色)'"></chart>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <chart [options]="GradientSample_H" style="width: 100px;height: 100px;" [title]="'折线图(渐变色)'"></chart>

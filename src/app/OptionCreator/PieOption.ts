@@ -18,7 +18,7 @@ export class PieOption extends OptionBase {
         s.data = data.sort((x, y) => { return y.value - x.value });    //为了美观，数据排序
         s.radius = radius;
         s.roseType = "area";
-        s['color'] = ChartColor.colorlist_7_Baidu;  
+        Object.assign(s, { color: ChartColor.colorlist_7_Baidu })
         //s.itemStyle.color = ChartColor.colorlist_7_Baidu; //文档中是设置在这里，但是这样会使得整个颜色错误！
         return s;
     }
@@ -38,8 +38,8 @@ export class PieOption extends OptionBase {
 }
 
 export class PieSeries extends Series {
-    public radius: string | number[];
-    public roseType: string;
+    public radius?: string | number[];
+    public roseType?: string;
     //位置信息
     public height?: string | number;
     public width?: string | number;

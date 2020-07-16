@@ -69,19 +69,19 @@ export class PolarOption extends OptionBase {
 }
 
 export class PolarConfig {
-    public radius: string | number;
+    public radius?: string | number;
 }
 
 export class RadiusAxis {
-    public type: string;
-    public data: string[];
+    public type?: string;
+    public data?: string[];
     public z?: number;
     public axisLabel?: any;
 }
 
 export class AngleAxis {
-    public type: string;
-    public data: string[];
+    public type?: string;
+    public data?: string[];
     public z?: number;
     public axisLabel?: any;
 }

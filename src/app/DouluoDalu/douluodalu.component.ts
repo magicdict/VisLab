@@ -55,15 +55,15 @@ export class DouluoDalu_Component implements OnInit {
         let BarSeries = BarOption.CreateBarItem(value);
         let BarXAsix = new Axis();
         let BarYAsix = new Axis();
-        BarXAsix["show"] = true;
-        BarXAsix["axisLabel"] = { interval: 0, rotate: 45, color: "#FFFFFF" };
-        BarXAsix["axisLine"] = { lineStyle: { color: "#FFFFFF" } };
+        BarXAsix[0].show = true;
+        BarXAsix[0].axisLabel = { interval: 0, rotate: 45, color: "#FFFFFF" };
+        BarXAsix[0].axisLine = { lineStyle: { color: "#FFFFFF" } };
         BarXAsix.gridIndex = 0;
         BarXAsix.data = category;
 
-        BarYAsix["show"] = true;
-        BarYAsix["axisLabel"] = { color: "#FFFFFF" };
-        BarYAsix["axisLine"] = { lineStyle: { color: "#FFFFFF" } };
+        BarYAsix[0].show = true;
+        BarYAsix[0].axisLabel = { color: "#FFFFFF" };
+        BarYAsix[0].axisLine = { lineStyle: { color: "#FFFFFF" } };
 
         this.Sample.xAxis.push(BarXAsix);
         this.Sample.yAxis.push(BarYAsix);

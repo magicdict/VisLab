@@ -2,6 +2,7 @@ import { RadarConfig } from './Radar';
 import { PolarConfig, AngleAxis, RadiusAxis } from './PolarOption';
 import { CalendarConfig } from './Calendar';
 import { AxisType } from './enum';
+import { ItemStyle } from './Style';
 
 export const coordinateSystem_bmap = "bmap";                //百度地图
 export const coordinateSystem_calendar = "calendar";        //日历
@@ -27,8 +28,8 @@ export class OptionBase {
     public graphic?: any[] = undefined;
     //日历用
     public calendar?: CalendarConfig = undefined;
-    public xAxis?: Axis | Axis[] = undefined;
-    public yAxis?: Axis | Axis[] = undefined;
+    public xAxis?: Axis[] = undefined; //这里虽然支持单个的Axis，不过会造成TS的智能提示混乱，所以统一为Array
+    public yAxis?: Axis[] = undefined;
     public geo?: any = undefined;
     //数据序列
     public series: Series[] = [];
@@ -44,19 +45,20 @@ export class OptionBase {
 export class ToolTip {
     public show?: boolean = true;
     public trigger?: string;
-    public formatter?:any;
-    public axisPointer?:any; 
-    public position?:string;
-    public type?:string;
+    public formatter?: any;
+    public axisPointer?: any;
+    public position?: string;
+    public type?: string;
+    public confine?: boolean;
 }
 
 export class DataZoom {
     public type: string = 'slider';
-    public show: boolean;
-    public xAxisIndex: number[];
-    public yAxisIndex: number[];
-    public start: number;
-    public end: number;
+    public show?: boolean;
+    public xAxisIndex?: number[];
+    public yAxisIndex?: number[];
+    public start?: number;
+    public end?: number;
 }
 
 export class Grid {
@@ -74,9 +76,9 @@ export class Chart3D extends OptionBase {
     public geo3D: any;
     public mapbox3D: any;
     public grid3D: Grid3D = new Grid3D();    //必须项目
-    public xAxis3D: Axis;
-    public yAxis3D: Axis;
-    public zAxis3D: Axis;
+    public xAxis3D?: Axis;
+    public yAxis3D?: Axis;
+    public zAxis3D?: Axis;
 }
 
 export class Grid3D {
@@ -97,8 +99,8 @@ export class Grid3D {
 
 export class Series {
     public name?: string;
-    public data: any[];
-    public type: string;
+    public data?: any[];
+    public type?: string;
     public symbolSize?: any;
     public symbol?: string;
     public itemStyle?: ItemStyle = new ItemStyle();
@@ -123,57 +125,26 @@ export class Label {
 }
 
 export class Title {
-    public text: string;
+    public text?: string;
 }
 
 
 
 export class Axis {
-    public name: string;
-    public type: AxisType;
-    public data: string[];
+    public name?: string;
+    public type?: AxisType;
+    public data?: string[];
     public gridIndex?: number;
+    public axisLabel?: any;
+    public axisLine?: any;
+    public show?: boolean;
 }
 
 export class VisualMap {
     public inRange: any = {
         color: []
     }
-    public max: number;
-    public min: number;
-    public calculable: boolean;
-}
-
-export class ItemStyle {
-    /**
-     * 阴影颜色。支持的格式同color。
-     */
-    color?: any;
-    borderColor?: any;
-    borderWidth?: any;
-    borderType?: any;
-    barBorderRadius?: any;
-    shadowBlur?: any;
-    shadowColor?: any;
-    shadowOffsetX?: any;
-    shadowOffsetY?: any;
-    /**
-     * 图形透明度。支持从 0 到 1 的数字，为 0 时不绘制该图形。
-     */
-    opacity?: any;
-}
-
-export class AreaStyle {
-    /**
-     * 阴影颜色。支持的格式同color。
-     */
-    color?: any;
-    shadowBlur?: any;
-    shadowColor?: any;
-    shadowOffsetX?: any;
-    shadowOffsetY?: any;
-    /**
-     * 图形透明度。支持从 0 到 1 的数字，为 0 时不绘制该图形。
-     */
-    opacity?: any;
+    public max?: number;
+    public min?: number;
+    public calculable?: boolean;
 }

@@ -1,4 +1,3 @@
-import { OptionHelper } from './OptionHelper';
 import { Axis,  Chart3D, Series } from './OptionBase';
 
 export class Scatter3D extends Chart3D {

@@ -16,7 +16,7 @@ export class OptionHelper {
     v.min = 0;
     v.inRange.color = colorlist;
     v.calculable = true;
-    option.visualMap.push(v);
+    if (option.visualMap) option.visualMap.push(v);
   }
 
   public static chart_SetVisualMap_Min(option: OptionBase, max: number, min: number, colorlist: string[]) {
@@ -25,7 +25,7 @@ export class OptionHelper {
     v.min = min;
     v.inRange.color = colorlist;
     v.calculable = true;
-    option.visualMap.push(v);
+    if (option.visualMap) option.visualMap.push(v);
   }
 
   public static chart_SetDataZoom(option: OptionBase, start: number, end: number, direct: Direction) {
@@ -66,12 +66,12 @@ export class OptionHelper {
       'feature': {
       }
     };
-    if (saveAsImage) toolbox.feature['saveAsImage'] = {};
-    if (restore) toolbox.feature['restore'] = {};
-    if (dataView) toolbox.feature['dataView'] = {};
-    if (dataZoom) toolbox.feature['dataZoom'] = {};
-    if (magicType) toolbox.feature['magicType'] = { type: ['line', 'bar', 'stack', 'tiled'] };
-    if (brush) toolbox.feature['brush'] = {};
+    if (saveAsImage) Object.assign(toolbox.feature, { saveAsImage: {} })
+    if (restore) Object.assign(toolbox.feature, { restore: {} })
+    if (dataView) Object.assign(toolbox.feature, { dataView: {} })
+    if (dataZoom) Object.assign(toolbox.feature, { dataZoom: {} })
+    if (magicType) Object.assign(toolbox.feature, { magicType: { type: ['line', 'bar', 'stack', 'tiled'] } })
+    if (brush) Object.assign(toolbox.feature, { brush: {} })
     option["toolbox"] = toolbox;
   }
 
@@ -116,8 +116,8 @@ export class OptionHelper {
         image: url
       }
     }
-    if (height) i['height'] = height;
-    if (width) i['width'] = width;
+    if (height) Object.assign(i, { height: height });
+    if (width) Object.assign(i, { width: width });
     return i;
   }
 
@@ -138,13 +138,13 @@ export class OptionHelper {
       },
       cursor: 'default'  //默认为pointer
     }
-    if (origin) graphic['origin'] = origin;
-    if (grid.height) graphic.style['height'] = grid.height;
-    if (grid.width) graphic.style['width'] = grid.width;
-    if (grid.top) graphic['top'] = grid.top;
-    if (grid.bottom) graphic['bottom'] = grid.bottom;
-    if (grid.left) graphic['left'] = grid.left;
-    if (grid.right) graphic['right'] = grid.right;
+    if (origin) Object.assign(origin, { origin: origin });
+    if (grid.height) Object.assign(graphic.style, { height: grid.height });
+    if (grid.width) Object.assign(graphic.style, { width: grid.width });
+    if (grid.top) Object.assign(graphic.style, { top: grid.top });
+    if (grid.bottom) Object.assign(graphic.style, { bottom: grid.bottom });
+    if (grid.left) Object.assign(graphic.style, { left: grid.left });
+    if (grid.right) Object.assign(graphic.style, { right: grid.right });
     return graphic;
   }
 
@@ -158,12 +158,12 @@ export class OptionHelper {
       cursor: 'default'  //默认为pointer
     }
 
-    if (grid.height) graphic['height'] = grid.height;
-    if (grid.width) graphic['width'] = grid.width;
-    if (grid.top) graphic['top'] = grid.top;
-    if (grid.bottom) graphic['bottom'] = grid.bottom;
-    if (grid.left) graphic['left'] = grid.left;
-    if (grid.right) graphic['right'] = grid.right;
+    if (grid.height) Object.assign(graphic, { height: grid.height });
+    if (grid.width) Object.assign(graphic, { width: grid.width });
+    if (grid.top) Object.assign(graphic, { top: grid.top });
+    if (grid.bottom) Object.assign(graphic, { bottom: grid.bottom });
+    if (grid.left) Object.assign(graphic, { left: grid.left });
+    if (grid.right) Object.assign(graphic, { right: grid.right });
     return graphic;
   }
 

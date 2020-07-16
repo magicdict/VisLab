@@ -1,5 +1,6 @@
-import { Axis, Series, AreaStyle, OptionBase } from './OptionBase';
-import { MarkPointType,MarkLineType} from './enum'
+import { Axis, Series, OptionBase } from './OptionBase';
+import { MarkPointType, MarkLineType } from './enum'
+import { AreaStyle } from './Style';
 export class LineOption extends OptionBase {
 
     public static CreateLineItem(value: number[]) {
@@ -8,12 +9,13 @@ export class LineOption extends OptionBase {
         item.data = value;
         return item;
     }
+
     public static CreateLine(category: string[], value: number[]) {
         let o = new LineOption();
         o.tooltip = { trigger: 'axis' };
-        o.xAxis = new Axis();
-        o.yAxis = new Axis();
-        o.xAxis.data = category;
+        o.xAxis = [new Axis()];
+        o.yAxis = [new Axis()];
+        o.xAxis[0].data = category;
         o.series.push(this.CreateLineItem(value));
         return o;
     }
@@ -23,7 +25,7 @@ export class LineOption extends OptionBase {
      * @param style 
      */
     public static series_SetAreaStyle(series: LineSeries, style: AreaStyle) {
-        series['areaStyle'] = style;
+        Object.assign(series, { areaStyle: style });
     }
 
 

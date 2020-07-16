@@ -1,7 +1,7 @@
 import { OnInit, Component } from '@angular/core';
 import { ChartComponent } from '../Chart/chart.component';
 import { OptionBase, Series } from '../OptionCreator/OptionBase';
-import { registerMap } from 'echarts';
+import { registerMap, ECharts, EChartOption } from 'echarts';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -15,12 +15,12 @@ export class Map_BasicComponent implements OnInit {
         this.http.get('assets/map/data-china.json')
             .subscribe(geoJson => {
                 registerMap('China', geoJson);
-                if (this.ChinaMap !== undefined) this.ChinaMap.setOption(this.Sample);
+                if (this.ChinaMap !== undefined) this.ChinaMap.setOption(<EChartOption>this.Sample);
             });
         this.http.get('assets/map/data-zhejiang.json')
             .subscribe(geoJson => {
                 registerMap('zhejiang', geoJson);
-                if (this.ZJMap !== undefined) this.ZJMap.setOption(this.Sample_ZJ);
+                if (this.ZJMap !== undefined) this.ZJMap.setOption(<EChartOption>this.Sample_ZJ);
             });
     }
 
@@ -28,24 +28,24 @@ export class Map_BasicComponent implements OnInit {
     Sample: OptionBase = new OptionBase();
     Sample_ZJ: OptionBase = new OptionBase();
     chartComp = ChartComponent;
-    ChinaMap: any;
-    GetMapChart(chart: any) {
+    ChinaMap: ECharts;
+    GetMapChart(chart: ECharts) {
         console.log("GetMapChart");
         this.ChinaMap = chart;
         let china = new Series();
         china.type = "map";
         china['mapType'] = "China";
         this.Sample.series.push(china);
-        this.ChinaMap.setOption(this.Sample);
+        this.ChinaMap.setOption(<EChartOption>this.Sample);
     }
 
-    ZJMap: any;
-    GetZJMapChart(chart: any) {
+    ZJMap: ECharts;
+    GetZJMapChart(chart: ECharts) {
         this.ZJMap = chart;
         let ZJ = new Series();
         ZJ.type = "map";
         ZJ['mapType'] = "zhejiang";
         this.Sample_ZJ.series.push(ZJ);
-        this.ZJMap.setOption(this.Sample_ZJ);
+        this.ZJMap.setOption(<EChartOption>this.Sample_ZJ);
     }
 }
