@@ -5,6 +5,7 @@ import { TimelineOption, TimeLine } from '../OptionCreator/Timeline';
 import { BarOption } from '../OptionCreator/Bar';
 import { OptionBase } from '../OptionCreator/OptionBase';
 import { EChartTitleOption } from 'echarts';
+import { CommonFunction } from '../common';
 
 @Component({
     templateUrl: './timeline_basic.component.html'
@@ -15,8 +16,7 @@ export class TimeLineComponent implements OnInit {
     Sample: TimelineOption;
     ngOnInit(): void {
         let category = ['唐三', '戴沐白', "马红俊", "奥斯卡", "小舞", "宁荣荣", "朱竹清"];
-        let value = [Math.round(Math.random() * 100), Math.round(Math.random() * 100), Math.round(Math.random() * 100),
-        Math.round(Math.random() * 100), Math.round(Math.random() * 100), Math.round(Math.random() * 100), Math.round(Math.random() * 100)];
+        let value = CommonFunction.getRandomArray(100,7);
         let basebar = new OptionBase();
         let timeline = new TimeLine();
 
@@ -24,8 +24,7 @@ export class TimeLineComponent implements OnInit {
         for (let index = 0; index < 7; index++) {
             var tn: string = index.toString() + "序列";
             timeline.data.push(index);  //这里只能是数字或者日期型字符串！！！
-            let v = [Math.round(Math.random() * 100), Math.round(Math.random() * 100), Math.round(Math.random() * 100),
-            Math.round(Math.random() * 100), Math.round(Math.random() * 100), Math.round(Math.random() * 100), Math.round(Math.random() * 100)];
+            let v =CommonFunction.getRandomArray(100,7);
             let t = BarOption.CreateBar(category, v);
             t.series[0].itemStyle.color = this.getColor;
             t.series[0].itemStyle.opacity = 0.5;

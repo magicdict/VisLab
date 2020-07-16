@@ -53,9 +53,9 @@ export class BMap_BasicComponent implements OnInit {
         s2.type = "lines";
         s2.coordinateSystem = coordinateSystem_bmap;
         let lineA = new LinesDataItem([110.3373, 20.0303], [110.3473, 20.0403]);
-        lineA.lineStyle = { "width": 10, "color": "yellow" };
+        lineA.lineStyle = { width: 10, color: "yellow" };
         let lineB = new LinesDataItem([110.3473, 20.0403], [110.3573, 20.0503]);
-        lineB.lineStyle = { "width": 10, "color": "green" };
+        lineB.lineStyle = { width: 10, color: "green" };
         s2.data = [lineA, lineB];
         s2.effect.symbol = 'image://assets/image/唐三/头像.png';
         s2.effect.symbolSize = 50;

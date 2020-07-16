@@ -1,5 +1,5 @@
 import { Series } from './OptionBase';
-
+import { EChartOption } from "echarts"
 export class LinesSeries extends Series {
     public effect: any = {
         show: true,
@@ -13,7 +13,7 @@ export class LinesSeries extends Series {
 
 export class LinesDataItem {
     public coords: number[][]
-    public lineStyle?: any;
+    public lineStyle?: EChartOption.LineStyle;
     constructor(startPoint: number[], endPoint: number[]) {
         this.coords = [startPoint, endPoint];
     }

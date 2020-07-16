@@ -6,7 +6,7 @@ import { OptionHelper } from '../OptionCreator/OptionHelper';
 import { BarOption } from '../OptionCreator/Bar';
 import { PieOption } from '../OptionCreator/Pie';
 import { ChartColor } from '../OptionCreator/ChartColor';
-import { RadarConfig } from '../OptionCreator/Radar';
+import { Radar } from '../OptionCreator/Radar';
 
 @Component({
     templateUrl: './douluodalu.component.html'
@@ -87,7 +87,7 @@ export class DouluoDalu_Component implements OnInit {
         this.Sample.grid = grid;
 
         //雷达图:通过center和radius定位
-        this.Sample.radar = new RadarConfig();
+        this.Sample.radar = new Radar.RadarConfig();
         this.Sample.radar.indicator = indicators;
         this.Sample.radar.center = [900, 200];
         this.Sample.radar.radius = 150;
@@ -125,7 +125,7 @@ export class DouluoDalu_Component implements OnInit {
         let groupgrid = new Position();
         groupgrid.top = 100;
         groupgrid.right = 100;
-        let group = OptionHelper.chart_CreateGraphic_group([rect, text], -Math.PI / 4,groupgrid);
+        let group = OptionHelper.chart_CreateGraphic_group([rect, text], -Math.PI / 4, groupgrid);
 
         this.Sample.graphic = [image, group];
         //console.log(this.Sample);

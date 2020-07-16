@@ -1,5 +1,5 @@
 import { OnInit, Component } from '@angular/core';
-import { RadarOption } from '../OptionCreator/Radar';
+import { Radar } from '../OptionCreator/Radar';
 import { ChartComponent } from '../Chart/chart.component';
 import { ChartColor } from '../OptionCreator/ChartColor';
 import { PieOption } from '../OptionCreator/Pie';
@@ -24,10 +24,10 @@ export class ComboChartsComponent implements OnInit {
     ];
     indicators = [{ name: "攻击", max: 100 }, { name: "防御", max: 100 }, { name: "生命", max: 100 }, { name: "魂力", max: 100 }, { name: "速度", max: 100 }];
     chartComp = ChartComponent
-    Sample: RadarOption;
+    Sample: Radar.RadarOption;
     Sample_Pie_Bar: PieOption;
     ngOnInit(): void {
-        this.Sample = RadarOption.CreateRadar(this.indicators, this.dataset);
+        this.Sample = Radar.RadarOption.CreateRadar(this.indicators, this.dataset);
         let dataset_multi = [];
         this.dataset.map(x => x.value).forEach(
             arr => {

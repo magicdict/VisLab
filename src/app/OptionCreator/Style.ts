@@ -1,14 +1,3 @@
-export class LineStyle {
-    color?: string;
-    width?: string;
-    type?: string;
-    shadowBlur?:number;
-    shadowColor?:string;
-    shadowOffsetX?:number;
-    shadowOffsetY?:number;
-    opacity?:number;
-}
-
 export class ItemStyle {
     /**
      * 阴影颜色。支持的格式同color。

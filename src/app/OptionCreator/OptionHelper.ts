@@ -1,5 +1,5 @@
 import { ECharts, EChartOption, VisualMap } from 'echarts';
-import { OptionBase,  Position } from './OptionBase';
+import { OptionBase, Position } from './OptionBase';
 import { Direction } from './enum';
 
 
@@ -11,18 +11,20 @@ export class OptionHelper {
    * @param colorlist inRange颜色列表
    */
   public static chart_SetVisualMap(option: OptionBase, max: number, colorlist: string[]) {
-    let v : VisualMap.Continuous;
+    let v: VisualMap.Continuous = {};
     v.max = max;
     v.min = 0;
+    v.inRange = {}
     v.inRange.color = colorlist;
     v.calculable = true;
     if (option.visualMap) option.visualMap.push(v);
   }
 
   public static chart_SetVisualMap_Min(option: OptionBase, max: number, min: number, colorlist: string[]) {
-    let v : VisualMap.Continuous;
+    let v: VisualMap.Continuous = {};
     v.max = max;
     v.min = min;
+    v.inRange = {}
     v.inRange.color = colorlist;
     v.calculable = true;
     if (option.visualMap) option.visualMap.push(v);

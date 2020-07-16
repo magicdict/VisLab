@@ -1,4 +1,4 @@
-import { RadarConfig } from './Radar';
+import { Radar } from './Radar';
 import { PolarConfig, AngleAxis, RadiusAxis } from './Polar';
 import { CalendarConfig } from './Calendar';
 import { AxisType } from './enum';
@@ -20,7 +20,7 @@ export class OptionBase {
     public angleAxis?: AngleAxis = undefined;
     public radiusAxis?: RadiusAxis = undefined;
     //雷达用
-    public radar?: RadarConfig = undefined;
+    public radar?: Radar.RadarConfig = undefined;
     //时间轴用
     public dataZoom?: EChartOption.DataZoom[] = undefined;
     public visualMap?: EChartOption.VisualMap[] = [];
@@ -103,6 +103,7 @@ export class Series {
     public xAxisIndex?: number;
     public yAxisIndex?: number;
     public coordinateSystem?: string;  //饼图是没有这个坐标系统的，所以不能有初始值
+    public color?:string[];
 }
 
 export class Emphasis {
