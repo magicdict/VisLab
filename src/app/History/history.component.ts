@@ -1,5 +1,5 @@
 import { OnInit, Component } from '@angular/core';
-import { BarOption } from '../OptionCreator/BarOption';
+import { BarOption } from '../OptionCreator/Bar';
 
 
 @Component({

@@ -2,8 +2,10 @@ import { OnInit, Component } from '@angular/core';
 import { ChartColor } from '../OptionCreator/ChartColor';
 import { ChartComponent } from '../Chart/chart.component';
 import { TimelineOption, TimeLine } from '../OptionCreator/Timeline';
-import { BarOption } from '../OptionCreator/BarOption';
-import { Title, OptionBase } from '../OptionCreator/OptionBase';
+import { BarOption } from '../OptionCreator/Bar';
+import { OptionBase } from '../OptionCreator/OptionBase';
+import { EChartTitleOption } from 'echarts';
+
 @Component({
     templateUrl: './timeline_basic.component.html'
 })
@@ -27,7 +29,6 @@ export class TimeLineComponent implements OnInit {
             let t = BarOption.CreateBar(category, v);
             t.series[0].itemStyle.color = this.getColor;
             t.series[0].itemStyle.opacity = 0.5;
-            t.title = new Title();
             t.title.text = tn;
             t.series[0].name = tn;
             options.push(t);

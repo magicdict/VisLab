@@ -1,4 +1,4 @@
-import { PolarOption } from './PolarOption'
+import { PolarOption } from './Polar'
 /**
  * 周次时间模板
  */

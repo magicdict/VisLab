@@ -1,10 +1,10 @@
 import { OnInit, Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ChartComponent } from '../Chart/chart.component';
-import { OptionBase, Axis, Series, Grid } from '../OptionCreator/OptionBase';
+import { OptionBase, Axis, Series, Position } from '../OptionCreator/OptionBase';
 import { OptionHelper } from '../OptionCreator/OptionHelper';
-import { BarOption } from '../OptionCreator/BarOption';
-import { PieOption } from '../OptionCreator/PieOption';
+import { BarOption } from '../OptionCreator/Bar';
+import { PieOption } from '../OptionCreator/Pie';
 import { ChartColor } from '../OptionCreator/ChartColor';
 import { RadarConfig } from '../OptionCreator/Radar';
 
@@ -55,15 +55,15 @@ export class DouluoDalu_Component implements OnInit {
         let BarSeries = BarOption.CreateBarItem(value);
         let BarXAsix = new Axis();
         let BarYAsix = new Axis();
-        BarXAsix[0].show = true;
-        BarXAsix[0].axisLabel = { interval: 0, rotate: 45, color: "#FFFFFF" };
-        BarXAsix[0].axisLine = { lineStyle: { color: "#FFFFFF" } };
+        BarXAsix.show = true;
+        BarXAsix.axisLabel = { interval: 0, rotate: 45, color: "#FFFFFF" };
+        BarXAsix.axisLine = { lineStyle: { color: "#FFFFFF" } };
         BarXAsix.gridIndex = 0;
         BarXAsix.data = category;
 
-        BarYAsix[0].show = true;
-        BarYAsix[0].axisLabel = { color: "#FFFFFF" };
-        BarYAsix[0].axisLine = { lineStyle: { color: "#FFFFFF" } };
+        BarYAsix.show = true;
+        BarYAsix.axisLabel = { color: "#FFFFFF" };
+        BarYAsix.axisLine = { lineStyle: { color: "#FFFFFF" } };
 
         this.Sample.xAxis.push(BarXAsix);
         this.Sample.yAxis.push(BarYAsix);
@@ -77,7 +77,7 @@ export class DouluoDalu_Component implements OnInit {
         BarSeries.emphasis.itemStyle = {
             opacity: 1
         };
-        let bargrid = new Grid();
+        let bargrid = new Position();
         bargrid.top = 450;
         bargrid.left = 650;
         bargrid.width = 300;
@@ -113,7 +113,7 @@ export class DouluoDalu_Component implements OnInit {
         //添加背景图（无图表内容的时候，不会绘制空的背景）
         OptionHelper.chart_SetBackGroundImage(this.Sample, '/assets/image/Background2.jpg', false);
         //增加图片
-        let imggrid = new Grid();
+        let imggrid = new Position();
         imggrid.height = 128;
         imggrid.width = 280;
         imggrid.top = 650;
@@ -122,7 +122,7 @@ export class DouluoDalu_Component implements OnInit {
         //右下角标识
         let text = OptionHelper.chart_CreateGraphic_Text("绝世唐门", 'white');
         let rect = OptionHelper.chart_CreateGraphic_rect(400, 50, "orange");
-        let groupgrid = new Grid();
+        let groupgrid = new Position();
         groupgrid.top = 100;
         groupgrid.right = 100;
         let group = OptionHelper.chart_CreateGraphic_group([rect, text], -Math.PI / 4,groupgrid);

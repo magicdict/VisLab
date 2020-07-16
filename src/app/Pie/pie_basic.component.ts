@@ -1,5 +1,5 @@
 import { OnInit, Component } from '@angular/core';
-import { PieOption, } from '../OptionCreator/PieOption';
+import { PieOption, } from '../OptionCreator/Pie';
 import {CommonFunction} from '../common'
 import { ChartColor } from '../OptionCreator/ChartColor'
 import { OptionHelper } from '../OptionCreator/OptionHelper';

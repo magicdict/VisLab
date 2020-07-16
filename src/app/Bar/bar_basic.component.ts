@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { BarOption } from '../OptionCreator/BarOption';
+import { BarOption } from '../OptionCreator/Bar';
 import { OptionHelper } from '../OptionCreator/OptionHelper';
 import { ChartColor } from '../OptionCreator/ChartColor';
-import { Grid } from '../OptionCreator/OptionBase';
+import { Position } from '../OptionCreator/OptionBase';
 import { Direction } from '../OptionCreator/enum';
 
 @Component({
@@ -41,7 +41,7 @@ export class Bar_BasicComponent implements OnInit {
     var img = new Image();
     img.src = '/assets/image/Background.jpg';
     this.RainbowSample.backgroundColor = { 'image': img, type: "pattern", repeat: "repeat" };
-    let imggrid = new Grid();
+    let imggrid = new Position();
     imggrid.height = 64;
     imggrid.width = 64;
     imggrid.top = 10;

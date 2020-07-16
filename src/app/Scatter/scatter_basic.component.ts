@@ -43,10 +43,10 @@ export class Scatter_BasicComponent implements OnInit {
         this.WeekHourSample = WeekDayHour.CreatePolarScatterChart(days, hours, data, "75%");
         this.WeekHourSample.series[0].symbolSize = (x) => x[2] * 2;
         this.WeekHourSample.tooltip = {
-            type: "cross",
             trigger: "item",    //axis的时候可以显示坐标轴，item的时候不显示
             formatter: function (params) {
-                return params.value[2] + ' commits in ' + hours[params.value[1]] + ' of ' + days[params.value[0]];
+                return (<echarts.EChartOption.Tooltip.Format>params).value[2] + ' commits in ' +
+                    hours[(<echarts.EChartOption.Tooltip.Format>params).value[1]] + ' of ' + days[(<echarts.EChartOption.Tooltip.Format>params)[0]];
             }
         }
         //console.log(this.WeekHourSample);

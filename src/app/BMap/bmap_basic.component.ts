@@ -7,7 +7,7 @@ import { OptionHelper } from '../OptionCreator/OptionHelper';
 import { ChartColor } from '../OptionCreator/ChartColor';
 import { Series, coordinateSystem_bmap } from '../OptionCreator/OptionBase';
 import { HttpClient } from '@angular/common/http';
-import { LinesDataItem, LinesSeries } from '../OptionCreator/LinesOption';
+import { LinesDataItem, LinesSeries } from '../OptionCreator/Lines';
 import { imagedata, pathSymbols } from '../OptionCreator/ChartImage';
 
 @Component({

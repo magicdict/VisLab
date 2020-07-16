@@ -1,5 +1,5 @@
-import { ECharts } from 'echarts';
-import { OptionBase, VisualMap, Grid, DataZoom } from './OptionBase';
+import { ECharts, EChartOption, VisualMap } from 'echarts';
+import { OptionBase,  Position } from './OptionBase';
 import { Direction } from './enum';
 
 
@@ -11,7 +11,7 @@ export class OptionHelper {
    * @param colorlist inRange颜色列表
    */
   public static chart_SetVisualMap(option: OptionBase, max: number, colorlist: string[]) {
-    let v = new VisualMap();
+    let v : VisualMap.Continuous;
     v.max = max;
     v.min = 0;
     v.inRange.color = colorlist;
@@ -20,7 +20,7 @@ export class OptionHelper {
   }
 
   public static chart_SetVisualMap_Min(option: OptionBase, max: number, min: number, colorlist: string[]) {
-    let v = new VisualMap();
+    let v : VisualMap.Continuous;
     v.max = max;
     v.min = min;
     v.inRange.color = colorlist;
@@ -29,7 +29,7 @@ export class OptionHelper {
   }
 
   public static chart_SetDataZoom(option: OptionBase, start: number, end: number, direct: Direction) {
-    let z = new DataZoom();
+    let z: EChartOption.DataZoom = {};
     if (direct === Direction.Horizontal) {
       z.xAxisIndex = [0];
     } else {
@@ -127,7 +127,7 @@ export class OptionHelper {
    * @param grid 位置大小信息
    * @param origin 旋转和缩放的中心点
    */
-  public static chart_CreateGraphic_Image(url: string, grid: Grid, origin: number[]) {
+  public static chart_CreateGraphic_Image(url: string, grid: Position, origin: number[]) {
     let graphic = {
       type: 'image',
       id: 'logo',
@@ -141,14 +141,14 @@ export class OptionHelper {
     if (origin) Object.assign(origin, { origin: origin });
     if (grid.height) Object.assign(graphic.style, { height: grid.height });
     if (grid.width) Object.assign(graphic.style, { width: grid.width });
-    if (grid.top) Object.assign(graphic.style, { top: grid.top });
-    if (grid.bottom) Object.assign(graphic.style, { bottom: grid.bottom });
-    if (grid.left) Object.assign(graphic.style, { left: grid.left });
-    if (grid.right) Object.assign(graphic.style, { right: grid.right });
+    if (grid.top) Object.assign(graphic, { top: grid.top });
+    if (grid.bottom) Object.assign(graphic, { bottom: grid.bottom });
+    if (grid.left) Object.assign(graphic, { left: grid.left });
+    if (grid.right) Object.assign(graphic, { right: grid.right });
     return graphic;
   }
 
-  public static chart_CreateGraphic_group(children: any[], totation: number, grid: Grid) {
+  public static chart_CreateGraphic_group(children: any[], totation: number, grid: Position) {
     let graphic = {
       type: 'group',
       rotation: totation,

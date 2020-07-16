@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { LineOption, LineSeries } from '../OptionCreator/LineOption';
-import { BarOption } from '../OptionCreator/BarOption';
+import { LineOption, LineSeries } from '../OptionCreator/Line';
+import { BarOption } from '../OptionCreator/Bar';
 import { ChartColor } from '../OptionCreator/ChartColor'
 import { OptionHelper } from '../OptionCreator/OptionHelper';
-import { Grid } from '../OptionCreator/OptionBase';
+import { Position } from '../OptionCreator/OptionBase';
 import { MarkLineType, MarkPointType, Direction } from '../OptionCreator/enum';
 import { AreaStyle } from '../OptionCreator/Style';
 
@@ -25,7 +25,7 @@ export class Line_BasicComponent implements OnInit {
   ngOnInit(): void {
     this.Sample.xAxis[0].axisLabel = { interval: 0, rotate: 45 }
     OptionHelper.chart_SetToolBox(this.Sample, true, false, false, false, false, false);
-    let imggrid = new Grid();
+    let imggrid = new Position();
     imggrid.height = 50;
     imggrid.width = 50;
     imggrid.top = 0;

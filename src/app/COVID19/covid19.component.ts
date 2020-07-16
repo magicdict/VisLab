@@ -1,7 +1,7 @@
 import { OnInit, Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BarOption } from '../OptionCreator/BarOption';
-import { LineOption } from '../OptionCreator/LineOption';
+import { BarOption } from '../OptionCreator/Bar';
+import { LineOption } from '../OptionCreator/Line';
 import { Axis, OptionBase, Series } from '../OptionCreator/OptionBase';
 import { ChartComponent } from '../Chart/chart.component';
 import { CalendarOption } from '../OptionCreator/Calendar';
