@@ -1,6 +1,6 @@
 import { OnInit, Component } from '@angular/core';
 import { BarOption } from '../OptionCreator/BarOption';
-import { Axis } from '../OptionCreator/OptionBase';
+
 
 @Component({
     templateUrl: './history.component.html'
@@ -13,11 +13,12 @@ export class History_Component implements OnInit {
 
         this.Sample = BarOption.CreatePictorialBar(category, value, true, 'image://assets/image/青铜器.png');
         this.Sample.series[0].label.show = false;
+        //上层有MerginLeft或者MerginTo的时候，一定要将图表position改为relative！！
         this.Sample.tooltip = {
             show: true,
             position: 'inside',
             trigger: 'item',
-            confine: true
+            confine: false
         };
         this.Sample.xAxis[0].axisLabel = { color: "#FFFFFF", interval: 0, rotate: 45 };    
         this.Sample.yAxis[0].axisLabel = { color: "#FFFFFF" };
