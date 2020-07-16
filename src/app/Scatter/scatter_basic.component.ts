@@ -49,7 +49,7 @@ export class Scatter_BasicComponent implements OnInit {
                 return params.value[2] + ' commits in ' + hours[params.value[1]] + ' of ' + days[params.value[0]];
             }
         }
-        console.log(this.WeekHourSample);
+        //console.log(this.WeekHourSample);
         OptionHelper.chart_SetVisualMap(this.WeekHourSample, 15, ChartColor.colorlist_VisualMapinRange_More);
     }
 

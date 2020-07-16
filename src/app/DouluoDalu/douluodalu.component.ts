@@ -128,7 +128,7 @@ export class DouluoDalu_Component implements OnInit {
         let group = OptionHelper.chart_CreateGraphic_group([rect, text], -Math.PI / 4,groupgrid);
 
         this.Sample.graphic = [image, group];
-        console.log(this.Sample);
+        //console.log(this.Sample);
     }
 
 

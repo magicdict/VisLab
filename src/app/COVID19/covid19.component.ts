@@ -86,7 +86,7 @@ export class Covid19_Component implements OnInit {
         this.http.get('assets/map/data-china.json')
             .subscribe(geoJson => {
                 registerMap('China', geoJson);
-                console.log("registerMap")
+                //console.log("registerMap")
                 if (this.ChinaMapChart !== undefined) {
                     this.ChinaMapChart.setOption(this.ChinaMap);
                 }
@@ -97,7 +97,7 @@ export class Covid19_Component implements OnInit {
     ChinaMapChart: any;
     GetMapChart(chart: any) {
         //如果ChinaMap本身有问题，InitChart方法无法执行！！！
-        console.log("GetMapChart");
+        //console.log("GetMapChart");
         this.ChinaMapChart = chart;
         let china = new Series();
         china.type = "map";

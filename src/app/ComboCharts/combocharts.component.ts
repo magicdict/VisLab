@@ -76,7 +76,7 @@ export class ComboChartsComponent implements OnInit {
         line_yAsix.gridIndex = 0;    
         line.xAxisIndex = 0;
         line.yAxisIndex = 0;
-        console.log(this.Sample_Pie_Bar);
+        //console.log(this.Sample_Pie_Bar);
         //图（Chart）和坐标（Axis）绑定，坐标和网格（Grid）绑定
         this.Sample_Pie_Bar.series.push(line);
     }

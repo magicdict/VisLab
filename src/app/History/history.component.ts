@@ -20,7 +20,7 @@ export class History_Component implements OnInit {
             trigger: 'item',
             confine: false
         };
-        this.Sample.xAxis[0].axisLabel = { color: "#FFFFFF", interval: 0, rotate: 45 };    
+        this.Sample.xAxis[0].axisLabel = { color: "#FFFFFF", interval: 0, rotate: 45 };
         this.Sample.yAxis[0].axisLabel = { color: "#FFFFFF" };
         this.Sample.xAxis[0].axisLine = { lineStyle: { color: "#FFFFFF" } };
         this.Sample.yAxis[0].axisLine = { lineStyle: { color: "#FFFFFF" } };

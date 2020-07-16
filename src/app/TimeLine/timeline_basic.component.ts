@@ -36,7 +36,7 @@ export class TimeLineComponent implements OnInit {
         timeline.show = true;
         this.Sample = TimelineOption.CreateTimeLine(basebar, timeline);
         this.Sample.options = options;
-        console.log(this.Sample);
+        //console.log(this.Sample);
     }
     getColor(params: any) {
         //定义一个颜色集合

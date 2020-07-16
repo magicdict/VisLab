@@ -30,7 +30,7 @@ export class Map_BasicComponent implements OnInit {
     chartComp = ChartComponent;
     ChinaMap: ECharts;
     GetMapChart(chart: ECharts) {
-        console.log("GetMapChart");
+        //console.log("GetMapChart");
         this.ChinaMap = chart;
         let china = new Series();
         china.type = "map";
