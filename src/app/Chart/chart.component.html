@@ -1,27 +1,12 @@
-<div *ngIf="!dark" class="card card-outline card-primary" [ngStyle]="boxstyle">
-    <div *ngIf="!miniMode" class="card-header with-border">
-        <h3 class="box-title">{{ this.title }}</h3>
+<div class="card card-outline card-primary" [ngStyle]="boxstyle">
+    <div *ngIf="!miniMode" class="card-header with-border"
+        [ngStyle]="dark?{'background-color':'black','border-bottom':'1px solid white'}:{}">
+        <h3 class="box-title" [ngStyle]="dark?{color:'white'}:{}">{{ this.title }}</h3>
         <div class="box-tools pull-right">
         </div>
     </div>
-    <div class="card-body" style="padding: 0px;">
-        <echarts [options]="this.options" (chartInit)="ChartInited($event)" [ngStyle]="chartstyle" >
-        </echarts>
-    </div>
-    <div *ngIf="footer" class="card-footer">
-        {{this.footer}}
-    </div>
-</div>
-
-
-<div *ngIf="dark" class="card card-outline card-primary" [ngStyle]="boxstyle">
-    <div *ngIf="!miniMode" class="card-header with-border"  style="background-color: black;border-bottom:1px solid white">
-        <h3 class="box-title" style="color: white;">{{ this.title }}</h3>
-        <div class="box-tools pull-right">
-        </div>
-    </div>
-    <div class="card-body" style="background-color: black;padding: 0px;">
-        <echarts [options]="this.options" (chartInit)="ChartInited($event)" [ngStyle]="chartstyle" >
+    <div class="card-body" [ngStyle]="dark?{'background-color':'black'}:{}" style="padding: 0px;position: relative;">
+        <echarts [options]="this.options" (chartInit)="ChartInited($event)" [ngStyle]="chartstyle">
         </echarts>
     </div>
     <div *ngIf="footer" class="card-footer">

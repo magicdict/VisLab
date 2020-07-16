@@ -25,14 +25,14 @@
                 <chart [options]="Sample" [boxstyle]="chartComp.boxstyle_Col6_Row2" [chartstyle]="chartComp.chartstyle_Col6_Row2" [title]="'雷达图'"></chart>
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12">
-                <chart [dark]="true" [options]="Sample_Multi" [boxstyle]="chartComp.boxstyle_Col6_Row2" [chartstyle]="chartComp.chartstyle_Col6_Row2" [title]="'雷达图'"></chart>
+                <chart [options]="Sample_Offical" [boxstyle]="chartComp.boxstyle_Col6_Row2" [chartstyle]="chartComp.chartstyle_Col6_Row2" [title]="'雷达图（官方方法）'"></chart>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12">
-               
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <chart [dark]="true" [options]="Sample_NoLegend" [boxstyle]="chartComp.boxstyle_Col6_Row2" [chartstyle]="chartComp.chartstyle_Col6_Row2" [title]="'雷达图(无Legend)'"></chart>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="col-md-6 col-sm-12 col-xs-12">
               
             </div>
         </div>

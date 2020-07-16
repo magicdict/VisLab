@@ -1,5 +1,6 @@
 import { OnInit, Component } from '@angular/core';
 import { BarOption } from '../OptionCreator/Bar';
+import { OptionHelper } from '../OptionCreator/OptionHelper';
 
 
 @Component({
@@ -18,12 +19,9 @@ export class History_Component implements OnInit {
             show: true,
             position: 'inside',
             trigger: 'item',
-            confine: false
         };
-        this.Sample.xAxis[0].axisLabel = { color: "#FFFFFF", interval: 0, rotate: 45 };
-        this.Sample.yAxis[0].axisLabel = { color: "#FFFFFF" };
-        this.Sample.xAxis[0].axisLine = { lineStyle: { color: "#FFFFFF" } };
-        this.Sample.yAxis[0].axisLine = { lineStyle: { color: "#FFFFFF" } };
+        OptionHelper.chart_SetAxisColor(this.Sample, "#FFFFFF");
+        this.Sample.xAxis[0].axisLabel.interval = 0;
+        this.Sample.xAxis[0].axisLabel.rotate = 45;
     }
-
 }

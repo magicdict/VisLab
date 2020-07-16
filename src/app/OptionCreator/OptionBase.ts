@@ -11,7 +11,7 @@ export const coordinateSystem_cartesian2d = "cartesian2d";  //2维
 export const coordinateSystem_geo = "geo";                  //地理
 export const coordinateSystem_polar = "polar";              //极坐标
 
-
+//暂时无法直接使用ECharts的完整结构
 export class OptionBase {
     public title?: EChartTitleOption = undefined;
     public legend?: EChartOption.Legend = undefined;
@@ -25,7 +25,7 @@ export class OptionBase {
     public dataZoom?: EChartOption.DataZoom[] = undefined;
     public visualMap?: EChartOption.VisualMap[] = [];
     public tooltip?: EChartOption.Tooltip = undefined;
-    public grid?: EChartOption.Grid[] = undefined;  //这里必须设定为null，否则js端报错
+    public grid?: EChartOption.Grid[] = undefined;  //这里必须设定为undefined，否则js端报错
     public graphic?: any[] = undefined;
     //日历用
     public calendar?: CalendarConfig = undefined;
@@ -42,6 +42,8 @@ export class OptionBase {
     public animation: boolean = true;
     /**是否开启动画的阈值，当单个系列显示的图形数量大于这个阈值时会关闭动画。 */
     public animationThreshold: number = 2000;
+
+    public toolbox?: any = undefined;
 }
 
 
@@ -103,7 +105,7 @@ export class Series {
     public xAxisIndex?: number;
     public yAxisIndex?: number;
     public coordinateSystem?: string;  //饼图是没有这个坐标系统的，所以不能有初始值
-    public color?:string[];
+    public color?: string[];
 }
 
 export class Emphasis {

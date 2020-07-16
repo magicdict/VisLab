@@ -11,13 +11,7 @@ export class OptionHelper {
    * @param colorlist inRange颜色列表
    */
   public static chart_SetVisualMap(option: OptionBase, max: number, colorlist: string[]) {
-    let v: VisualMap.Continuous = {};
-    v.max = max;
-    v.min = 0;
-    v.inRange = {}
-    v.inRange.color = colorlist;
-    v.calculable = true;
-    if (option.visualMap) option.visualMap.push(v);
+    this.chart_SetVisualMap_Min(option, max, 0, colorlist);
   }
 
   public static chart_SetVisualMap_Min(option: OptionBase, max: number, min: number, colorlist: string[]) {
@@ -45,10 +39,38 @@ export class OptionHelper {
   }
 
   /**背景色 */
-  public static chart_SetBackGroundColor(option: any, color: any) {
-    option["backgroundColor"] = color;
+  public static chart_SetBackGroundColor(option: OptionBase, color: any) {
+    option.backgroundColor = color;
   }
 
+  public static chart_SetAxisColor(option: OptionBase, color: string) {
+    if (option.xAxis) {
+      option.xAxis.forEach(
+        x => {
+          if (!x.axisLabel) x.axisLabel = {}
+          if (!x.axisLine) x.axisLine = { lineStyle: {} }
+          if (!x.splitLine) x.splitLine = { lineStyle: {} }
+          x.axisLabel.color = color;
+          x.axisLine.lineStyle.color = color;
+          x.splitLine.lineStyle.color = color;
+        }
+      )
+    }
+
+    if (option.yAxis) {
+      option.yAxis.forEach(
+        x => {
+          if (!x.axisLabel) x.axisLabel = {}
+          if (!x.axisLine) x.axisLine = { lineStyle: {} }
+          if (!x.splitLine) x.splitLine = { lineStyle: {} }
+          x.axisLabel.color = color;
+          x.axisLine.lineStyle.color = color;
+          x.splitLine.lineStyle.color = color;
+        }
+      )
+    }
+
+  }
 
   public static chart_SetBackGroundImage(option: OptionBase, url: string, repeat: boolean) {
     var img = new Image();
@@ -61,7 +83,7 @@ export class OptionHelper {
   }
 
   /**工具箱 */
-  public static chart_SetToolBox(option: any, saveAsImage: boolean, restore: boolean,
+  public static chart_SetToolBox(option: OptionBase, saveAsImage: boolean, restore: boolean,
     dataView: boolean, dataZoom: boolean, magicType: boolean, brush: boolean) {
     let toolbox = {
       'show': true,
@@ -74,7 +96,7 @@ export class OptionHelper {
     if (dataZoom) Object.assign(toolbox.feature, { dataZoom: {} })
     if (magicType) Object.assign(toolbox.feature, { magicType: { type: ['line', 'bar', 'stack', 'tiled'] } })
     if (brush) Object.assign(toolbox.feature, { brush: {} })
-    option["toolbox"] = toolbox;
+    option.toolbox = toolbox;
   }
 
   public static SaveChartImage(echartsInstance: ECharts, filename: string) {

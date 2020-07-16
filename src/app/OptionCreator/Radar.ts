@@ -20,8 +20,7 @@ export namespace Radar {
             o.series.push({ data: data, type: "radar" });
             return o;
         }
-
-        public static CreateRadar_Multi(indicators: { name: string, max: number }[], data: number[][]) {
+        public static CreateRadar_NoLegend(indicators: { name: string, max: number }[], data: number[][]) {
             let o = new RadarOption;
             o.radar = new RadarConfig();
             o.radar.indicator = indicators;
@@ -41,9 +40,5 @@ export namespace Radar {
         };
         public indicator?: { name: string, max: number, min?: number }[];
         public color?: string[]
-    }
-    export class RadarSeries extends Series {
-        public areaStyle: AreaStyle;
-        public lineStyle: EChartOption.LineStyle;
     }
 }
