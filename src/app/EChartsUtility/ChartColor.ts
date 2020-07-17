@@ -3,6 +3,8 @@ import { Direction } from './Enum';
 export class ChartColor {
     //#region Color
 
+    public static transparent = "transparent";
+
     /**配色表 6种 百度 */
     public static colorlist_6_Baidu = ["#60acfc", "#32d3eb", "#5bc49f", "#feb64d", "#ff7c7c", "#9287e7"];
 

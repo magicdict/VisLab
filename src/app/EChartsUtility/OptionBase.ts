@@ -1,7 +1,7 @@
 import { Radar } from './Series/Radar';
 import { PolarConfig, AngleAxis, RadiusAxis } from './Series/Polar';
 import { Calendar } from './Calendar';
-import { AxisType } from './Enum';
+import { AxisType, SymbolType } from './Enum';
 import { ItemStyle } from './Style';
 import { EChartTitleOption, EChartOption } from 'echarts';
 import { BMapConfig } from './Series/BaiduMap';
@@ -37,7 +37,7 @@ export class OptionBase {
     public xAxis?: EChartOption.XAxis[] = undefined; //这里虽然支持单个的Axis，不过会造成TS的智能提示混乱，所以统一为Array
     public yAxis?: EChartOption.YAxis[] = undefined;
     public geo?: any = undefined;
-    public bmap?:BMapConfig = undefined;
+    public bmap?: BMapConfig = undefined;
     //数据序列
     public series?: Series[] = [];
     public backgroundColor?: any = undefined;
@@ -53,14 +53,7 @@ export class OptionBase {
 }
 
 
-export class Position {
-    public top?: string | number;
-    public bottom?: string | number;
-    public left?: string | number;
-    public right?: string | number;
-    public width?: string | number;
-    public height?: string | number;
-}
+
 
 //过渡用
 export class Axis {

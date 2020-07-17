@@ -3,12 +3,13 @@ import { Scatter3D } from '../EChartsUtility/Series/Scatter3D';
 import { ChartColor } from '../EChartsUtility/ChartColor';
 import { ChartComponent } from '../Chart/chart.component';
 import { OptionHelper } from '../EChartsUtility/OptionHelper';
+import { SymbolType } from '../EChartsUtility/Enum';
 @Component({
     templateUrl: './scatter3d_basic.component.html'
 })
 export class Scatter3D_BasicComponent implements OnInit {
     chartComp = ChartComponent;
-    title = '散点图（3D）-基本';
+    title = '散点图-3D';
     dataset = [
         { act: Math.round(Math.random() * 100), def: Math.round(Math.random() * 100), hp: Math.round(Math.random() * 100), name: '唐三' },
         { act: Math.round(Math.random() * 100), def: Math.round(Math.random() * 100), hp: Math.round(Math.random() * 100), name: '戴沐白' },
@@ -26,15 +27,15 @@ export class Scatter3D_BasicComponent implements OnInit {
         //emphasis.label设置的话，tooltip就不设置了
         this.Sample.tooltip = null;
         this.Sample.series[0].emphasis.label.formatter = this.LabelForPoint;
-        this.Sample.series[0]['symbol'] = 'rect';
+        this.Sample.series[0].symbol = SymbolType.rect;
         OptionHelper.chart_SetVisualMap(this.Sample, 200, ChartColor.colorlist_VisualMapinRange);
 
         this.Sample_Color.series[0].symbolSize = 10;
         this.Sample_Color.tooltip = null;
         this.Sample_Color.series[0].emphasis.label.formatter = this.LabelForPoint;
-        this.Sample_Color.series[0]['symbol'] = 'pin';
+        this.Sample_Color.series[0].symbol = SymbolType.pin;
         //visualMap和color不兼容！
-        this.Sample_Color.series[0]['itemStyle'] = { color: this.PointColor };
+        this.Sample_Color.series[0].itemStyle = { color: this.PointColor };
 
 
     }

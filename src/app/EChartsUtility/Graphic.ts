@@ -1,4 +1,13 @@
-import { Position } from './OptionBase';
+
+export class GraphicGrid {
+  public top?: string | number;
+  public bottom?: string | number;
+  public left?: string | number;
+  public right?: string | number;
+  public width?: string | number;
+  public height?: string | number;
+  public rotation?: string | number;
+}
 export class Graphic {
   /**
    * 
@@ -6,7 +15,7 @@ export class Graphic {
    * @param grid 位置大小信息
    * @param origin 旋转和缩放的中心点
    */
-  public static CreateGraphic_Image(url: string, grid: Position, origin: number[]) {
+  public static CreateGraphic_Image(url: string, grid: GraphicGrid, origin: number[]) {
     let graphic = {
       type: 'image',
       id: 'logo',
@@ -27,16 +36,28 @@ export class Graphic {
     return graphic;
   }
 
-  public static CreateGraphic_group(children: any[], totation: number, grid: Position) {
+  public static CreateGraphic_TextArea(
+    grid: GraphicGrid,
+    title: string, textColor: string, rectColor:string,font:string
+  ) {
+    let rect = this.CreateGraphic_rect(grid.width, grid.height, rectColor);
+    let text = this.CreateGraphic_Text(title, textColor,font);
+    grid.width = undefined;
+    grid.height = undefined;
+    let group = this.CreateGraphic_group([rect, text], grid);
+    return group;
+  }
+
+
+  public static CreateGraphic_group(children: any[], grid: GraphicGrid) {
     let graphic = {
       type: 'group',
-      rotation: totation,
       bounding: 'raw',
       z: 100,
       children: children,
       cursor: 'default'  //默认为pointer
     }
-
+    if (grid.rotation) Object.assign(graphic, { rotation: grid.rotation });
     if (grid.height) Object.assign(graphic, { height: grid.height });
     if (grid.width) Object.assign(graphic, { width: grid.width });
     if (grid.top) Object.assign(graphic, { top: grid.top });
@@ -46,7 +67,7 @@ export class Graphic {
     return graphic;
   }
 
-  public static CreateGraphic_rect(width: number, height: number, color: string) {
+  public static CreateGraphic_rect(width: number | string, height: number | string, color: string) {
     let graphic = {
       type: 'rect',
       left: 'center',
@@ -65,7 +86,7 @@ export class Graphic {
   }
 
 
-  public static CreateGraphic_Text(text: string, color: string) {
+  public static CreateGraphic_Text(text: string, color: string, font: string) {
     let graphic = {
       type: 'text',
       left: 'center',
@@ -74,7 +95,7 @@ export class Graphic {
       style: {
         fill: color,
         text: text,
-        font: 'bold 26px Microsoft YaHei'
+        font: font
       },
       cursor: 'default'  //默认为pointer
     }

@@ -1,13 +1,13 @@
 import { OnInit, Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ChartComponent } from '../Chart/chart.component';
-import { OptionBase, Axis, Series, Position } from '../EChartsUtility/OptionBase';
+import { OptionBase, Axis, Series } from '../EChartsUtility/OptionBase';
 import { OptionHelper } from '../EChartsUtility/OptionHelper';
 import { Bar } from '../EChartsUtility/Series/Bar';
 import { PieUtility } from '../EChartsUtility/Series/Pie';
 import { ChartColor } from '../EChartsUtility/ChartColor';
 import { Radar } from '../EChartsUtility/Series/Radar';
-import { Graphic} from '../EChartsUtility/Graphic'
+import { Graphic, GraphicGrid } from '../EChartsUtility/Graphic'
 
 @Component({
     templateUrl: './douluodalu.component.html'
@@ -78,7 +78,7 @@ export class DouluoDalu_Component implements OnInit {
         BarSeries.emphasis.itemStyle = {
             opacity: 1
         };
-        let bargrid = new Position();
+        let bargrid = new GraphicGrid();
         bargrid.top = 450;
         bargrid.left = 650;
         bargrid.width = 300;
@@ -114,22 +114,30 @@ export class DouluoDalu_Component implements OnInit {
         //添加背景图（无图表内容的时候，不会绘制空的背景）
         OptionHelper.chart_SetBackGroundImage(this.Sample, '/assets/image/Background2.jpg', false);
         //增加图片
-        let imggrid = new Position();
-        imggrid.height = 128;
-        imggrid.width = 280;
-        imggrid.top = 650;
-        imggrid.left = 20;
-        let image = Graphic.CreateGraphic_Image("assets/image/唐三/头像.png", imggrid, null)
+        let imggrid = new GraphicGrid();
+        imggrid.height = 100;
+        imggrid.width = 100;
+        imggrid.top = 0;
+        imggrid.right = 1;  //设置为0的话，等于没有设定，这里设置为1达到靠右的效果
+        let image = Graphic.CreateGraphic_Image("assets/image/小舞/头像.png", imggrid, null)
+
         //右下角标识
-        let text = Graphic.CreateGraphic_Text("绝世唐门", 'white');
-        let rect = Graphic.CreateGraphic_rect(400, 50, "orange");
-        let groupgrid = new Position();
+        let groupgrid = new GraphicGrid();
         groupgrid.top = 100;
         groupgrid.right = 100;
-        let group = Graphic.CreateGraphic_group([rect, text], -Math.PI / 4, groupgrid);
+        groupgrid.width = 400;
+        groupgrid.height = 50;
+        groupgrid.rotation = -Math.PI / 4;
+        let groupAdv = Graphic.CreateGraphic_TextArea(groupgrid, "绝世唐门", 'white', "orange", 'bold 26px Microsoft YaHei');
 
-        this.Sample.graphic = [image, group];
-        //console.log(this.Sample);
+        let subtitlegrid = new GraphicGrid();
+        subtitlegrid.top = 780;
+        subtitlegrid.left = 80;
+        subtitlegrid.width = 80;
+        subtitlegrid.height = 15;
+        let groupSubTitle = Graphic.CreateGraphic_TextArea(subtitlegrid, "灰毛毛的可视化实验室", 'black', ChartColor.transparent, 'bold 15px Microsoft YaHei');
+
+        this.Sample.graphic = [image, groupAdv, groupSubTitle];
     }
 
 

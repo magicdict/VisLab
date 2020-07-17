@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Bar } from '../EChartsUtility/Series/Bar';
 import { OptionHelper } from '../EChartsUtility/OptionHelper';
 import { ChartColor } from '../EChartsUtility/ChartColor';
-import { Position, OptionBase } from '../EChartsUtility/OptionBase';
+import { OptionBase } from '../EChartsUtility/OptionBase';
 import { Direction } from '../EChartsUtility/Enum';
-import { Graphic } from '../EChartsUtility/Graphic'
+import { Graphic, GraphicGrid } from '../EChartsUtility/Graphic'
 
 @Component({
   templateUrl: './bar_basic.component.html'
@@ -42,7 +42,7 @@ export class Bar_BasicComponent implements OnInit {
     var img = new Image();
     img.src = '/assets/image/Background.jpg';
     this.RainbowSample.backgroundColor = { 'image': img, type: "pattern", repeat: "repeat" };
-    let imggrid = new Position();
+    let imggrid = new GraphicGrid();
     imggrid.height = 64;
     imggrid.width = 64;
     imggrid.top = 10;

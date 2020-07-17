@@ -22,18 +22,20 @@
     <section class="content">
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12">
-                <chart [options]="Sample" [boxstyle]="chartComp.boxstyle_Col6_Row2" [chartstyle]="chartComp.chartstyle_Col6_Row2" [title]="'柱状图'"></chart>
+                <chart [options]="Sample_perspective" [boxstyle]="chartComp.boxstyle_Col6_Row2"
+                    [chartstyle]="chartComp.chartstyle_Col6_Row2" [title]="'柱状图(透视投影)'"></chart>
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12">
-               
+                <chart [options]="Sample_orthographic" [boxstyle]="chartComp.boxstyle_Col6_Row2"
+                    [chartstyle]="chartComp.chartstyle_Col6_Row2" [title]="'柱状图(正交投影)'"></chart>
             </div>
         </div>
         <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12">
-               
+
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
-              
+
             </div>
         </div>
     </section>

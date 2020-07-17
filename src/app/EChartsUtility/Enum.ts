@@ -26,3 +26,7 @@ export enum MarkLineType {
 export enum AxisType {
     value = "value", category = "category", time = "time", log = "log"
 }
+
+export enum SymbolType {
+    circle = 'circle', rect = 'rect', roundRect = 'roundRect', triangle = 'triangle', diamond = 'diamond', pin = 'pin', arrow = 'arrow', none = 'none'
+}

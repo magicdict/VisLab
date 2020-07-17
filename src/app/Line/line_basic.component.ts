@@ -3,10 +3,9 @@ import { LineUtility, LineSeries } from '../EChartsUtility/Series/Line';
 import { Bar } from '../EChartsUtility/Series/Bar';
 import { ChartColor } from '../EChartsUtility/ChartColor'
 import { OptionHelper } from '../EChartsUtility/OptionHelper';
-import { Position } from '../EChartsUtility/OptionBase';
 import { MarkLineType, MarkPointType, Direction } from '../EChartsUtility/Enum';
 import { AreaStyle } from '../EChartsUtility/Style';
-import { Graphic} from '../EChartsUtility/Graphic'
+import { Graphic, GraphicGrid} from '../EChartsUtility/Graphic'
 
 @Component({
   templateUrl: './line_basic.component.html'
@@ -26,7 +25,7 @@ export class Line_BasicComponent implements OnInit {
   ngOnInit(): void {
     this.Sample.xAxis[0].axisLabel = { interval: 0, rotate: 45 }
     OptionHelper.chart_SetToolBox(this.Sample, true, false, false, false, false, false);
-    let imggrid = new Position();
+    let imggrid = new GraphicGrid();
     imggrid.height = 50;
     imggrid.width = 50;
     imggrid.top = 0;
