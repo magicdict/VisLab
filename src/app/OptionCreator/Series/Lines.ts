@@ -1,4 +1,4 @@
-import { Series } from './OptionBase';
+import { Series } from '../OptionBase';
 import { EChartOption } from "echarts"
 export class LinesSeries extends Series {
     public effect: any = {

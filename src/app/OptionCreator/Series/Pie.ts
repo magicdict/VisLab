@@ -1,6 +1,6 @@
 
-import { ChartColor } from './ChartColor';
-import { OptionBase, Series } from './OptionBase';
+import { ChartColor } from '../ChartColor';
+import { OptionBase, Series } from '../OptionBase';
 
 export class PieOption extends OptionBase {
 

@@ -1,5 +1,5 @@
 import { OnInit, Component } from '@angular/core';
-import { Scatter3D } from '../OptionCreator/Scatter3D';
+import { Scatter3D } from '../OptionCreator/Series/Scatter3D';
 import { ChartColor } from '../OptionCreator/ChartColor';
 import { ChartComponent } from '../Chart/chart.component';
 import { OptionHelper } from '../OptionCreator/OptionHelper';

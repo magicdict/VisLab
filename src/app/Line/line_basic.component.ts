@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LineOption, LineSeries } from '../OptionCreator/Line';
-import { BarOption } from '../OptionCreator/Bar';
+import { LineOption, LineSeries } from '../OptionCreator/Series/Line';
+import { Bar } from '../OptionCreator/Series/Bar';
 import { ChartColor } from '../OptionCreator/ChartColor'
 import { OptionHelper } from '../OptionCreator/OptionHelper';
 import { Position } from '../OptionCreator/OptionBase';
@@ -68,7 +68,7 @@ export class Line_BasicComponent implements OnInit {
     this.GradientSample_Background.tooltip['position'] = "inside";
 
     this.Bar_Line_Mix.series[0]["smooth"] = true;
-    this.Bar_Line_Mix.series.push(BarOption.CreateBarItem(this.value2));
+    this.Bar_Line_Mix.series.push(Bar.BarOption.CreateBarItem(this.value2));
     this.Bar_Line_Mix.series[0].itemStyle.color = ChartColor.geLinearGradient(Direction.Vertical, '#32D3EB', '#FCCE10');
     this.Bar_Line_Mix.series[1].itemStyle.color = ChartColor.geLinearGradient(Direction.Vertical, '#c86589', '#06a7ff');
     LineOption.series_SetAreaStyle(this.Bar_Line_Mix.series[0], areastyle);

@@ -1,8 +1,7 @@
 import { OnInit, Component } from '@angular/core';
-import { PieOption, } from '../OptionCreator/Pie';
-import {CommonFunction} from '../common'
+import { PieOption, } from '../OptionCreator/Series/Pie';
+import { CommonFunction } from '../common'
 import { ChartColor } from '../OptionCreator/ChartColor'
-import { OptionHelper } from '../OptionCreator/OptionHelper';
 @Component({
     templateUrl: './pie_basic.component.html'
 })

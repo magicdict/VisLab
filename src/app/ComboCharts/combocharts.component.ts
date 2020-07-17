@@ -1,10 +1,10 @@
 import { OnInit, Component } from '@angular/core';
-import { Radar } from '../OptionCreator/Radar';
+import { Radar } from '../OptionCreator/Series/Radar';
 import { ChartComponent } from '../Chart/chart.component';
 import { ChartColor } from '../OptionCreator/ChartColor';
-import { PieOption } from '../OptionCreator/Pie';
+import { PieOption } from '../OptionCreator/Series/Pie';
 import { CommonFunction } from '../common';
-import { LineOption } from '../OptionCreator/Line';
+import { LineOption } from '../OptionCreator/Series/Line';
 import { Axis } from '../OptionCreator/OptionBase';
 import { AxisType } from '../OptionCreator/enum';
 

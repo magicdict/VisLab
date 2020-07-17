@@ -1,10 +1,16 @@
-import { Axis, Series, OptionBase } from './OptionBase';
+import { Axis, Series, OptionBase } from '../OptionBase';
 
 export class ScatterOption extends OptionBase {
 
     public static CreateScatterItem(value: any[][]) {
         let item = new Series();
         item.type = 'scatter';
+        item.data = value;
+        return item;
+    }
+    public static CreateEffectScatterItem(value: any[][]) {
+        let item = new Series();
+        item.type = 'effectScatter';
         item.data = value;
         return item;
     }

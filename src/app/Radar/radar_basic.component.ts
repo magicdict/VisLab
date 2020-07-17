@@ -1,5 +1,5 @@
 import { OnInit, Component } from '@angular/core';
-import { Radar } from '../OptionCreator/Radar';
+import { Radar } from '../OptionCreator/Series/Radar';
 import { ChartComponent } from '../Chart/chart.component';
 import { ChartColor } from '../OptionCreator/ChartColor';
 import { CommonFunction } from '../common';

@@ -1,4 +1,4 @@
-import { Axis,  Chart3D, Series } from './OptionBase';
+import { Axis,  Chart3D, Series } from '../OptionBase';
 
 export class Scatter3D extends Chart3D {
     public static CreateScatter3DItem(data: any[][]){

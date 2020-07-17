@@ -3,10 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { ChartComponent } from '../Chart/chart.component';
 import { OptionBase, Axis, Series, Position } from '../OptionCreator/OptionBase';
 import { OptionHelper } from '../OptionCreator/OptionHelper';
-import { BarOption } from '../OptionCreator/Bar';
-import { PieOption } from '../OptionCreator/Pie';
+import { Bar } from '../OptionCreator/Series/Bar';
+import { PieOption } from '../OptionCreator/Series/Pie';
 import { ChartColor } from '../OptionCreator/ChartColor';
-import { Radar } from '../OptionCreator/Radar';
+import { Radar } from '../OptionCreator/Series/Radar';
 
 @Component({
     templateUrl: './douluodalu.component.html'
@@ -52,7 +52,7 @@ export class DouluoDalu_Component implements OnInit {
         this.Sample.series.push(PieSeries);
 
         //图（Chart）和坐标（Axis）绑定，坐标和网格（Grid）绑定
-        let BarSeries = BarOption.CreateBarItem(value);
+        let BarSeries = Bar.BarOption.CreateBarItem(value);
         let BarXAsix = new Axis();
         let BarYAsix = new Axis();
         BarXAsix.show = true;

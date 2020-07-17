@@ -1,5 +1,5 @@
 
-import { OptionBase, Series, coordinateSystem_polar } from './OptionBase';
+import { OptionBase, Series, coordinateSystem_polar } from '../OptionBase';
 
 export class PolarOption extends OptionBase {
     static CreatePolarBarItem(data: number[]) {

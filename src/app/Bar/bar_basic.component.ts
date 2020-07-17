@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BarOption } from '../OptionCreator/Bar';
+import { Bar } from '../OptionCreator/Series/Bar';
 import { OptionHelper } from '../OptionCreator/OptionHelper';
 import { ChartColor } from '../OptionCreator/ChartColor';
 import { Position } from '../OptionCreator/OptionBase';
@@ -10,21 +10,21 @@ import { Direction } from '../OptionCreator/enum';
 })
 export class Bar_BasicComponent implements OnInit {
   title = '柱状图-基本';
-  Sample: BarOption
-  RainbowSample: BarOption;
-  RainbowSample_Dark: BarOption;
-  GradientSample: BarOption;
-  Sample_dark_GradientSample: BarOption;
-  RainbowSample_PictorialBar: BarOption;
+  Sample: Bar.BarOption
+  RainbowSample: Bar.BarOption;
+  RainbowSample_Dark: Bar.BarOption;
+  GradientSample: Bar.BarOption;
+  Sample_dark_GradientSample: Bar.BarOption;
+  RainbowSample_PictorialBar: Bar.BarOption;
   ngOnInit(): void {
 
     let category = ['唐三', '戴沐白', "马红俊", "奥斯卡", "小舞", "宁荣荣", "朱竹清"];
     let value = [50, 100, 150, 70, 80, 120, 90];
 
-    this.Sample = BarOption.CreateBar(category, value);
+    this.Sample = Bar.BarOption.CreateBar(category, value);
     this.Sample.xAxis[0].axisLabel = { interval: 0, rotate: 45 }
 
-    this.RainbowSample = BarOption.CreateBar(category, value);
+    this.RainbowSample = Bar.BarOption.CreateBar(category, value);
     this.RainbowSample.xAxis[0].show = true;
     this.RainbowSample.xAxis[0].axisLabel = { interval: 0, rotate: 45, color: "#FFFFFF" };
     this.RainbowSample.xAxis[0].axisLine = { lineStyle: { color: "#FFFFFF" } };
@@ -49,7 +49,7 @@ export class Bar_BasicComponent implements OnInit {
     let g = OptionHelper.chart_CreateGraphic_Image("assets/image/小舞/头像.png", imggrid, null)
     this.RainbowSample.graphic = [g];
 
-    this.RainbowSample_Dark = BarOption.CreateBar(category, value);
+    this.RainbowSample_Dark = Bar.BarOption.CreateBar(category, value);
     OptionHelper.chart_SetBackGroundColor(this.RainbowSample_Dark, '#000000');//背景色
     this.RainbowSample_Dark.xAxis[0].show = false;
     this.RainbowSample_Dark.yAxis[0].axisLabel = { color: "#FFFFFF" };
@@ -60,12 +60,12 @@ export class Bar_BasicComponent implements OnInit {
     this.RainbowSample_Dark.series[0].emphasis.itemStyle = {
       opacity: 1
     };
- 
-    this.GradientSample = BarOption.CreateBar(category, value);
+
+    this.GradientSample = Bar.BarOption.CreateBar(category, value);
     this.GradientSample.xAxis[0].show = false;
     this.GradientSample.series[0].itemStyle.color = ChartColor.geLinearGradient(Direction.Vertical, '#32D3EB', '#FCCE10');
 
-    this.Sample_dark_GradientSample = BarOption.CreateBar(category, value);
+    this.Sample_dark_GradientSample = Bar.BarOption.CreateBar(category, value);
     OptionHelper.chart_SetBackGroundColor(this.Sample_dark_GradientSample, '#000000');//背景色
     this.Sample_dark_GradientSample.xAxis[0].show = false;
     this.Sample_dark_GradientSample.yAxis[0].axisLabel = { color: "#FFFFFF" };
@@ -88,7 +88,7 @@ export class Bar_BasicComponent implements OnInit {
       position: 'inside',
     }
 
-    this.RainbowSample_PictorialBar = BarOption.CreatePictorialBar(category, value, false);
+    this.RainbowSample_PictorialBar = Bar.BarOption.CreatePictorialBar(category, value, false);
     this.RainbowSample_PictorialBar.xAxis[0].show = false;
     this.RainbowSample_PictorialBar.yAxis[0].show = false;
     this.RainbowSample_PictorialBar.series[0]['barCategoryGap'] = '-130%';

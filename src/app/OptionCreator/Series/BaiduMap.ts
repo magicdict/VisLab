@@ -1,4 +1,4 @@
-import { OptionBase } from "./OptionBase";
+import { OptionBase } from "../OptionBase";
 
 export class BaiduMapOption extends OptionBase {
     public static CreateMapOption() {

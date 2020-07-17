@@ -2,9 +2,8 @@ import { OnInit, Component } from '@angular/core';
 import { ChartColor } from '../OptionCreator/ChartColor';
 import { ChartComponent } from '../Chart/chart.component';
 import { TimelineOption, TimeLine } from '../OptionCreator/Timeline';
-import { BarOption } from '../OptionCreator/Bar';
+import { Bar } from '../OptionCreator/Series/Bar';
 import { OptionBase } from '../OptionCreator/OptionBase';
-import { EChartTitleOption } from 'echarts';
 import { CommonFunction } from '../common';
 
 @Component({
@@ -16,7 +15,6 @@ export class TimeLineComponent implements OnInit {
     Sample: TimelineOption;
     ngOnInit(): void {
         let category = ['唐三', '戴沐白', "马红俊", "奥斯卡", "小舞", "宁荣荣", "朱竹清"];
-        let value = CommonFunction.getRandomArray(100,7);
         let basebar = new OptionBase();
         let timeline = new TimeLine();
 
@@ -25,7 +23,7 @@ export class TimeLineComponent implements OnInit {
             var tn: string = index.toString() + "序列";
             timeline.data.push(index);  //这里只能是数字或者日期型字符串！！！
             let v =CommonFunction.getRandomArray(100,7);
-            let t = BarOption.CreateBar(category, v);
+            let t = Bar.BarOption.CreateBar(category, v);
             t.series[0].itemStyle.color = this.getColor;
             t.series[0].itemStyle.opacity = 0.5;
             t.title.text = tn;

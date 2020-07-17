@@ -1,5 +1,5 @@
-import { Chart3D, Series, Axis } from './OptionBase';
-import { AxisType } from './enum';
+import { Chart3D, Series, Axis } from '../OptionBase';
+import { AxisType } from '../enum';
 
 export class Bar3D extends Chart3D {
     public static CreateBar3DItem(data: any[][]) {

@@ -1,6 +1,6 @@
-import { Axis, Series, OptionBase } from './OptionBase';
-import { MarkPointType, MarkLineType } from './enum'
-import { AreaStyle } from './Style';
+import { Axis, Series, OptionBase } from '../OptionBase';
+import { MarkPointType, MarkLineType } from '../enum'
+import { AreaStyle } from '../Style';
 export class LineOption extends OptionBase {
 
     public static CreateLineItem(value: number[]) {
@@ -58,6 +58,6 @@ export class LineSeries extends Series {
     public markLine?: { data: { type: MarkLineType, name: string }[] };
     public markArea?: { data: { xAxis: MarkPointType, yAxis: MarkPointType, name: string }[][] };
     public step?: boolean | string = false;
-    public smooth?: boolean = false;
+    public smooth?: boolean | number = false;
 }
 

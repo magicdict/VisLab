@@ -1,5 +1,5 @@
 import { OnInit, Component } from '@angular/core';
-import { PolarOption } from '../OptionCreator/Polar';
+import { PolarOption } from '../OptionCreator/Series/Polar';
 import { ChartColor } from '../OptionCreator/ChartColor'
 import { CommonFunction } from '../common';
 @Component({
@@ -35,9 +35,9 @@ export class Polar_BasicComponent implements OnInit {
         this.Sample_Scatter.series[0].symbolSize = (val) => { return val[2] };
         this.Sample_Scatter.tooltip = {
             formatter: function (params) {
-                return angle[(<echarts.EChartOption.Tooltip.Format>params).value[1]] + " " + 
-                       radius[(<echarts.EChartOption.Tooltip.Format>params).value[0]]  + ":" + 
-                       (<echarts.EChartOption.Tooltip.Format>params).value[2];
+                return angle[(<echarts.EChartOption.Tooltip.Format>params).value[1]] + " " +
+                    radius[(<echarts.EChartOption.Tooltip.Format>params).value[0]] + ":" +
+                    (<echarts.EChartOption.Tooltip.Format>params).value[2];
             }
         }
     }

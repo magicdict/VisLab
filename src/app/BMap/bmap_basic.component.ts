@@ -1,14 +1,14 @@
 import { OnInit, Component } from '@angular/core';
-import { BaiduMapOption } from '../OptionCreator/BaiduMap';
+import { BaiduMapOption } from '../OptionCreator/Series/BaiduMap';
 import { ChartComponent } from '../Chart/chart.component';
-import { ScatterOption } from '../OptionCreator/Scatter';
+import { ScatterOption } from '../OptionCreator/Series/Scatter';
 import { CommonFunction } from '../common';
 import { OptionHelper } from '../OptionCreator/OptionHelper';
 import { ChartColor } from '../OptionCreator/ChartColor';
 import { Series, coordinateSystem_bmap } from '../OptionCreator/OptionBase';
 import { HttpClient } from '@angular/common/http';
-import { LinesDataItem, LinesSeries } from '../OptionCreator/Lines';
-import { imagedata, pathSymbols } from '../OptionCreator/ChartImage';
+import { LinesDataItem, LinesSeries } from '../OptionCreator/Series/Lines';
+
 
 @Component({
     templateUrl: './bmap_basic.component.html',

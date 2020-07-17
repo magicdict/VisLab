@@ -1,6 +1,6 @@
-import { Radar } from './Radar';
-import { PolarConfig, AngleAxis, RadiusAxis } from './Polar';
-import { CalendarConfig } from './Calendar';
+import { Radar } from './Series/Radar';
+import { PolarConfig, AngleAxis, RadiusAxis } from './Series/Polar';
+import { Calendar } from './Calendar';
 import { AxisType } from './enum';
 import { ItemStyle } from './Style';
 import { EChartTitleOption, EChartOption } from 'echarts';
@@ -19,6 +19,10 @@ export class OptionBase {
     public polar?: PolarConfig = undefined;
     public angleAxis?: AngleAxis = undefined;
     public radiusAxis?: RadiusAxis = undefined;
+    //平行坐标系
+
+    //单轴
+    public singleAxis?:EChartOption.SingleAxis = undefined;
     //雷达用
     public radar?: Radar.RadarConfig = undefined;
     //时间轴用
@@ -28,7 +32,7 @@ export class OptionBase {
     public grid?: EChartOption.Grid[] = undefined;  //这里必须设定为undefined，否则js端报错
     public graphic?: any[] = undefined;
     //日历用
-    public calendar?: CalendarConfig = undefined;
+    public calendar?: Calendar.CalendarConfig = undefined;
     public xAxis?: EChartOption.XAxis[] = undefined; //这里虽然支持单个的Axis，不过会造成TS的智能提示混乱，所以统一为Array
     public yAxis?: EChartOption.YAxis[] = undefined;
     public geo?: any = undefined;
@@ -42,7 +46,7 @@ export class OptionBase {
     public animation: boolean = true;
     /**是否开启动画的阈值，当单个系列显示的图形数量大于这个阈值时会关闭动画。 */
     public animationThreshold: number = 2000;
-
+    //工具箱
     public toolbox?: any = undefined;
 }
 

@@ -1,6 +1,5 @@
 
-import { OptionBase, Series } from './OptionBase';
-import { AreaStyle } from './Style';
+import { OptionBase } from '../OptionBase';
 import { EChartOption } from 'echarts';
 
 export namespace Radar {

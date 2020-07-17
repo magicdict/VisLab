@@ -1,10 +1,10 @@
 import { OnInit, Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BarOption } from '../OptionCreator/Bar';
-import { LineOption } from '../OptionCreator/Line';
+import { Bar } from '../OptionCreator/Series/Bar';
+import { LineOption } from '../OptionCreator/Series/Line';
 import { Axis, OptionBase, Series } from '../OptionCreator/OptionBase';
 import { ChartComponent } from '../Chart/chart.component';
-import { CalendarOption } from '../OptionCreator/Calendar';
+import { Calendar } from '../OptionCreator/Calendar';
 import { OptionHelper } from '../OptionCreator/OptionHelper';
 import { ChartColor } from '../OptionCreator/ChartColor';
 import { TimelineOption, TimeLine } from '../OptionCreator/Timeline';
@@ -19,8 +19,8 @@ export class Covid19_Component implements OnInit {
     constructor(private http: HttpClient) {
 
     }
-    Line_Total: BarOption;
-    Calendar_Total: CalendarOption;
+    Line_Total: Bar.BarOption;
+    Calendar_Total: Calendar.CalendarOption;
     BarTimeLine: TimelineOption;
     ChinaMap: OptionBase = new OptionBase(); //InitChart必须要new对象
     ngOnInit(): void {
@@ -49,7 +49,7 @@ export class Covid19_Component implements OnInit {
 
                 let date = r.map(x => x.PublishDate.substring(0, 10));
                 let value = r.map(x => x.Recoved_Total);
-                this.Calendar_Total = CalendarOption.CreateCalendar(date, value, "heatmap");
+                this.Calendar_Total = Calendar.CalendarOption.CreateCalendar(date, value, "heatmap");
                 this.Calendar_Total.calendar.range = ["2020-2", "2020-4"];
                 this.Calendar_Total.calendar.monthLabel.show = true;
                 this.Calendar_Total.calendar.cellSize = [70, 50];
@@ -70,7 +70,7 @@ export class Covid19_Component implements OnInit {
                     timeline.data.push("2020-03-" + Day);
                     var ds = r.filter(x => x.PublishDate.substring(0, 10) === "2020-03-" + Day);
                     ds = ds.sort((x, y) => { return y.Confirmed_Total - x.Confirmed_Total }).slice(1, 10);
-                    let t = BarOption.CreateBar(ds.map(x => x.Province), ds.map(x => x.Confirmed_Total));
+                    let t = Bar.BarOption.CreateBar(ds.map(x => x.Province), ds.map(x => x.Confirmed_Total));
                     options.push(t);
                 }
                 timeline.label = { formatter: (s: any) => { return ((new Date(s)).getMonth() + 1) + "-" + (new Date(s)).getDate(); } };

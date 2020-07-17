@@ -1,6 +1,6 @@
 import { OnInit, Component } from '@angular/core';
 import { ChartColor } from '../OptionCreator/ChartColor'
-import { ScatterOption } from '../OptionCreator/Scatter';
+import { ScatterOption } from '../OptionCreator/Series/Scatter';
 import { pathSymbols } from '../OptionCreator/ChartImage';
 import { WeekDayHour } from '../OptionCreator/WeekDayHour';
 import { ChartComponent } from '../Chart/chart.component';
