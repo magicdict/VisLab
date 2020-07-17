@@ -1,9 +1,10 @@
 import { OnInit, Component } from '@angular/core';
-import { Radar } from '../OptionCreator/Series/Radar';
+import { Radar } from '../EChartsUtility/Series/Radar';
 import { ChartComponent } from '../Chart/chart.component';
-import { ChartColor } from '../OptionCreator/ChartColor';
+import { ChartColor } from '../EChartsUtility/ChartColor';
 import { CommonFunction } from '../common';
 import { EChartOption } from 'echarts';
+import { OptionBase } from '../EChartsUtility/OptionBase';
 
 @Component({
     templateUrl: './radar_basic.component.html'
@@ -21,13 +22,13 @@ export class Radar_BasicComponent implements OnInit {
     ];
     indicators = [{ name: "攻击", max: 100 }, { name: "防御", max: 100 }, { name: "生命", max: 100 }, { name: "魂力", max: 100 }, { name: "速度", max: 100 }];
     chartComp = ChartComponent
-    Sample: Radar.RadarOption;
-    Sample_NoLegend: Radar.RadarOption;
+    Sample: OptionBase;
+    Sample_NoLegend: OptionBase;
     Sample_Offical: EChartOption = {};
 
     ngOnInit(): void {
         
-        this.Sample = Radar.RadarOption.CreateRadar(this.indicators, this.dataset);
+        this.Sample = Radar.RadarUtility.CreateRadar(this.indicators, this.dataset);
         this.Sample.series[0].color = ChartColor.colorlist_7_Baidu;
         //以下代码等价以上代码
         let rc = new Radar.RadarConfig();
@@ -41,7 +42,7 @@ export class Radar_BasicComponent implements OnInit {
         this.Sample_Offical.series = [];
         this.Sample_Offical.series.push(rs);
 
-        let c = Radar.RadarOption.CreateRadar_NoLegend(this.indicators, this.dataset.map(x => x.value));
+        let c = Radar.RadarUtility.CreateRadar_NoLegend(this.indicators, this.dataset.map(x => x.value));
         c.radar.splitLine = {
             lineStyle: {
                 color: ChartColor.colorlist_7_Baidu

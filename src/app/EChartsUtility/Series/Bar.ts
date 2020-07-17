@@ -7,10 +7,10 @@ export namespace Bar {
         value: number;
     }
 
-    export class BarOption extends OptionBase {
+    export class BarUtility {
 
         public static CreateBarByRecords(records: BarRecord[]) {
-            let o = new BarOption();
+            let o = new OptionBase();
             o.xAxis = [new Axis()];
             o.yAxis = [new Axis()];
             o.xAxis[0].data = records.map(x => x.name);
@@ -25,8 +25,8 @@ export namespace Bar {
             return item;
         }
 
-        public static CreateBar(category: string[], value: number[]): BarOption {
-            let o = new BarOption();
+        public static CreateBar(category: string[], value: number[]) {
+            let o = new OptionBase();
             o.xAxis = [new Axis()];
             o.yAxis = [new Axis()];
             o.xAxis[0].data = category;
@@ -53,8 +53,8 @@ export namespace Bar {
          * @param repeat 是否重复：真的时候类似于电池图
          * @param img 图像字符（url或者path）
          */
-        public static CreatePictorialBar(category: string[], value: number[], repeat: boolean, img?: string): BarOption {
-            let o = new BarOption();
+        public static CreatePictorialBar(category: string[], value: number[], repeat: boolean, img?: string) {
+            let o = new OptionBase();
             o.xAxis = [new Axis()];
             o.yAxis = [new Axis()];
             o.xAxis[0].data = category;

@@ -1,10 +1,11 @@
 import { OnInit, Component } from '@angular/core';
-import { ChartColor } from '../OptionCreator/ChartColor'
-import { ScatterOption } from '../OptionCreator/Series/Scatter';
-import { pathSymbols } from '../OptionCreator/ChartImage';
-import { WeekDayHour } from '../OptionCreator/WeekDayHour';
+import { ChartColor } from '../EChartsUtility/ChartColor'
+import { ScatterUtility } from '../EChartsUtility/Series/Scatter';
+import { pathSymbols } from '../EChartsUtility/ChartImage';
+import { WeekDayHour } from '../EChartsUtility/WeekDayHour';
 import { ChartComponent } from '../Chart/chart.component';
-import { OptionHelper } from '../OptionCreator/OptionHelper';
+import { OptionHelper } from '../EChartsUtility/OptionHelper';
+import { OptionBase } from '../EChartsUtility/OptionBase';
 @Component({
     templateUrl: './scatter_basic.component.html'
 })
@@ -19,15 +20,15 @@ export class Scatter_BasicComponent implements OnInit {
         { value: 120, name: '宁荣荣' },
         { value: 90, name: '朱竹清' },
     ];
-    Sample: ScatterOption;
-    WeekHourSample: ScatterOption;
+    Sample: OptionBase;
+    WeekHourSample: OptionBase;
     chartComp = ChartComponent
     ngOnInit(): void {
         let ds = [];
         for (let index = 0; index < this.dataset.length; index++) {
             ds.push([Math.round(Math.random() * 10), Math.round(Math.random() * 10)])
         }
-        this.Sample = ScatterOption.CreateScatter(ds);
+        this.Sample = ScatterUtility.CreateScatter(ds);
         this.Sample.series[0].itemStyle.color = this.getColor;
         this.Sample.series[0].symbol = pathSymbols.rocket;
         this.Sample.series[0].symbolSize = 25;

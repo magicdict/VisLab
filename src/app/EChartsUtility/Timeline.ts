@@ -1,11 +1,11 @@
 import { OptionBase, Chart3D } from "./OptionBase"
 
-export class TimelineOption {
+export class TimelineUtility {
     public baseOption?: OptionBase | Chart3D;
     public options?: any[];
 
-    public static CreateTimeLine(BaseOption: OptionBase | Chart3D, TimeLineConfig: TimeLine) {
-        let o = new TimelineOption();
+    public static CreateTimeLine(BaseOption: OptionBase | Chart3D, TimeLineConfig: TimeLineConfig) {
+        let o = new TimelineUtility();
         o.baseOption = BaseOption;
         Object.assign(o.baseOption, { timeline: TimeLineConfig })
         o.options = [];
@@ -14,7 +14,7 @@ export class TimelineOption {
 
 }
 
-export class TimeLine {
+export class TimeLineConfig {
     public show: boolean = true;
     public autoPlay: boolean = true;
     public playInterval: number = 1000;

@@ -2,7 +2,7 @@
 import { ChartColor } from '../ChartColor';
 import { OptionBase, Series } from '../OptionBase';
 
-export class PieOption extends OptionBase {
+export class PieUtility {
 
     static CreatePieItem(data: { name: string, value: number }[], radius: string | number[]) {
         let s = new PieSeries();
@@ -24,14 +24,14 @@ export class PieOption extends OptionBase {
     }
 
     public static CreatePie(data: { name: string, value: number }[], radius: string | number[]) {
-        let o = new PieOption();
+        let o = new OptionBase();
         o.series.push(this.CreatePieItem(data, radius));
         return o;
     }
 
     /**南丁格尔图 */
     public static CreateNightingale(data: { name: string, value: number }[], radius: string): any {
-        let o = new PieOption();
+        let o = new OptionBase();
         o.series.push(this.CreateNightingalePieItem(data, radius));
         return o;
     }

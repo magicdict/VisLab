@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 
 import { NgxEchartsModule } from 'ngx-echarts';
 import * as echarts from 'echarts';
-import { OptionCreatorModule } from './OptionCreator/OptionCreator.module';
+import { EChartsUtilityModule } from './EChartsUtility/EChartsUtility.module';
 import { Bar_BasicComponent } from './Bar/bar_basic.component';
 import { Line_BasicComponent } from './Line/line_basic.component';
 import { Pie_BasicComponent } from './Pie/pie_basic.component';
@@ -56,7 +56,7 @@ import { HttpClientModule } from '@angular/common/http';
     NgxEchartsModule.forRoot({
       echarts,
     }),
-    OptionCreatorModule
+    EChartsUtilityModule
   ],
   providers: [],
   bootstrap: [AppComponent]

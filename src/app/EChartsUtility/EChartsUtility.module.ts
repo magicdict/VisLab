@@ -12,6 +12,6 @@ import { NgModule } from '@angular/core';
   providers: [],
   bootstrap: []
 })
-export class OptionCreatorModule { 
+export class EChartsUtilityModule { 
 
 }

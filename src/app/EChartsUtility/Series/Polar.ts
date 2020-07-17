@@ -1,7 +1,7 @@
 
 import { OptionBase, Series, coordinateSystem_polar } from '../OptionBase';
 
-export class PolarOption extends OptionBase {
+export class PolarUtility {
     static CreatePolarBarItem(data: number[]) {
         let s = new Series();
         s.type = "bar"
@@ -10,8 +10,8 @@ export class PolarOption extends OptionBase {
         return s;
     }
 
-    public static CreatePolarForBar(data: { name: string, value: number }[], radius: string): PolarOption {
-        let o = new PolarOption();
+    public static CreatePolarForBar(data: { name: string, value: number }[], radius: string) {
+        let o = new OptionBase();
         o.tooltip = {
             trigger: 'axis',
             axisPointer: {
@@ -40,8 +40,8 @@ export class PolarOption extends OptionBase {
         return s;
     }
 
-    public static CreatePolarForScatter(angleAxis: string[], radiusAxis: string[], data: number[][], radius: string): PolarOption {
-        let o = new PolarOption();
+    public static CreatePolarForScatter(angleAxis: string[], radiusAxis: string[], data: number[][], radius: string) {
+        let o = new OptionBase();
         o.tooltip = {
             trigger: 'axis',
             axisPointer: {

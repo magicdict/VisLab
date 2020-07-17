@@ -1,5 +1,4 @@
-import { Direction } from './enum';
-
+import { Direction } from './Enum';
 
 export class ChartColor {
     //#region Color

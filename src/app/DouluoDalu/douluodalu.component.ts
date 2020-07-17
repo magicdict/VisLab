@@ -1,12 +1,13 @@
 import { OnInit, Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ChartComponent } from '../Chart/chart.component';
-import { OptionBase, Axis, Series, Position } from '../OptionCreator/OptionBase';
-import { OptionHelper } from '../OptionCreator/OptionHelper';
-import { Bar } from '../OptionCreator/Series/Bar';
-import { PieOption } from '../OptionCreator/Series/Pie';
-import { ChartColor } from '../OptionCreator/ChartColor';
-import { Radar } from '../OptionCreator/Series/Radar';
+import { OptionBase, Axis, Series, Position } from '../EChartsUtility/OptionBase';
+import { OptionHelper } from '../EChartsUtility/OptionHelper';
+import { Bar } from '../EChartsUtility/Series/Bar';
+import { PieUtility } from '../EChartsUtility/Series/Pie';
+import { ChartColor } from '../EChartsUtility/ChartColor';
+import { Radar } from '../EChartsUtility/Series/Radar';
+import { Graphic} from '../EChartsUtility/Graphic'
 
 @Component({
     templateUrl: './douluodalu.component.html'
@@ -43,7 +44,7 @@ export class DouluoDalu_Component implements OnInit {
         this.Sample.yAxis = [];
 
         //没有坐标轴的，直接设定位置信息
-        let PieSeries = PieOption.CreateNightingalePieItem(namevalue, "200");
+        let PieSeries = PieUtility.CreateNightingalePieItem(namevalue, "200");
         PieSeries.itemStyle.opacity = 0.7;
         PieSeries.top = 100;
         PieSeries.left = 50;
@@ -52,7 +53,7 @@ export class DouluoDalu_Component implements OnInit {
         this.Sample.series.push(PieSeries);
 
         //图（Chart）和坐标（Axis）绑定，坐标和网格（Grid）绑定
-        let BarSeries = Bar.BarOption.CreateBarItem(value);
+        let BarSeries = Bar.BarUtility.CreateBarItem(value);
         let BarXAsix = new Axis();
         let BarYAsix = new Axis();
         BarXAsix.show = true;
@@ -118,14 +119,14 @@ export class DouluoDalu_Component implements OnInit {
         imggrid.width = 280;
         imggrid.top = 650;
         imggrid.left = 20;
-        let image = OptionHelper.chart_CreateGraphic_Image("assets/image/唐三/头像.png", imggrid, null)
+        let image = Graphic.CreateGraphic_Image("assets/image/唐三/头像.png", imggrid, null)
         //右下角标识
-        let text = OptionHelper.chart_CreateGraphic_Text("绝世唐门", 'white');
-        let rect = OptionHelper.chart_CreateGraphic_rect(400, 50, "orange");
+        let text = Graphic.CreateGraphic_Text("绝世唐门", 'white');
+        let rect = Graphic.CreateGraphic_rect(400, 50, "orange");
         let groupgrid = new Position();
         groupgrid.top = 100;
         groupgrid.right = 100;
-        let group = OptionHelper.chart_CreateGraphic_group([rect, text], -Math.PI / 4, groupgrid);
+        let group = Graphic.CreateGraphic_group([rect, text], -Math.PI / 4, groupgrid);
 
         this.Sample.graphic = [image, group];
         //console.log(this.Sample);

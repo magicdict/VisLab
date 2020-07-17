@@ -4,14 +4,14 @@ import { EChartOption } from 'echarts';
 
 export namespace Radar {
 
-    export class RadarOption extends OptionBase {
+    export class RadarUtility {
         /**
          * 生成雷达图
          * @param indicators 雷达标识
          * @param data 数据
          */
         public static CreateRadar(indicators: { name: string, max: number }[], data: { name: string, value: number[] }[]) {
-            let o = new RadarOption;
+            let o = new OptionBase;
             o.radar = new RadarConfig();
             o.radar.indicator = indicators;
             o.legend = {};
@@ -20,7 +20,7 @@ export namespace Radar {
             return o;
         }
         public static CreateRadar_NoLegend(indicators: { name: string, max: number }[], data: number[][]) {
-            let o = new RadarOption;
+            let o = new OptionBase;
             o.radar = new RadarConfig();
             o.radar.indicator = indicators;
             o.series.push({ data: data, type: "radar" });

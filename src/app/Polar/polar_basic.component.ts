@@ -1,7 +1,8 @@
 import { OnInit, Component } from '@angular/core';
-import { PolarOption } from '../OptionCreator/Series/Polar';
-import { ChartColor } from '../OptionCreator/ChartColor'
+import { PolarUtility } from '../EChartsUtility/Series/Polar';
+import { ChartColor } from '../EChartsUtility/ChartColor'
 import { CommonFunction } from '../common';
+import { OptionBase } from '../EChartsUtility/OptionBase';
 @Component({
     templateUrl: './polar_basic.component.html'
 })
@@ -16,8 +17,8 @@ export class Polar_BasicComponent implements OnInit {
         { value: 120, name: '宁荣荣' },
         { value: 90, name: '朱竹清' },
     ];
-    Sample_Bar = PolarOption.CreatePolarForBar(CommonFunction.clone(this.dataset), "75%");
-    Sample_Scatter: PolarOption;
+    Sample_Bar = PolarUtility.CreatePolarForBar(CommonFunction.clone(this.dataset), "75%");
+    Sample_Scatter: OptionBase;
     ngOnInit(): void {
         this.Sample_Bar.series[0].itemStyle.color = this.getColor;
         this.Sample_Bar.series[0].itemStyle.opacity = 0.5;
@@ -30,7 +31,7 @@ export class Polar_BasicComponent implements OnInit {
                 ds.push([radiusidx, angleidx, Math.round(Math.random() * 30)])
             }
         }
-        this.Sample_Scatter = PolarOption.CreatePolarForScatter(angle, radius, ds, "85%");
+        this.Sample_Scatter = PolarUtility.CreatePolarForScatter(angle, radius, ds, "85%");
         this.Sample_Scatter.series[0].itemStyle.color = this.getColor2;
         this.Sample_Scatter.series[0].symbolSize = (val) => { return val[2] };
         this.Sample_Scatter.tooltip = {

@@ -1,9 +1,9 @@
 import { OnInit, Component } from '@angular/core';
-import { Bar3D } from '../OptionCreator/Series/Bar3D';
+import { Bar3D } from '../EChartsUtility/Series/Bar3D';
 import { ChartComponent } from '../Chart/chart.component';
-import { Chart3D } from '../OptionCreator/OptionBase';
-import { OptionHelper } from '../OptionCreator/OptionHelper';
-import { ChartColor } from '../OptionCreator/ChartColor';
+import { Chart3D } from '../EChartsUtility/OptionBase';
+import { OptionHelper } from '../EChartsUtility/OptionHelper';
+import { ChartColor } from '../EChartsUtility/ChartColor';
 @Component({
     templateUrl: './bar3d_basic.component.html'
 })

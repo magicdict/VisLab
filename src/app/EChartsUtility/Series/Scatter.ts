@@ -1,6 +1,6 @@
 import { Axis, Series, OptionBase } from '../OptionBase';
 
-export class ScatterOption extends OptionBase {
+export class ScatterUtility  {
 
     public static CreateScatterItem(value: any[][]) {
         let item = new Series();
@@ -15,7 +15,7 @@ export class ScatterOption extends OptionBase {
         return item;
     }
     public static CreateScatter(value: number[][]) {
-        let o = new ScatterOption();
+        let o = new OptionBase();
         o.tooltip = { trigger: 'axis' };
         o.xAxis = [new Axis()];
         o.yAxis = [new Axis()];

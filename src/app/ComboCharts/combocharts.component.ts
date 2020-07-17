@@ -1,12 +1,12 @@
 import { OnInit, Component } from '@angular/core';
-import { Radar } from '../OptionCreator/Series/Radar';
+import { Radar } from '../EChartsUtility/Series/Radar';
 import { ChartComponent } from '../Chart/chart.component';
-import { ChartColor } from '../OptionCreator/ChartColor';
-import { PieOption } from '../OptionCreator/Series/Pie';
+import { ChartColor } from '../EChartsUtility/ChartColor';
+import { PieUtility } from '../EChartsUtility/Series/Pie';
 import { CommonFunction } from '../common';
-import { LineOption } from '../OptionCreator/Series/Line';
-import { Axis } from '../OptionCreator/OptionBase';
-import { AxisType } from '../OptionCreator/enum';
+import { LineUtility } from '../EChartsUtility/Series/Line';
+import { Axis, OptionBase } from '../EChartsUtility/OptionBase';
+import { AxisType } from '../EChartsUtility/Enum';
 
 @Component({
     templateUrl: './combocharts.component.html'
@@ -24,10 +24,10 @@ export class ComboChartsComponent implements OnInit {
     ];
     indicators = [{ name: "攻击", max: 100 }, { name: "防御", max: 100 }, { name: "生命", max: 100 }, { name: "魂力", max: 100 }, { name: "速度", max: 100 }];
     chartComp = ChartComponent
-    Sample: Radar.RadarOption;
-    Sample_Pie_Bar: PieOption;
+    Sample: OptionBase;
+    Sample_Pie_Bar: OptionBase;
     ngOnInit(): void {
-        this.Sample = Radar.RadarOption.CreateRadar(this.indicators, this.dataset);
+        this.Sample = Radar.RadarUtility.CreateRadar(this.indicators, this.dataset);
         let dataset_multi = [];
         this.dataset.map(x => x.value).forEach(
             arr => {
@@ -46,20 +46,20 @@ export class ComboChartsComponent implements OnInit {
         ];
 
         //主从图表
-        let x = PieOption.CreatePieItem(dataset, '20%')
+        let x = PieUtility.CreatePieItem(dataset, '20%')
         x['center'] = ['85%', '15%'];
         this.Sample.series.push(x);
         this.Sample.series[0]['color'] = ChartColor.colorlist_7_Baidu;
         this.Sample.series[1]['color'] = ChartColor.colorlist_7_Baidu;
 
 
-        this.Sample_Pie_Bar = PieOption.CreatePie(CommonFunction.clone(dataset), "65%");
+        this.Sample_Pie_Bar = PieUtility.CreatePie(CommonFunction.clone(dataset), "65%");
         this.Sample_Pie_Bar.series[0].label.show = true;
         this.Sample_Pie_Bar.series[0]['color'] = ChartColor.colorlist_7_Baidu;
 
         let category = ['唐三', '戴沐白', "马红俊", "奥斯卡", "小舞", "宁荣荣", "朱竹清"];
         let value = [50, 100, 150, 70, 80, 120, 90];
-        let line = LineOption.CreateLineItem(value);
+        let line = LineUtility.CreateLineItem(value);
         //line用坐标轴的修正
         var line_xAsix = new Axis();
         line_xAsix.type = AxisType.category;

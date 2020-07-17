@@ -1,9 +1,10 @@
 import { Radar } from './Series/Radar';
 import { PolarConfig, AngleAxis, RadiusAxis } from './Series/Polar';
 import { Calendar } from './Calendar';
-import { AxisType } from './enum';
+import { AxisType } from './Enum';
 import { ItemStyle } from './Style';
 import { EChartTitleOption, EChartOption } from 'echarts';
+import { BMapConfig } from './Series/BaiduMap';
 
 export const coordinateSystem_bmap = "bmap";                //百度地图
 export const coordinateSystem_calendar = "calendar";        //日历
@@ -11,7 +12,7 @@ export const coordinateSystem_cartesian2d = "cartesian2d";  //2维
 export const coordinateSystem_geo = "geo";                  //地理
 export const coordinateSystem_polar = "polar";              //极坐标
 
-//暂时无法直接使用ECharts的完整结构
+//暂时无法直接使用ECharts的完整结构EChartOption
 export class OptionBase {
     public title?: EChartTitleOption = undefined;
     public legend?: EChartOption.Legend = undefined;
@@ -22,7 +23,7 @@ export class OptionBase {
     //平行坐标系
 
     //单轴
-    public singleAxis?:EChartOption.SingleAxis = undefined;
+    public singleAxis?: EChartOption.SingleAxis = undefined;
     //雷达用
     public radar?: Radar.RadarConfig = undefined;
     //时间轴用
@@ -36,16 +37,17 @@ export class OptionBase {
     public xAxis?: EChartOption.XAxis[] = undefined; //这里虽然支持单个的Axis，不过会造成TS的智能提示混乱，所以统一为Array
     public yAxis?: EChartOption.YAxis[] = undefined;
     public geo?: any = undefined;
+    public bmap?:BMapConfig = undefined;
     //数据序列
-    public series: Series[] = [];
+    public series?: Series[] = [];
     public backgroundColor?: any = undefined;
     //注意，这个即使是undefined也会造成无法绘制，原因是破坏了既定值，所以点的颜色都是没有的
-    public color: string[] = ['#c23531', '#2f4554', '#61a0a8', '#d48265', '#91c7ae', '#749f83', '#ca8622', '#bda29a', '#6e7074', '#546570', '#c4ccd3'];
+    public color?: string[] = ['#c23531', '#2f4554', '#61a0a8', '#d48265', '#91c7ae', '#749f83', '#ca8622', '#bda29a', '#6e7074', '#546570', '#c4ccd3'];
     public textStyle?: EChartOption.BaseTextStyle;
     /**是否开启动画。 */
-    public animation: boolean = true;
+    public animation?: boolean = true;
     /**是否开启动画的阈值，当单个系列显示的图形数量大于这个阈值时会关闭动画。 */
-    public animationThreshold: number = 2000;
+    public animationThreshold?: number = 2000;
     //工具箱
     public toolbox?: any = undefined;
 }

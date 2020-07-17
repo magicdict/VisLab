@@ -1,8 +1,9 @@
 import { OnInit, Component } from '@angular/core';
-import { Calendar } from '../OptionCreator/Calendar';
+import { Calendar } from '../EChartsUtility/Calendar';
 import { ChartComponent } from '../Chart/chart.component';
-import { OptionHelper } from '../OptionCreator/OptionHelper';
-import { ChartColor } from '../OptionCreator/ChartColor';
+import { OptionHelper } from '../EChartsUtility/OptionHelper';
+import { ChartColor } from '../EChartsUtility/ChartColor';
+import { OptionBase } from '../EChartsUtility/OptionBase';
 
 @Component({
     templateUrl: './calendar_basic.component.html'
@@ -10,7 +11,7 @@ import { ChartColor } from '../OptionCreator/ChartColor';
 export class Calendar_BasicComponent implements OnInit {
     title = '日历图-基本';
     chartComp = ChartComponent
-    Sample: Calendar.CalendarOption;
+    Sample: OptionBase;
     ngOnInit(): void {
         let date = [];
         let value = [];
@@ -18,7 +19,7 @@ export class Calendar_BasicComponent implements OnInit {
             date.push("2020-1-" + index);
             value.push(Math.round(Math.random() * 100))
         }
-        this.Sample = Calendar.CalendarOption.CreateCalendar(date, value, "heatmap");
+        this.Sample = Calendar.CalendarUtility.CreateCalendar(date, value, "heatmap");
         this.Sample.calendar.range = "2020-1";
         this.Sample.series[0].label.formatter = (x: { value: string[]; }) => x.value[0] + ":" + x.value[1];
         OptionHelper.chart_SetVisualMap(this.Sample, 100, ChartColor.colorlist_VisualMapinRange);

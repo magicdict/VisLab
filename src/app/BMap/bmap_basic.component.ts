@@ -1,13 +1,13 @@
 import { OnInit, Component } from '@angular/core';
-import { BaiduMapOption } from '../OptionCreator/Series/BaiduMap';
+import { BaiduMapUtility } from '../EChartsUtility/Series/BaiduMap';
 import { ChartComponent } from '../Chart/chart.component';
-import { ScatterOption } from '../OptionCreator/Series/Scatter';
+import { ScatterUtility } from '../EChartsUtility/Series/Scatter';
 import { CommonFunction } from '../common';
-import { OptionHelper } from '../OptionCreator/OptionHelper';
-import { ChartColor } from '../OptionCreator/ChartColor';
-import { Series, coordinateSystem_bmap } from '../OptionCreator/OptionBase';
+import { OptionHelper } from '../EChartsUtility/OptionHelper';
+import { ChartColor } from '../EChartsUtility/ChartColor';
+import { Series, coordinateSystem_bmap, OptionBase } from '../EChartsUtility/OptionBase';
 import { HttpClient } from '@angular/common/http';
-import { LinesDataItem, LinesSeries } from '../OptionCreator/Series/Lines';
+import { LinesDataItem, LinesSeries } from '../EChartsUtility/Series/Lines';
 
 
 @Component({
@@ -19,14 +19,14 @@ export class BMap_BasicComponent implements OnInit {
     }
 
     title = '百度地图-基本';
-    Sample: BaiduMapOption;
-    Sample_Lines: BaiduMapOption;
-    Sample_Colorful: BaiduMapOption;
-    Sample_Heat: BaiduMapOption;
+    Sample: OptionBase;
+    Sample_Lines: OptionBase;
+    Sample_Colorful: OptionBase;
+    Sample_Heat: OptionBase;
     chartComp = ChartComponent;
     ngOnInit(): void {
-        this.Sample = BaiduMapOption.CreateMapOption();
-        let s = ScatterOption.CreateScatterItem([[110.3373, 20.0303, 'A', 10], [110.3473, 20.0403, 'B', 20]])
+        this.Sample = BaiduMapUtility.CreateMapOption();
+        let s = ScatterUtility.CreateScatterItem([[110.3373, 20.0303, 'A', 10], [110.3473, 20.0403, 'B', 20]])
         s.type = 'effectScatter';
         s['rippleEffect'] = {
             brushType: 'stroke'
@@ -41,14 +41,14 @@ export class BMap_BasicComponent implements OnInit {
         this.Sample_Colorful.series[0].label.formatter = this.getLabel;
 
         let priceMap = this.http.get<{ lat: number, lng: number, value: number }[]>("assets/json/MapHeat.json").toPromise();
-        this.Sample_Heat = BaiduMapOption.CreateMapOption();
+        this.Sample_Heat = BaiduMapUtility.CreateMapOption();
         OptionHelper.chart_SetVisualMap(this.Sample_Heat, 300, ChartColor.colorlist_VisualMapinRange_More);
         let heatdata = new Series();
         heatdata.type = 'heatmap';
         heatdata.coordinateSystem = coordinateSystem_bmap;
         this.Sample_Heat.series.push(heatdata);
 
-        this.Sample_Lines = BaiduMapOption.CreateMapOption();
+        this.Sample_Lines = BaiduMapUtility.CreateMapOption();
         let s2 = new LinesSeries();
         s2.type = "lines";
         s2.coordinateSystem = coordinateSystem_bmap;

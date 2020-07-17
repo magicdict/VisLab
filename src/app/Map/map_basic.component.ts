@@ -1,6 +1,6 @@
 import { OnInit, Component } from '@angular/core';
 import { ChartComponent } from '../Chart/chart.component';
-import { OptionBase, Series } from '../OptionCreator/OptionBase';
+import { OptionBase, Series } from '../EChartsUtility/OptionBase';
 import { registerMap, ECharts, EChartOption } from 'echarts';
 import { HttpClient } from '@angular/common/http';
 

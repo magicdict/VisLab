@@ -1,18 +1,31 @@
 import { OptionBase } from "../OptionBase";
 
-export class BaiduMapOption extends OptionBase {
+export interface BMapConfig {
+    // 百度地图中心经纬度
+    center: number[];
+    // 百度地图缩放
+    zoom: number;
+    // 是否开启拖拽缩放，可以只设置 'scale' 或者 'move'
+    roam: boolean;
+    // 百度地图的自定义样式，见 http://developer.baidu.com/map/jsdevelop-11.htm
+    mapStyle: {
+        styleJson: any;
+    }
+}
+
+export class BaiduMapUtility {
     public static CreateMapOption() {
-        let o = new BaiduMapOption();
+        let o = new OptionBase();
+        o.bmap = {
+            center: [110.3373, 20.0303],
+            zoom: 15,
+            roam: true,
+            mapStyle: {
+                styleJson: BaiduMapUtility.defaultstylejson
+            }
+        };
         o.series = [];
         return o;
-    }
-    public bmap: any = {
-        center: [110.3373, 20.0303],
-        zoom: 15,
-        roam: true,
-        mapStyle: {
-            styleJson: BaiduMapOption.defaultstylejson
-        }
     }
     public static defaultstylejson = [{
         'featureType': 'water',

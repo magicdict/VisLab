@@ -12,7 +12,7 @@ export namespace Calendar {
         public range?: string | string[];
     }
 
-    export class CalendarOption extends OptionBase {
+    export class CalendarUtility {
 
         public static CreateCalendarConfig() {
             let calendar = new CalendarConfig();
@@ -28,7 +28,7 @@ export namespace Calendar {
         }
 
         public static CreateCalendar(date: string[], value: number[], type: string) {
-            let o = new CalendarOption();
+            let o = new OptionBase();
             o.calendar = this.CreateCalendarConfig();
             o.series = [];
             let s = new Series();
